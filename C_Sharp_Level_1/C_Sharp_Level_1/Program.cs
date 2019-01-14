@@ -47,11 +47,10 @@ namespace C_Sharp_Level_1
             Console.WriteLine(str);
         }
 
-        static void Print(string str, int x, int y, ConsoleColor color)
+        static void Print(string str, ConsoleColor color)
         {
             ConsoleColor currentColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
-            Console.SetCursorPosition(x, y);
             Console.WriteLine(str);
             Console.ForegroundColor = currentColor;
         }
@@ -102,8 +101,8 @@ namespace C_Sharp_Level_1
             }
 
             //Задача 5. Работа с консолью и перегрузкой методов.
-            Print("Вызываем метод Print() с указанием позиции курсора", 3, 20);
-            Print("Вызываем перегруженный метод Print() с указанием позиции курсора и цветом\n\n", 3, 21, ConsoleColor.Red);
+            Print("Вызываем метод Print() с указанием позиции курсора\n", 3, 20);
+            Print("Вызываем перегруженный метод Print() с указанием цвета\n\n", ConsoleColor.Red);
 
             Console.ReadLine();
         }
