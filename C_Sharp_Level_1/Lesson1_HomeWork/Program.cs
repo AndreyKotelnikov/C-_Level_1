@@ -36,6 +36,11 @@ namespace Lesson1_HomeWork
             return weight / Math.Pow(growth, 2);
         }
 
+        static double Distance(double x1, double y1, double x2, double y2)
+        {
+            return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+        }
+
         static void Main(string[] args)
         {
             /*1.	Написать программу «Анкета». Последовательно задаются вопросы (имя, фамилия, возраст, рост, вес). 
@@ -62,6 +67,19 @@ namespace Lesson1_HomeWork
             weight = GetNumber("Введите Ваш вес для расчёта индекса массы:");
             Console.WriteLine("Ваш индекс массы тела равен: {0:F2}", BodyMassIndex(growth, weight));
 
+            /*3.а) Написать программу, которая подсчитывает расстояние между точками с координатами x1, y1 и x2,y2 
+             * по формуле r = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2).
+            Вывести результат, используя спецификатор формата .2f(с двумя знаками после запятой);*/
+            Console.WriteLine("\n\nРасчёт расстояния между точками.");
+            double x1 = GetNumber("Введите координату X1:");
+            double y1 = GetNumber("Введите координату Y1:");
+            double x2 = GetNumber("Введите координату X2:");
+            double y2 = GetNumber("Введите координату Y2:");
+            double r = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+            Console.WriteLine("Расстояние между точками равно {0:F2}", r);
+
+            //б) *Выполнить предыдущее задание, оформив вычисления расстояния между точками в виде метода.
+            Console.WriteLine("Расстояние между точками равно {0:F2}", Distance(x1, y1, x2, y2));
 
             Console.ReadLine();
         }
