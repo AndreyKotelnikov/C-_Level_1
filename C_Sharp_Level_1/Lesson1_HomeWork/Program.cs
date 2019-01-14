@@ -41,6 +41,12 @@ namespace Lesson1_HomeWork
             return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
         }
 
+        private static void Print(string msg, int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(msg);
+        }
+
         static void Main(string[] args)
         {
             /*1.	Написать программу «Анкета». Последовательно задаются вопросы (имя, фамилия, возраст, рост, вес). 
@@ -98,8 +104,22 @@ namespace Lesson1_HomeWork
             a = a ^ b;
             Console.WriteLine("a = {0}, b = {1}\n", a, b);
 
+            //5.	а) Написать программу, которая выводит на экран ваше имя, фамилию и город проживания.
+            string city = "Санкт-Петербург";
+            Console.WriteLine("{0} {1}, город: {2}\n", name, surname, city);
+
+            //б) *Сделать задание, только вывод организовать в центре экрана.
+            Console.SetCursorPosition(Console.BufferWidth / 2 - 15, Console.CursorTop + 1);
+            Console.WriteLine("{0} {1}, город: {2}\n", name, surname, city);
+
+            //в) **Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).
+
+            Print(name + " " + surname + " , город: " + city, Console.BufferWidth / 2 - 15, Console.CursorTop + 1);
+            
 
             Console.ReadLine();
         }
+
+        
     }
 }
