@@ -32,6 +32,15 @@ namespace C_Sharp_Level_1
             }
         }
 
+        private static bool EvenCheck(double number)
+        {
+            if (number % 2 == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         static void Main(string[] args)
         {
             //Задача 1.Написать программу сложения двух чисел.
@@ -66,6 +75,17 @@ namespace C_Sharp_Level_1
                 a = b;
                 b = temp;
             }
+
+            //Задача 4. Разработать метод проверки чётности числа. Метод возвращает true, если число чётное, и false, если число нечётное.
+            firstNumber = EnterNumber(" число для проверки его чётности:");
+            if (EvenCheck(firstNumber))
+            {
+                Console.WriteLine("Это чётное число\n");
+            } else
+            {
+                Console.WriteLine("Это нечётное число\n");
+            }
+
 
             Console.ReadLine();
         }
