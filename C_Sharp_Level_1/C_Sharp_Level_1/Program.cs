@@ -41,6 +41,21 @@ namespace C_Sharp_Level_1
             return false;
         }
 
+        static void Print(string str, int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(str);
+        }
+
+        static void Print(string str, int x, int y, ConsoleColor color)
+        {
+            ConsoleColor currentColor = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(str);
+            Console.ForegroundColor = currentColor;
+        }
+
         static void Main(string[] args)
         {
             //Задача 1.Написать программу сложения двух чисел.
@@ -77,7 +92,7 @@ namespace C_Sharp_Level_1
             }
 
             //Задача 4. Разработать метод проверки чётности числа. Метод возвращает true, если число чётное, и false, если число нечётное.
-            firstNumber = EnterNumber(" число для проверки его чётности:");
+            firstNumber = EnterNumber(" число для проверки его чётности");
             if (EvenCheck(firstNumber))
             {
                 Console.WriteLine("Это чётное число\n");
@@ -86,6 +101,9 @@ namespace C_Sharp_Level_1
                 Console.WriteLine("Это нечётное число\n");
             }
 
+            //Задача 5. Работа с консолью и перегрузкой методов.
+            Print("Вызываем метод Print() с указанием позиции курсора", 3, 20);
+            Print("Вызываем перегруженный метод Print() с указанием позиции курсора и цветом\n\n", 3, 21, ConsoleColor.Red);
 
             Console.ReadLine();
         }
