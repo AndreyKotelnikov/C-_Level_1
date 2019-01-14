@@ -55,6 +55,17 @@ namespace C_Sharp_Level_1
             Console.ForegroundColor = currentColor;
         }
 
+        static bool IsTriangle(double a, double b, double c)
+        {
+            return a + b > c && a + c > b && b + c > a;
+        }
+
+        static double Square(double a, double b, double c)
+        {
+            double halfPerimeter = (a + b + c) / 2;
+            return Math.Sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
+        }
+
         static void Main(string[] args)
         {
             //Задача 1.Написать программу сложения двух чисел.
@@ -104,6 +115,20 @@ namespace C_Sharp_Level_1
             Print("Вызываем метод Print() с указанием позиции курсора\n", 3, 20);
             Print("Вызываем перегруженный метод Print() с указанием цвета\n\n", ConsoleColor.Red);
 
+            //Задача 6. Написать программу для подсчета площади треугольника. 
+            {
+                double a = EnterNumber("первую сторону треугольника");
+                double b = EnterNumber("вторую сторону треугольника");
+                double c = EnterNumber("третью сторону треугольника");
+                if (IsTriangle(a, b, c))
+                {
+                    Console.WriteLine("\n\nПлощадь треугольника равна {0}", Square(a, b, c));
+                }
+                else
+                {
+                    Console.WriteLine("Это не треугольник!\n\n");
+                }
+            }
             Console.ReadLine();
         }
     }
