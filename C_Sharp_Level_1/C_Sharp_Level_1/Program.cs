@@ -47,14 +47,25 @@ namespace C_Sharp_Level_1
             Console.WriteLine("\n" + firstNumber + " + " + secondNumber + " = " + summa);
 
             //Задача 2.Вывести значение функции ax ^ 2 + bx + c в точке x.x — ввести с клавиатуры, a,b и c — присвоить в программе.
-            double a = 10;
-            double b = 10;
-            double c = 10;
-            double x;
+            { 
+                double a = 10;
+                double b = 10;
+                double c = 10;
+                double x;
 
-            x = EnterNumber("значение X");
-            
-            Console.WriteLine("\nКвадратное уравнение: {0}*x^2 + {1}*x + {2} в точке X={3} имеет значение: {4}", a, b, c, x, a * Math.Pow(x, 2) + b * x + c);
+                x = EnterNumber("значение X");
+
+                Console.WriteLine("\nКвадратное уравнение: {0}*x^2 + {1}*x + {2} в точке X={3} имеет значение: {4}", a, b, c, x, a * Math.Pow(x, 2) + b * x + c);
+            }
+
+            //Задача 3. Обменять значениями две переменные.
+            {
+                double a = 20;
+                double b = 30;
+                double temp = a;
+                a = b;
+                b = temp;
+            }
 
             Console.ReadLine();
         }
