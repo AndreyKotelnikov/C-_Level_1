@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 #region 
 /*Котельников Андрей 
@@ -16,14 +12,14 @@ namespace C_Sharp_Level_1
 {
     class Program
     {
-        static double EnterNumber(string numberOfNumber)
+        static double EnterNumber(string nameOfNumber)
         {
             string answer;
             double number;
 
             while (true)
             {
-                Console.WriteLine("Введите " + numberOfNumber + " число:");
+                Console.WriteLine("Введите " + nameOfNumber + ":");
                 answer = Console.ReadLine();
                 if (Double.TryParse(answer, out number))
                 {
@@ -36,20 +32,30 @@ namespace C_Sharp_Level_1
             }
         }
 
-
         static void Main(string[] args)
         {
             //Задача 1.Написать программу сложения двух чисел.
             double firstNumber;
-            double secondNamber;
+            double secondNumber;
             double summa;
 
-            firstNumber = EnterNumber("первое");
-            secondNamber = EnterNumber("второе");
+            firstNumber = EnterNumber("первое число");
+            secondNumber = EnterNumber("второе число");
 
-            summa = firstNumber + secondNamber;
+            summa = firstNumber + secondNumber;
 
-            Console.WriteLine("\n" + firstNumber + " + " + secondNamber + " = " + summa);
+            Console.WriteLine("\n" + firstNumber + " + " + secondNumber + " = " + summa);
+
+            //Задача 2.Вывести значение функции ax ^ 2 + bx + c в точке x.x — ввести с клавиатуры, a,b и c — присвоить в программе.
+            double a = 10;
+            double b = 10;
+            double c = 10;
+            double x;
+
+            x = EnterNumber("значение X");
+
+            Console.WriteLine("\nКвадратное уравнение: " + a + " * " + x + " * " + x + " + " + b + " + " + c +
+                " в точке X имеет значение: " + (a * Math.Pow(x, 2) + b * x + c));
 
             Console.ReadLine();
         }
