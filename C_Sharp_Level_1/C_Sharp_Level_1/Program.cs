@@ -53,9 +53,8 @@ namespace C_Sharp_Level_1
             double x;
 
             x = EnterNumber("значение X");
-
-            Console.WriteLine("\nКвадратное уравнение: " + a + " * " + x + " * " + x + " + " + b + " + " + c +
-                " в точке X имеет значение: " + (a * Math.Pow(x, 2) + b * x + c));
+            
+            Console.WriteLine("\nКвадратное уравнение: {0}*x^2 + {1}*x + {2} в точке X={3} имеет значение: {4}", a, b, c, x, a * Math.Pow(x, 2) + b * x + c);
 
             Console.ReadLine();
         }
