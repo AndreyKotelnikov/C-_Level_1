@@ -8,7 +8,7 @@
 #endregion
 
 
-namespace C_Sharp_Level_1
+namespace Lesson1_HomeWork
 {
     class Program
     {
