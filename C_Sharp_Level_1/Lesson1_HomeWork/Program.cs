@@ -15,13 +15,13 @@ namespace Lesson1_HomeWork
 {
     class Program
     {
-        static double GetNumber(string msg)
+        static double GetNumberFromConsoleInput(string outputMessage)
         {
             double number;
             string answer;
             while (true)
             {
-                Console.WriteLine(msg);
+                Console.WriteLine(outputMessage);
                 answer = Console.ReadLine();
                 if (Double.TryParse(answer, out number))
                 {
@@ -36,15 +36,15 @@ namespace Lesson1_HomeWork
             return weight / Math.Pow(growth, 2);
         }
 
-        static double Distance(double x1, double y1, double x2, double y2)
+        static double DistanceBetweenTwoPoints(double x1, double y1, double x2, double y2)
         {
             return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
         }
 
-        private static void Print(string msg, int x, int y)
+        private static void ConsoleOutputWithCursorPosition(string message, int x, int y)
         {
             Console.SetCursorPosition(x, y);
-            Console.WriteLine(msg);
+            Console.WriteLine(message);
         }
 
         static void Main(string[] args)
@@ -56,9 +56,9 @@ namespace Lesson1_HomeWork
             string name = Console.ReadLine();
             Console.WriteLine("Укажите Вашу фамилию:");
             string surname = Console.ReadLine();
-            double age = GetNumber("Укажите Ваш возраст:");
-            double growth = GetNumber("Укажите Ваш рост:");
-            double weight = GetNumber("Укажите Ваш вес:");
+            double age = GetNumberFromConsoleInput("Укажите Ваш возраст:");
+            double growth = GetNumberFromConsoleInput("Укажите Ваш рост:");
+            double weight = GetNumberFromConsoleInput("Укажите Ваш вес:");
             Console.WriteLine(name + " " + surname + ", возраст: " + age + ", рост: " + growth + ", вес: " + weight);
 
             //б) используя форматированный вывод;
@@ -69,28 +69,28 @@ namespace Lesson1_HomeWork
 
             /*2.	Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле /k’; 
              * где m — масса тела в килограммах, h — рост в метрах.*/
-            growth = GetNumber("Введите Ваш рост для расчёта индекса массы:");
-            weight = GetNumber("Введите Ваш вес для расчёта индекса массы:");
+            growth = GetNumberFromConsoleInput("Введите Ваш рост (в метрах) для расчёта индекса массы:");
+            weight = GetNumberFromConsoleInput("Введите Ваш вес (в кг) для расчёта индекса массы:");
             Console.WriteLine("Ваш индекс массы тела равен: {0:F2}", BodyMassIndex(growth, weight));
 
             /*3.а) Написать программу, которая подсчитывает расстояние между точками с координатами x1, y1 и x2,y2 
              * по формуле r = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2).
             Вывести результат, используя спецификатор формата .2f(с двумя знаками после запятой);*/
             Console.WriteLine("\n\nРасчёт расстояния между точками.");
-            double x1 = GetNumber("Введите координату X1:");
-            double y1 = GetNumber("Введите координату Y1:");
-            double x2 = GetNumber("Введите координату X2:");
-            double y2 = GetNumber("Введите координату Y2:");
+            double x1 = GetNumberFromConsoleInput("Введите координату X1:");
+            double y1 = GetNumberFromConsoleInput("Введите координату Y1:");
+            double x2 = GetNumberFromConsoleInput("Введите координату X2:");
+            double y2 = GetNumberFromConsoleInput("Введите координату Y2:");
             double r = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
             Console.WriteLine("Расстояние между точками равно {0:F2}", r);
 
             //б) *Выполнить предыдущее задание, оформив вычисления расстояния между точками в виде метода.
-            Console.WriteLine("Расстояние между точками равно {0:F2}\n\n", Distance(x1, y1, x2, y2));
+            Console.WriteLine("Расстояние между точками равно {0:F2}\n\n", DistanceBetweenTwoPoints(x1, y1, x2, y2));
 
             /*4.Написать программу обмена значениями двух переменных:
             а) с использованием третьей переменной;*/
-            int a = (int)GetNumber("Введите число а:");
-            int b = (int)GetNumber("Введите число b:");
+            int a = (int)GetNumberFromConsoleInput("Введите число а:");
+            int b = (int)GetNumberFromConsoleInput("Введите число b:");
             Console.WriteLine("a = {0}, b = {1}\nТеперь мы меняем значения местами:", a, b);
             int temp = a;
             a = b;
@@ -114,8 +114,9 @@ namespace Lesson1_HomeWork
 
             //в) **Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).
 
-            Print(name + " " + surname + " , город: " + city, Console.BufferWidth / 2 - 15, Console.CursorTop + 1);
-            
+            ConsoleOutputWithCursorPosition(name + " " + surname + " , город: " + city, Console.BufferWidth / 2 - 15, Console.CursorTop + 1);
+            // Смещаем курсор вниз, чтобы предыдущая надпись была по центру консоли 
+            Console.SetCursorPosition(0, Console.CursorTop + 16); 
 
             Console.ReadLine();
         }
