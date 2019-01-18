@@ -2,7 +2,7 @@
 
 namespace Lesson1_HomeWork
 {
-    class UsefulMethods
+    public static class UsefulMethods
     {
         public static double GetNumberFromConsoleInput(string outputMessage)
         {
@@ -38,7 +38,7 @@ namespace Lesson1_HomeWork
 
         public static void Pause()
         {
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

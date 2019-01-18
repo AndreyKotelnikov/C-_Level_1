@@ -57,15 +57,17 @@ namespace Lesson1_HomeWork
             Console.WriteLine("Укажите Вашу фамилию:");
             string surname = Console.ReadLine();
             double age = GetNumberFromConsoleInput("Укажите Ваш возраст:");
-            double growth = GetNumberFromConsoleInput("Укажите Ваш рост:");
+            double growth = GetNumberFromConsoleInput("Укажите Ваш рост в сантиметрах:");
             double weight = GetNumberFromConsoleInput("Укажите Ваш вес:");
-            Console.WriteLine(name + " " + surname + ", возраст: " + age + ", рост: " + growth + ", вес: " + weight);
+            Console.WriteLine("Склеивание: " + name + " " + surname + ", возраст: " + age + ", рост: " + growth + ", вес: " + weight);
 
             //б) используя форматированный вывод;
-            Console.WriteLine("{0} {1}, возраст: {2}, рост: {3:N2}, вес: {4:N2}", name, surname, age, growth, weight);
+            string tempStr = @"{}";
+            Console.WriteLine("Форматированный вывод {5}: {0} {1}, возраст: {2}, рост: {3:N2}, вес: {4:N2}\n\n", name, surname, age, growth, weight, tempStr);
+            Console.WriteLine("Форматированный вывод ###: {0} {1}, возраст: {2:000 (###) ###}, рост: {3}, вес: {4: ### ###. ### 000}\n\n", name, surname, age, growth.ToString("C2"), weight);
 
             //в) используя вывод со знаком $.
-            // Console.WriteLine("{0} {1}, возраст: {2}, рост: {3:C2}, вес: {4:C2}", name, surname, age, growth, weight);
+            Console.WriteLine($"Форматированный вывод c $: {name} {surname}, возраст: {age}, рост: {growth}, вес: {weight}\n\n");
 
             /*2.	Ввести вес и рост человека. Рассчитать и вывести индекс массы тела (ИМТ) по формуле /k’; 
              * где m — масса тела в килограммах, h — рост в метрах.*/
