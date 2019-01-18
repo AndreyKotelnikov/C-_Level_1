@@ -4,6 +4,13 @@ namespace Lesson1_HomeWork
 {
     public static class UsefulMethods
     {
+
+        static UsefulMethods()
+        {
+            Console.WriteLine("Вызов статического конструктора класса UsefulMethods");
+        }
+
+
         public static double GetNumberFromConsoleInput(string outputMessage)
         {
             double number;
