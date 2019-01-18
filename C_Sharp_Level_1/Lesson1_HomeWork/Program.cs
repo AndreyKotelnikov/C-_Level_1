@@ -114,9 +114,9 @@ namespace Lesson1_HomeWork
 
             //в) **Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y).
 
-            ConsoleOutputWithCursorPosition(name + " " + surname + " , город: " + city, Console.BufferWidth / 2 - 15, Console.CursorTop + 1);
+            ConsoleOutputWithCursorPosition(name + " " + surname + ", город: " + city, Console.BufferWidth / 2 - 15, Console.CursorTop + 1);
             // Смещаем курсор вниз, чтобы предыдущая надпись была по центру консоли 
-            Console.SetCursorPosition(0, Console.CursorTop + 16);
+            Console.SetCursorPosition(0, Console.CursorTop + 14);
 
             //6.	*Создать класс с методами, которые могут пригодиться в вашей учебе (Print, Pause).
             UsefulMethods.Pause();
