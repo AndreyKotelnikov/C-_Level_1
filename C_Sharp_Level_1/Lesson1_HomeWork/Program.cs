@@ -121,7 +121,7 @@ namespace Lesson1_HomeWork
             Console.SetCursorPosition(0, Console.CursorTop + 14);
 
             //6.	*Создать класс с методами, которые могут пригодиться в вашей учебе (Print, Pause).
-            UsefulMethods.Pause();
+            UsefulMethods.Pause(); //Не получается вызвать статический метод без указания класса через точку
             
             
         }
