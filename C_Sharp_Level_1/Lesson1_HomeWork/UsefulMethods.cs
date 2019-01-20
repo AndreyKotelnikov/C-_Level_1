@@ -7,7 +7,7 @@ namespace Lesson1_HomeWork
 
         static UsefulMethods()
         {
-            Console.WriteLine("Вызов статического конструктора класса UsefulMethods");
+            //Console.WriteLine("Вызов статического конструктора класса UsefulMethods");
         }
 
 
