@@ -90,8 +90,21 @@ namespace Lesson2_PracticalPart
             DateTime finish1 = DateTime.Now;
             Console.WriteLine(@"Длительность выполнения программы равна: {0:ss\:fffffff}", finish1 - start1);
 
+            //Задача 6.Дано натуральное число n.Вычислить n!
+            int factorial = 1;
+            int answer1 = (int)UsefulMethods.GetNumberFromConsoleInput("Введите число для расчёта факториала:");
+
+            for (int i = 2; i <= answer1; i++) factorial *= i;
+            Console.WriteLine("Факториал равен: {0}", factorial);
+            Console.WriteLine("Факториал через рекурсию равен: {0}", Factorial(answer1));
 
             UsefulMethods.Pause();
+        }
+
+        private static int Factorial(int number)
+        {
+            if (number == 1) return 1;
+            return Factorial(number - 1) * number;
         }
 
         private static bool IsSimple(int number)
