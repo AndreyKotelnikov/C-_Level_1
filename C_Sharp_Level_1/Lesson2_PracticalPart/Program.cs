@@ -37,7 +37,24 @@ namespace Lesson2_PracticalPart
 
             Console.WriteLine(@"Время выполнения программы в формате 'секунды:миллисекунды': {0:ss\:fffffff}", finish - start);
 
+            //Задача 1.Алгоритм нахождения НОД и организация метода
+            //Реализовать метод нахождения NOD, используя алгоритм Евклида:
+
+            a = 1071;
+            int b = 462;
+            int nod = NOD(a, b);
+            Console.WriteLine(nod);
+
             UsefulMethods.Pause();
+        }
+
+        private static int NOD(int a, int b)
+        {
+            while (a != b)
+            {
+                if (a > b) a -= b; else b -= a;
+            }
+            return a;
         }
 
         private static int SumDigitsOfNumberRecursion(int a)
