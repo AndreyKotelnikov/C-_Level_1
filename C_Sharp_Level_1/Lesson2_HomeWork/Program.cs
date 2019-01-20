@@ -72,8 +72,33 @@ namespace Lesson2_HomeWork
                 Console.WriteLine("У Вас избыток массы тела. Вам нужно сбросить вес. Минимум {0:f1} килограмм", DeviationInBodyMassIndex(growth, weight));
             else Console.WriteLine("Ваш вес в норме.");
 
+            //6.* Написать программу подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000. 
+            //«Хорошим» называется число, которое делится на сумму своих цифр.
+            //Реализовать подсчёт времени выполнения программы, используя структуру DateTime.
+            double maxNumber = 1_000_000_000;
+            count = 0;
+            DateTime start = DateTime.Now;
+            
+            for (int i = 1; i <= maxNumber; i++)
+            {
+                if (i % SumDigitsOfNumberRecursion(i) == 0) count++;
+            }
+            Console.WriteLine("\nКоличество хороших чисел от 1 до {0} равно: {1}", maxNumber, count);
+            DateTime finish = DateTime.Now;
+            Console.WriteLine(@"Время выполнения программы в формате 'секунды:миллисекунды': {0:ss\:fffffff}", finish - start);
 
             UsefulMethods.Pause();
+        }
+
+        /// <summary>
+        /// Считает сумму цифр у числа
+        /// </summary>
+        /// <param name="number">Число для расчёта суммы его цифр</param>
+        /// <returns></returns>
+        private static double SumDigitsOfNumberRecursion(double number)
+        {
+            if (number < 1) return 0;
+            return SumDigitsOfNumberRecursion(number / 10) + (number % 10);
         }
 
         /// <summary>
