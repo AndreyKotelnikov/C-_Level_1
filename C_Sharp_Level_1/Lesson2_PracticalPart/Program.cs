@@ -78,8 +78,29 @@ namespace Lesson2_PracticalPart
             Console.WriteLine("\n\nВы ввели следующие числа: {0}", numbersToString);
             Console.WriteLine("\nСреднее арифметическое положительных чисел кратных 8 равно: {0}", sum / ((countPozitivNumberDiv8 == 0) ? 1 : countPozitivNumberDiv8));
 
+            //Научимся подсчитывать время выполнения программы. Решим задачу нахождения простых чисел в диапазоне от 1 до 1000000.
+            DateTime start1 = DateTime.Now;
+            int count1 = 0;
+
+            for (int i = 2; i < 100; i++)
+            {
+                if (IsSimple(i)) count1++;
+            }
+            Console.WriteLine("Количество простых чисел: {0}", count1);
+            DateTime finish1 = DateTime.Now;
+            Console.WriteLine(@"Длительность выполнения программы равна: {0:ss\:fffffff}", finish1 - start1);
+
 
             UsefulMethods.Pause();
+        }
+
+        private static bool IsSimple(int number)
+        {
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0) return false;
+            }
+            return true;
         }
 
         /// <summary>
