@@ -38,8 +38,50 @@ namespace Lesson2_HomeWork
             }
             Console.WriteLine("Сумма нечётных положительных чисел равна: {0}", sum);
 
+            //4.Реализовать метод проверки логина и пароля.На вход метода подается логин и пароль.
+            //На выходе истина, если прошел авторизацию, и ложь, если не прошел(Логин: root, Password: GeekBrains). 
+            //Используя метод проверки логина и пароля, написать программу:
+            //пользователь вводит логин и пароль, программа пропускает его дальше или не пропускает.
+            //С помощью цикла do while ограничить ввод пароля тремя попытками.
+            int count = 0;
+            int maxCountOfTry = 3;
 
-            UsefulMethods.Pause();
+            do
+            {
+                if (AuthorizationCheck("root", "GeekBrains"))
+                {
+                    Console.WriteLine("Авторизация успешно пройдена");
+                    break;
+                } else
+                {
+                    count++;
+                    Console.WriteLine("Логин или пароль не верны. У Вас осталось {0} {1}", maxCountOfTry - count, UsefulMethods.DeclensionWord(maxCountOfTry - count, "попытка", "попытки", "попыток"));
+                }
+            } while (count < maxCountOfTry);
+            ;
+
+
+      UsefulMethods.Pause();
+        }
+
+        /// <summary>
+        /// Проверяет совпадение логина и пароля, которые ввёл пользователь. При совпадении возвращает true.
+        /// </summary>
+        /// <param name="login">логин для проверки</param>
+        /// <param name="password">пароль для проверки</param>
+        /// <returns></returns>
+        private static bool AuthorizationCheck(string login, string password)
+        {
+            string answer;
+            Console.WriteLine("\nВведите Ваш логин:");
+            answer = Console.ReadLine();
+            if (answer == login)
+            {
+                Console.WriteLine("Введите Ваш пароль:");
+                answer = Console.ReadLine();
+                if (answer == password) return true;
+            }
+            return false;
         }
 
         /// <summary>

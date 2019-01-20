@@ -62,5 +62,28 @@ namespace Lesson1_HomeWork
             return false;
         }
 
+        /// <summary>
+        /// Склонение слова для числительных. Пример: 1 год, 2 года,..., 5 лет,..., 21 год,... 
+        /// </summary>
+        /// <param name="i">Число, по которому определяем склонение слова</param>
+        /// <param name="wordFor1">Склонение слова для i=1</param>
+        /// <param name="wordFor234">Склонение слова для i=2,3,4</param>
+        /// <param name="wordFor567890">Склонение слова для i=5,6,7,8,9,0</param>
+        /// <returns></returns>
+        public static string DeclensionWord(int i, string wordFor1 = "год", string wordFor234 = "года", string wordFor567890 = "лет")
+        {
+            if ((i >= 11 && i <= 14) || i % 10 >= 5 || i % 10 == 0) return wordFor567890;
+            else if (i % 10 == 1) return wordFor1;
+            else return wordFor234;
+        }
+
+        private static int NOD(int a, int b)
+        {
+            while (a != b)
+            {
+                if (a > b) a -= b; else b -= a;
+            }
+            return a;
+        }
     }
 }
