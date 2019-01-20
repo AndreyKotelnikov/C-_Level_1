@@ -98,7 +98,37 @@ namespace Lesson2_PracticalPart
             Console.WriteLine("Факториал равен: {0}", factorial);
             Console.WriteLine("Факториал через рекурсию равен: {0}", Factorial(answer1));
 
+            //Последовательность Фибоначчи определяется так: a0 = 0, a1 = 1, ak = ak - 1 + ak - 2 при k>= 2. 
+            //Дано n, вычислить an.
+            uint answer2 = (uint)UsefulMethods.GetNumberFromConsoleInput("Введите число для Фибоначи:");
+            Console.WriteLine("Последовательность фибоначи следующая: {0}", Fibonachi(answer2));
+            Console.WriteLine("Последовательность фибоначи через рекурсию следующая: {0}", FibonachiRecursion(answer2));
+
             UsefulMethods.Pause();
+        }
+
+        private static uint FibonachiRecursion(uint number)
+        {
+            if (number == 0) return 0;
+            if (number == 1) return 1;
+            return FibonachiRecursion(number - 1) + FibonachiRecursion(number - 2);
+        }
+
+        private static string Fibonachi(uint answer2)
+        {
+            uint a0 = 0;
+            uint a1 = 1;
+            uint a = a1;
+            string str = "0, 1,";
+
+            for (int i = 2; i <= answer2; i++)
+            {
+                a = a0 + a1;
+                str += $" {a},";
+                a0 = a1;
+                a1 = a;
+            }
+            return str;
         }
 
         private static int Factorial(int number)
