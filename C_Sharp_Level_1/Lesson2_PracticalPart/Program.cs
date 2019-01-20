@@ -23,11 +23,19 @@ namespace Lesson2_PracticalPart
         {
             //Цикл с помощью рекурсии
             Loop(3, 13);
+            Console.WriteLine("\n\n");
 
             //Найти сумму цифр числа A
-            int a = (int) UsefulMethods.GetNumberFromConsoleInput("Введи число для суммы цифр");
+            int a = (int)UsefulMethods.GetNumberFromConsoleInput("Введи число для суммы цифр");
             Console.WriteLine("Сумма цифр числа подсчитана без рекурсии: {0}", SumDigitsOfNumber(a));
             Console.WriteLine("Сумма цифр числа подсчитана с рекурсией: {0}", SumDigitsOfNumberRecursion(a));
+
+            //Используем структуру DateTime
+            DateTime start = DateTime.Now;
+            System.Threading.Thread.Sleep(100);
+            DateTime finish = DateTime.Now;
+
+            Console.WriteLine(@"Время выполнения программы в формате 'секунды:миллисекунды': {0:ss\:fffffff}", finish - start);
 
             UsefulMethods.Pause();
         }
