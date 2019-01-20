@@ -68,7 +68,7 @@ namespace Lesson2_PracticalPart
                 sumModul += Math.Abs(answer);
                 count++;
                 if (answer == 0 || (count + 1) > 1000 || sumModul > 30_000) break;
-                if (answer > 0 && answer % 8 == 0)
+                if (answer > 0 && (answer % 8) == 0)
                 {
                     countPozitivNumberDiv8++;
                     sum += answer;
@@ -82,7 +82,7 @@ namespace Lesson2_PracticalPart
             DateTime start1 = DateTime.Now;
             int count1 = 0;
 
-            for (int i = 2; i < 100; i++)
+            for (int i = 2; i < 10000; i++)
             {
                 if (IsSimple(i)) count1++;
             }
@@ -104,10 +104,25 @@ namespace Lesson2_PracticalPart
             Console.WriteLine("Последовательность фибоначи следующая: {0}", Fibonachi(answer2));
             Console.WriteLine("Последовательность фибоначи через рекурсию следующая: {0}", FibonachiRecursion(answer2));
 
+            //Задача 8. «Ханойская башня»
+            TowerOfHanoiAlgorithm(4, 1, 2, 3);
+
+
+
             UsefulMethods.Pause();
         }
 
-        private static uint FibonachiRecursion(uint number)
+        static void TowerOfHanoiAlgorithm(int number, int from, int to, int free)
+        {
+            if (number > 0)
+            {
+                TowerOfHanoiAlgorithm(number - 1, from, free, to);
+                Console.WriteLine("{0} => {1}", from, to);
+                TowerOfHanoiAlgorithm(number - 1, free, to, from);
+            }
+        }
+
+            private static uint FibonachiRecursion(uint number)
         {
             if (number == 0) return 0;
             if (number == 1) return 1;
