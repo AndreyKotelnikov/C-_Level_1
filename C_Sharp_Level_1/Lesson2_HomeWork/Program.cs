@@ -78,7 +78,7 @@ namespace Lesson2_HomeWork
             double maxNumber = 1_000_000_000;
             count = 0;
             DateTime start = DateTime.Now;
-            
+
             for (int i = 1; i <= maxNumber; i++)
             {
                 if (i % SumDigitsOfNumberRecursion(i) == 0) count++;
@@ -87,7 +87,18 @@ namespace Lesson2_HomeWork
             DateTime finish = DateTime.Now;
             Console.WriteLine(@"Время выполнения программы в формате 'секунды:миллисекунды': {0:ss\:fffffff}", finish - start);
 
+            //7.a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a < b).
+            OutputNumbersBetweenInterval(1, 20);
+
+
+
             UsefulMethods.Pause();
+        }
+
+        private static void OutputNumbersBetweenInterval(int minNumber, int maxNumber)
+        {
+            Console.Write("{0,4} ", minNumber);
+            if (minNumber < maxNumber) OutputNumbersBetweenInterval(minNumber + 1, maxNumber);
         }
 
         /// <summary>
