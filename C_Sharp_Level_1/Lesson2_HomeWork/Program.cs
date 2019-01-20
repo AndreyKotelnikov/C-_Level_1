@@ -90,9 +90,18 @@ namespace Lesson2_HomeWork
             //7.a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a < b).
             OutputNumbersBetweenInterval(1, 20);
 
+            //б) *Разработать рекурсивный метод, который считает сумму чисел от a до b.
+            Console.WriteLine("Сумма чисел равна: {0}", SumNumbersBetweenInterval(1, 5));
 
 
             UsefulMethods.Pause();
+        }
+
+        private static int SumNumbersBetweenInterval(int minNumber, int maxNumber)
+        {
+            if (minNumber > maxNumber) return 0;
+            return SumNumbersBetweenInterval(minNumber + 1, maxNumber) + minNumber;
+            
         }
 
         private static void OutputNumbersBetweenInterval(int minNumber, int maxNumber)
