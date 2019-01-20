@@ -52,6 +52,32 @@ namespace Lesson2_PracticalPart
                 Console.WriteLine("Вам {0} {1}.", i, DeclensionWord(i));
             }
 
+            //Напишите программу, которая в последовательности целых чисел определяет среднее арифметическое положительных чисел, кратных 8.Программа получает на вход целые числа, среди них есть хотя бы одно положительное число, кратное 8, количество введённых чисел неизвестно, последовательность чисел заканчивается числом 0(0 — признак окончания ввода, не входит в последовательность).
+            //Количество чисел не превышает 1000.Введённые числа по модулю не превышают 30 000.
+            //Программа должна вывести одно число: среднее арифметическое положительных чисел, кратных 8.
+            int answer;
+            int count = 0;
+            int countPozitivNumberDiv8 = 0;
+            int sum = 0;
+            int sumModul = 0;
+            string numbersToString = "";
+
+            while (true)
+            {
+                answer = (int)UsefulMethods.GetNumberFromConsoleInput("Введите число, или ноль для выхода");
+                sumModul += Math.Abs(answer);
+                count++;
+                if (answer == 0 || (count + 1) > 1000 || sumModul > 30_000) break;
+                if (answer > 0 && answer % 8 == 0)
+                {
+                    countPozitivNumberDiv8++;
+                    sum += answer;
+                }
+                numbersToString += $" {answer},";
+            }
+            Console.WriteLine("\n\nВы ввели следующие числа: {0}", numbersToString);
+            Console.WriteLine("\nСреднее арифметическое положительных чисел кратных 8 равно: {0}", sum / ((countPozitivNumberDiv8 == 0) ? 1 : countPozitivNumberDiv8));
+
 
             UsefulMethods.Pause();
         }
