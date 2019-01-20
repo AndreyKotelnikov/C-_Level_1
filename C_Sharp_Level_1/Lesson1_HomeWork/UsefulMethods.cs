@@ -27,9 +27,15 @@ namespace Lesson1_HomeWork
             }
         }
 
+        /// <summary>
+        /// Рассчитывает индекс массы тела.
+        /// </summary>
+        /// <param name="growth">Рост в сантиметрах</param>
+        /// <param name="weight">Вес в килограммах</param>
+        /// <returns></returns>
         public static double BodyMassIndex(double growth, double weight)
         {
-            return weight / Math.Pow(growth, 2);
+            return weight / Math.Pow(growth / 100, 2);
         }
 
         public static double DistanceBetweenTwoPoints(double x1, double y1, double x2, double y2)

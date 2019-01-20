@@ -52,16 +52,45 @@ namespace Lesson2_HomeWork
                 {
                     Console.WriteLine("Авторизация успешно пройдена");
                     break;
-                } else
+                }
+                else
                 {
                     count++;
                     Console.WriteLine("Логин или пароль не верны. У Вас осталось {0} {1}", maxCountOfTry - count, UsefulMethods.DeclensionWord(maxCountOfTry - count, "попытка", "попытки", "попыток"));
                 }
             } while (count < maxCountOfTry);
-            ;
+
+            //5.а) Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы 
+            //и сообщает, нужно ли человеку похудеть, набрать вес или всё в норме.
+            double growth = UsefulMethods.GetNumberFromConsoleInput("Введите Ваш рост (в сантиметрах) для расчёта индекса массы:");
+            double weight = UsefulMethods.GetNumberFromConsoleInput("Введите Ваш вес (в кг) для расчёта индекса массы:");
+            Console.WriteLine("Ваш индекс массы тела равен: {0:F2}", UsefulMethods.BodyMassIndex(growth, weight));
+            if (DeviationInBodyMassIndex(growth, weight) < 0)
+                Console.WriteLine("Ваша масса ниже нормы. Вам нужно набрать вес.");
+            else if (DeviationInBodyMassIndex(growth, weight) > 0)
+                Console.WriteLine("У Вас избыток массы тела. Вам нужно сбросить вес.");
+            else Console.WriteLine("Ваш вес в норме.");
 
 
-      UsefulMethods.Pause();
+            UsefulMethods.Pause();
+        }
+
+        /// <summary>
+        /// Рассчитывает отклонение в кг от нормы для данного роста. Если значение отрицательное - дефицит массы тела, если положительное - избыточная масса тела, если 0 - масса тела находится в рамках нормы
+        /// </summary>
+        /// <param name="growth">Рост в сантиметрах</param>
+        /// <param name="weight">Вес в килограммах</param>
+        private static double DeviationInBodyMassIndex(double growth, double weight)
+        {
+            double minNormIndex = 18.5;
+            double maxNormIndex = 25;
+            double bodyMassIndex = UsefulMethods.BodyMassIndex(growth, weight);
+
+            if (bodyMassIndex <= minNormIndex)
+                return (Math.Pow(growth / 100, 2) * bodyMassIndex) - (Math.Pow(growth / 100, 2) * minNormIndex);
+            else if (bodyMassIndex >= maxNormIndex)
+                return (Math.Pow(growth / 100, 2) * bodyMassIndex) - (Math.Pow(growth / 100, 2) * maxNormIndex);
+            else return 0;
         }
 
         /// <summary>
