@@ -62,13 +62,14 @@ namespace Lesson2_HomeWork
 
             //5.а) Написать программу, которая запрашивает массу и рост человека, вычисляет его индекс массы 
             //и сообщает, нужно ли человеку похудеть, набрать вес или всё в норме.
+            //б) *Рассчитать, на сколько кг похудеть или сколько кг набрать для нормализации веса.
             double growth = UsefulMethods.GetNumberFromConsoleInput("Введите Ваш рост (в сантиметрах) для расчёта индекса массы:");
             double weight = UsefulMethods.GetNumberFromConsoleInput("Введите Ваш вес (в кг) для расчёта индекса массы:");
             Console.WriteLine("Ваш индекс массы тела равен: {0:F2}", UsefulMethods.BodyMassIndex(growth, weight));
             if (DeviationInBodyMassIndex(growth, weight) < 0)
-                Console.WriteLine("Ваша масса ниже нормы. Вам нужно набрать вес.");
+                Console.WriteLine("Ваша масса ниже нормы. Вам нужно набрать вес. Минимум {0:f1} килограмм", -DeviationInBodyMassIndex(growth, weight));
             else if (DeviationInBodyMassIndex(growth, weight) > 0)
-                Console.WriteLine("У Вас избыток массы тела. Вам нужно сбросить вес.");
+                Console.WriteLine("У Вас избыток массы тела. Вам нужно сбросить вес. Минимум {0:f1} килограмм", DeviationInBodyMassIndex(growth, weight));
             else Console.WriteLine("Ваш вес в норме.");
 
 
