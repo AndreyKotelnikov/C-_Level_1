@@ -47,5 +47,20 @@ namespace Lesson1_HomeWork
         {
             Console.ReadKey();
         }
+
+        /// <summary>
+        /// Проверяет число на чётность и возвращает true, если число чётное.
+        /// </summary>
+        /// <param name="number">Число для проверки его чётности</param>
+        /// <returns></returns>
+        public static bool EvenCheck(double number)
+        {
+            if (number % 2 == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

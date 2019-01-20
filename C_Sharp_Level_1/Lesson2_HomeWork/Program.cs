@@ -24,9 +24,20 @@ namespace Lesson2_HomeWork
             Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(30, 5, 10));
             Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(30, 10, 5));
 
-            //2.	Написать метод подсчета количества цифр числа.
+            //2.Написать метод подсчета количества цифр числа.
             int answer = (int)UsefulMethods.GetNumberFromConsoleInput("Введите число для подсчёта количества его цифр:");
             Console.WriteLine("Количество цифр равно: {0}", CountDigitsOfNumber(answer));
+
+            //3.С клавиатуры вводятся числа, пока не будет введен 0. Подсчитать сумму всех нечётных положительных чисел.
+            int sum = 0;
+            while (true)
+            {
+                answer = (int)UsefulMethods.GetNumberFromConsoleInput("Введите число для подсчёта суммы положительных нечётных чисел:");
+                if (answer == 0) break;
+                if (answer > 0 && !UsefulMethods.EvenCheck(answer)) sum += answer;
+            }
+            Console.WriteLine("Сумма нечётных положительных чисел равна: {0}", sum);
+
 
             UsefulMethods.Pause();
         }
