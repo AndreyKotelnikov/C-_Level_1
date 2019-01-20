@@ -24,9 +24,36 @@ namespace Lesson2_HomeWork
             Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(30, 5, 10));
             Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(30, 10, 5));
 
+            //2.	Написать метод подсчета количества цифр числа.
+            int answer = (int)UsefulMethods.GetNumberFromConsoleInput("Введите число для подсчёта количества его цифр:");
+            Console.WriteLine("Количество цифр равно: {0}", CountDigitsOfNumber(answer));
+
             UsefulMethods.Pause();
         }
 
+        /// <summary>
+        /// Подсчитывает количество цифр в числе
+        /// </summary>
+        /// <param name="answer">Число для подсчёта количества его цифр</param>
+        /// <returns></returns>
+        private static int CountDigitsOfNumber(int number)
+        {
+            int count = 0;
+            
+            metka1:
+                count++;
+                number /= 10;
+            if (number > 0) goto metka1;
+            return count;
+        }
+
+        /// <summary>
+        /// Возвращает минимальное число из 3-х аргументов
+        /// </summary>
+        /// <param name="v1">Первое число</param>
+        /// <param name="v2">Второе число</param>
+        /// <param name="v3">Третье число</param>
+        /// <returns></returns>
         private static int MinimalNumber(int v1, int v2, int v3)
         {
             return (v1 < v2) ? ((v1 < v3) ? v1 : v3) : ((v2 < v3) ? v2 : v3);
