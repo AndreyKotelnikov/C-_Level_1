@@ -18,7 +18,18 @@ namespace Lesson2_HomeWork
     {
         static void Main(string[] args)
         {
+            //1.Написать метод, возвращающий минимальное из трёх чисел.
+            Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(10, 5, 30));
+            Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(5, 10, 30));
+            Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(30, 5, 10));
+            Console.WriteLine("Минимальное число равно: {0}", MinimalNumber(30, 10, 5));
 
+            UsefulMethods.Pause();
+        }
+
+        private static int MinimalNumber(int v1, int v2, int v3)
+        {
+            return (v1 < v2) ? ((v1 < v3) ? v1 : v3) : ((v2 < v3) ? v2 : v3);
         }
     }
 }
