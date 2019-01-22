@@ -83,7 +83,7 @@ namespace Lesson1_HomeWork
             else return wordFor234;
         }
 
-        private static int NOD(int a, int b)
+        public static int NOD(int a, int b)
         {
             while (a != b)
             {
@@ -91,5 +91,12 @@ namespace Lesson1_HomeWork
             }
             return a;
         }
+
+        /// <summary>
+        /// Возвращает массив с цветами консоли.
+        /// </summary>
+        /// <returns>Массив с цветами консоли</returns>
+        public static ConsoleColor[] ArrayOfConsoleColors() 
+            => (ConsoleColor[]) ConsoleColor.GetValues(typeof(ConsoleColor));
     }
 }

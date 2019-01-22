@@ -93,6 +93,10 @@ namespace Lesson2_HomeWork
             //б) *Разработать рекурсивный метод, который считает сумму чисел от a до b.
             Console.WriteLine("Сумма чисел равна: {0}", SumNumbersBetweenInterval(1, 5));
 
+            Random random = new Random();
+            ConsoleColor[] colors = UsefulMethods.ArrayOfConsoleColors();
+            Console.ForegroundColor = colors[random.Next(colors.Length - 1)];
+            Console.WriteLine("\n\nДо новых встреч!");
 
             UsefulMethods.Pause();
         }
