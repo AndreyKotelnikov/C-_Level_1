@@ -98,5 +98,70 @@ namespace Lesson1_HomeWork
         /// <returns>Массив с цветами консоли</returns>
         public static ConsoleColor[] ArrayOfConsoleColors() 
             => (ConsoleColor[]) ConsoleColor.GetValues(typeof(ConsoleColor));
+
+        /// <summary>
+        /// Считает сумму цифр у числа
+        /// </summary>
+        /// <param name="number">Число для расчёта суммы его цифр</param>
+        /// <returns></returns>
+        public static double SumDigitsOfNumberRecursion(double number)
+        {
+            if (number < 1) return 0;
+            return SumDigitsOfNumberRecursion(number / 10) + (number % 10);
+        }
+
+        /// <summary>
+        /// Рассчитывает отклонение в кг от нормы для данного роста. Если значение отрицательное - дефицит массы тела, если положительное - избыточная масса тела, если 0 - масса тела находится в рамках нормы
+        /// </summary>
+        /// <param name="growth">Рост в сантиметрах</param>
+        /// <param name="weight">Вес в килограммах</param>
+        public static double DeviationInBodyMassIndex(double growth, double weight)
+        {
+            double minNormIndex = 18.5;
+            double maxNormIndex = 25;
+            double bodyMassIndex = UsefulMethods.BodyMassIndex(growth, weight);
+
+            if (bodyMassIndex <= minNormIndex)
+                return (Math.Pow(growth / 100, 2) * bodyMassIndex) - (Math.Pow(growth / 100, 2) * minNormIndex);
+            else if (bodyMassIndex >= maxNormIndex)
+                return (Math.Pow(growth / 100, 2) * bodyMassIndex) - (Math.Pow(growth / 100, 2) * maxNormIndex);
+            else return 0;
+        }
+
+        /// <summary>
+        /// Проверяет совпадение логина и пароля, которые ввёл пользователь. При совпадении возвращает true.
+        /// </summary>
+        /// <param name="login">логин для проверки</param>
+        /// <param name="password">пароль для проверки</param>
+        /// <returns></returns>
+        public static bool AuthorizationCheck(string login, string password)
+        {
+            string answer;
+            Console.WriteLine("\nВведите Ваш логин:");
+            answer = Console.ReadLine();
+            if (answer == login)
+            {
+                Console.WriteLine("Введите Ваш пароль:");
+                answer = Console.ReadLine();
+                if (answer == password) return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Подсчитывает количество цифр в числе
+        /// </summary>
+        /// <param name="answer">Число для подсчёта количества его цифр</param>
+        /// <returns></returns>
+        public static int CountDigitsOfNumber(int number)
+        {
+            int count = 0;
+
+        metka1:
+            count++;
+            number /= 10;
+            if (number > 0) goto metka1;
+            return count;
+        }
     }
 }
