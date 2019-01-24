@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Lesson1_HomeWork.UsefulMethods;
 
 namespace Lesson3_PracticalPart
 {
@@ -10,6 +11,7 @@ namespace Lesson3_PracticalPart
     {
         static void Main(string[] args)
         {
+            Pause();
         }
     }
 }
