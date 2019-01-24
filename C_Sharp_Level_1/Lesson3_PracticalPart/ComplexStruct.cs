@@ -22,7 +22,7 @@ namespace Lesson3_PracticalPart
 
         public ComplexStruct Plus(ComplexStruct complexStructIn)
         {
-            ComplexStruct complexStructOut = new ComplexStruct(complexStructIn.Re + this.Re, complexStructIn.Im + this.Im);
+            ComplexStruct complexStructOut = new ComplexStruct(complexStructIn.Re + Re, complexStructIn.Im + Im);
             return complexStructOut;
         }
 
@@ -34,7 +34,7 @@ namespace Lesson3_PracticalPart
 
         public override string ToString()
         {
-            return $"({this.Re}, {this.Im})";
+            return $"({Re}, {Im})";
         }
     }
 }
