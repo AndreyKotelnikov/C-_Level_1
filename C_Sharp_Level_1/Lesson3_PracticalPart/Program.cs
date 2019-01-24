@@ -11,21 +11,47 @@ namespace Lesson3_PracticalPart
     {
         static void Main(string[] args)
         {
-            ComplexStruct complex1 = new ComplexStruct(4, 4);
-            ComplexStruct complex2 = new ComplexStruct(7, 7);
+            Console.WriteLine("Struct\n");
+
+            ComplexStruct complexStruct1 = new ComplexStruct(4, 4);
+            ComplexStruct complexStruct2 = new ComplexStruct(7, 7);
+
+            Console.WriteLine(complexStruct1.ToString());
+            Console.WriteLine(complexStruct2.ToString());
+
+            ComplexStruct complexStruct3 = new ComplexStruct();
+            complexStruct3 = complexStruct1.Plus(complexStruct2);
+
+            Console.WriteLine(complexStruct3.ToString());
+
+            ComplexStruct complexStruct4 = new ComplexStruct();
+            complexStruct4 = complexStruct1 + complexStruct2;
+
+            Console.WriteLine(complexStruct4.ToString());
+
+            Console.WriteLine("\n\nClass\n");
+
+            Complex complex1 = new Complex(4, 4);
+            Complex complex2 = new Complex(7, 7);
 
             Console.WriteLine(complex1.ToString());
             Console.WriteLine(complex2.ToString());
 
-            ComplexStruct complex3 = new ComplexStruct();
+            Complex complex3 = new Complex();
             complex3 = complex1.Plus(complex2);
 
             Console.WriteLine(complex3.ToString());
 
-            ComplexStruct complex4 = new ComplexStruct();
+            Complex complex4 = new Complex();
             complex4 = complex1 + complex2;
 
             Console.WriteLine(complex4.ToString());
+
+            complex4.Re = -4;
+            Console.WriteLine(complex4.ToString());
+
+            complex3.Im = -5;
+            Console.WriteLine(complex3.ToString());
 
             Pause();
         }

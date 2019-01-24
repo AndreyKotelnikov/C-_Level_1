@@ -11,16 +11,27 @@ namespace Lesson3_PracticalPart
         double re;
         double im;
 
-        double Re
+        public double Re
         {
             get { return re; }
-            set { if (value < 0) Console.WriteLine("Создаём отрицательную вещественную часть"); }
+            set {
+                    if (value < 0)
+                    {
+                        Console.WriteLine("Устанавливаем отрицательную вещественную часть");
+                        re = value;
+                    }
+            }
         }
 
-        double Im
+        public double Im
         {
             get { return im; }
-            set { if (value < 0) Console.WriteLine("Создаём отрицательную мнимую часть"); }
+            set {   if (value < 0)
+                    {
+                        Console.WriteLine("Устанавливаем отрицательную мнимую часть");
+                        im = value;
+                    }
+                }
         }
 
         public Complex()
