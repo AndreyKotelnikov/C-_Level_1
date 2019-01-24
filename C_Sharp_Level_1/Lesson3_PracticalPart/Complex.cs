@@ -10,6 +10,19 @@ namespace Lesson3_PracticalPart
     {
         double re;
         double im;
+        static int countObjects = 0;
+
+        static int CountObjects
+        {
+            set
+            {
+                countObjects++;
+                if (countObjects == 3)
+                {
+                    Console.WriteLine($"Вы создали уже {countObjects} объекта!");
+                }
+            }
+        }
 
         public double Re
         {
@@ -38,12 +51,14 @@ namespace Lesson3_PracticalPart
         {
             re = 0;
             im = 0;
+            Complex.CountObjects = 0;
         }
 
         public Complex(double re, double im)
         {
             this.re = re;
             this.im = im;
+            Complex.CountObjects = 0;
         }
 
         public Complex Plus(Complex complexIn)
