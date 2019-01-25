@@ -53,7 +53,22 @@ namespace Lesson3_PracticalPart
             complex3.Im = -5;
             Console.WriteLine(complex3.ToString());
 
-            Pause();
+            //Задача 1.Найти максимальное число.
+            //На вход программе подаётся последовательность чисел, заканчивающаяся нулём.Найти максимальное число.
+            Console.WriteLine("\n\nНайти максимальное число\n");
+            double maxNumber = Double.NaN;
+            double answer;
+        
+            do
+            {
+                answer = GetNumberFromConsoleInput("Введите число или ноль для выхода");
+                if (Double.IsNaN(maxNumber)) maxNumber = answer;
+                if (answer != 0 && answer > maxNumber) maxNumber = answer;
+            } while (answer != 0);
+
+            Console.WriteLine($"Максимальное число равно {maxNumber}");
+
+           Pause();
         }
     }
 }
