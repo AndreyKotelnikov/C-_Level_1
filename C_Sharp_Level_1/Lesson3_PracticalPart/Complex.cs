@@ -58,6 +58,8 @@ namespace Lesson3_PracticalPart
         {
             this.re = re;
             this.im = im;
+            //Вызываем свойство set у статического объекта оператором присваивания для инкремента значения, 
+            //при этом ноль присваиваться не будет и нужен только для корректной записи операции присваивания.
             Complex.CountObjects = 0;
         }
 
@@ -75,7 +77,7 @@ namespace Lesson3_PracticalPart
 
         public override string ToString()
         {
-            return $"({Re}, {Im})";
+            return $"({Re} + {Im} i)";
         }
     }
 }

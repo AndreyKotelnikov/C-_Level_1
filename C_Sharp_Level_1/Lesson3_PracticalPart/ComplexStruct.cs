@@ -34,7 +34,7 @@ namespace Lesson3_PracticalPart
 
         public override string ToString()
         {
-            return $"({Re}, {Im})";
+            return $"({Re} + {Im} i)";
         }
     }
 }
