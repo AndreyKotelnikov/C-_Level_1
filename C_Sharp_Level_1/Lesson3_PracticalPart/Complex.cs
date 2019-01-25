@@ -19,7 +19,7 @@ namespace Lesson3_PracticalPart
                 countObjects++;
                 if (countObjects == 3)
                 {
-                    Console.WriteLine($"Вы создали уже {countObjects} объекта!");
+                    Console.WriteLine($"Вы создали уже {countObjects} комплексных числа!");
                 }
             }
         }
