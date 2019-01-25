@@ -71,8 +71,21 @@ namespace Lesson3_PracticalPart
             //Задача 2. Вычислить частное q и остаток r при делении а на d, не используя операций деления (/) 
             //и взятия остатка от деления (%).
             //Дано натуральное(целое неотрицательное) число а и целое положительное число d.
-            answer = GetNumberFromConsoleInput(isInteger: true);
+            Console.WriteLine("\n\nВычислить частное q и остаток r при делении а на d\n");
+            {
+                int a = (int)GetNumberFromConsoleInput(min: 0, isInteger: true);
+                int b = (int)GetNumberFromConsoleInput(min: 1, isInteger: true);
+                int q = 0, r = 0;
 
+                while (a >= b)
+                {
+                    a -= b;
+                    q++;
+                }
+                r = a;
+
+                Console.WriteLine($"{b * q + r} / {b} = {q} и остаток {r}");
+            }
 
             Pause();
         }
