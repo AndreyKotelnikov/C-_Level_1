@@ -66,9 +66,15 @@ namespace Lesson3_PracticalPart
                 if (answer != 0 && answer > maxNumber) maxNumber = answer;
             } while (answer != 0);
 
-            Console.WriteLine($"Максимальное число равно {maxNumber}");
+            Console.WriteLine($"Максимальное число равно {(maxNumber != 0 ? maxNumber.ToString() : "неизвестности")}");
 
-           Pause();
+            //Задача 2. Вычислить частное q и остаток r при делении а на d, не используя операций деления (/) 
+            //и взятия остатка от деления (%).
+            //Дано натуральное(целое неотрицательное) число а и целое положительное число d.
+            answer = GetNumberFromConsoleInput(isInteger: true);
+
+
+            Pause();
         }
     }
 }

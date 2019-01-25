@@ -10,8 +10,17 @@ namespace Lesson1_HomeWork
             //Console.WriteLine("Вызов статического конструктора класса UsefulMethods");
         }
 
-
-        public static double GetNumberFromConsoleInput(string outputMessage)
+        /// <summary>
+        /// Возвращает число, введённое с консоли. Перед вводом печатет указанный текст 
+        /// и проверяет включение в указанный интервал min - max 
+        /// </summary>
+        /// <param name="outputMessage">Выводит на консоль указанный текст, по умолчанию выводит: "Введите число:"</param>
+        /// <param name="min">Минимальное значение для проверки числа</param>
+        /// <param name="max">Максимальное значение для проверки числа</param>
+        /// <returns></returns>
+        public static double GetNumberFromConsoleInput(
+            string outputMessage = "Введите число:", double min = Double.MinValue, double max = Double.MaxValue, 
+            bool isInteger = false)
         {
             double number;
             string answer;
@@ -19,11 +28,13 @@ namespace Lesson1_HomeWork
             {
                 Console.WriteLine(outputMessage);
                 answer = Console.ReadLine();
-                if (Double.TryParse(answer, out number))
-                {
-                    return number;
-                }
-                Console.WriteLine("Нужно ввести число. Попробуйте ещё раз\n\n");
+                if (!Double.TryParse(answer, out number))
+                    Console.WriteLine("Нужно ввести число. Попробуйте ещё раз\n\n");
+                else if (isInteger == true && number.ToString().Split(',').Length > 1)
+                    Console.WriteLine("\nНужно ввести целое число");
+                else if (number < min) Console.WriteLine($"\nНужно ввести значение больше или равным числу {min}\n\n");
+                else if (number > max) Console.WriteLine($"\nНужно ввести значение меньше или равным числу {min}\n\n");
+                else return number;
             }
         }
 
