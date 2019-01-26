@@ -90,23 +90,26 @@ namespace Lesson3_PracticalPart
             //Задача 3. Написать программу табуляции произвольной функции в диапазоне от a до b.
             Console.WriteLine("\n\nНаписать программу табуляции произвольной функции в диапазоне от a до b\n");
             {
-                int a = 1;
-                int b = 10;
+                double a = 1;
+                double b = 10;
+                double tableStep = 0.5;
 
-                for (int i = a; i <= b; i++)
+                for (double i = a; i <= b; i += tableStep)
                 {
-                    Console.WriteLine($"{i,3}, {F(i): 0.###}");
+                    Console.WriteLine($"{i,5}: {F(i): 0.###}");
                 }
 
 
             }
 
+
+
             Pause();
         }
 
-        private static double F(int i)
+        private static double F(double i)
         {
-            return 1 / (double)i;
+            return 1 / i;
         }
     }
 }
