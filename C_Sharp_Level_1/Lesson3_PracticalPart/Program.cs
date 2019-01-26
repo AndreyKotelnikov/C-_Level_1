@@ -87,7 +87,26 @@ namespace Lesson3_PracticalPart
                 Console.WriteLine($"{b * q + r} / {b} = {q} и остаток {r}");
             }
 
+            //Задача 3. Написать программу табуляции произвольной функции в диапазоне от a до b.
+            Console.WriteLine("\n\nНаписать программу табуляции произвольной функции в диапазоне от a до b\n");
+            {
+                int a = 1;
+                int b = 10;
+
+                for (int i = a; i <= b; i++)
+                {
+                    Console.WriteLine($"{i,3}, {F(i): 0.###}");
+                }
+
+
+            }
+
             Pause();
+        }
+
+        private static double F(int i)
+        {
+            return 1 / (double)i;
         }
     }
 }
