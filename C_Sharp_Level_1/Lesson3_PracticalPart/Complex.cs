@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson3_PracticalPart
 {
-    class Complex
+    public class Complex
     {
         double re;
         double im;
@@ -51,6 +51,8 @@ namespace Lesson3_PracticalPart
         {
             re = 0;
             im = 0;
+            //Вызываем свойство set у статического объекта оператором присваивания для инкремента значения, 
+            //при этом ноль присваиваться не будет и нужен только для корректной записи операции присваивания.
             Complex.CountObjects = 0;
         }
 
@@ -75,9 +77,45 @@ namespace Lesson3_PracticalPart
             return complexOut;
         }
 
+        public Complex Minus(Complex complexIn)
+        {
+            Complex complexOut = new Complex(Re - complexIn.Re, Im - complexIn.Im);
+            return complexOut;
+        }
+
+        public static Complex operator -(Complex complex1, Complex complex2)
+        {
+            Complex complexOut = new Complex(complex1.Re - complex2.Re, complex1.Im - complex2.Im);
+            return complexOut;
+        }
+
+        public Complex Multiplication(Complex complexIn)
+        {
+            Complex complexOut = new Complex(Re * complexIn.Re, Im * complexIn.Im);
+            return complexOut;
+        }
+
+        public static Complex operator *(Complex complex1, Complex complex2)
+        {
+            Complex complexOut = new Complex(complex1.Re * complex2.Re, complex1.Im * complex2.Im);
+            return complexOut;
+        }
+
+        public Complex Division(Complex complexIn)
+        {
+            Complex complexOut = new Complex(Re / complexIn.Re, Im / complexIn.Im);
+            return complexOut;
+        }
+
+        public static Complex operator /(Complex complex1, Complex complex2)
+        {
+            Complex complexOut = new Complex(complex1.Re / complex2.Re, complex1.Im / complex2.Im);
+            return complexOut;
+        }
+
         public override string ToString()
         {
-            return $"({Re} + {Im} i)";
+            return $"({Re:0.##} + {Im:0.##} i)";
         }
     }
 }

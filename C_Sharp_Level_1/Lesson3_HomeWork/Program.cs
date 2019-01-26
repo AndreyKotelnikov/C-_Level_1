@@ -35,6 +35,39 @@ namespace Lesson3_HomeWork
             complexStruct4 = complexStruct1 - complexStruct2;
             Console.WriteLine(complexStruct4);
 
+            //1. б) Дописать класс Complex, добавив методы вычитания и произведения чисел. Проверить работу класса.
+            Console.WriteLine("\n\nClass\n");
+
+            Complex complex1 = new Complex(10, 10);
+            Complex complex2 = new Complex(5, 5);
+            Console.WriteLine(complex1);
+            Console.WriteLine(complex2);
+
+            Complex complex3 = new Complex();
+            complex3 = complex1.Plus(complex2);
+            Console.WriteLine($"complex1.Plus(complex2) = {complex3}");
+
+            Complex complex4 = new Complex();
+            complex4 = complex1 + complex2;
+            Console.WriteLine($"complex1 + complex2 = {complex4}");
+
+            complex3 = complex1.Minus(complex2);
+            Console.WriteLine($"complex1.Minus(complex2) = {complex3}");
+
+            complex4 = complex1 - complex2;
+            Console.WriteLine($"complex1 - complex2 = {complex4}");
+
+            complex3 = complex1.Multiplication(complex2);
+            Console.WriteLine($"complex1.Multiplication(complex2) = {complex3}");
+
+            complex4 = complex1 * complex2;
+            Console.WriteLine($"complex1 * complex2 = {complex4}");
+
+            complex3 = complex1.Division(complex2);
+            Console.WriteLine($"complex1.Division(complex2) = {complex3}");
+
+            complex4 = complex1 / complex2;
+            Console.WriteLine($"complex1 / complex2 = {complex4}");
 
             Pause();
         }
