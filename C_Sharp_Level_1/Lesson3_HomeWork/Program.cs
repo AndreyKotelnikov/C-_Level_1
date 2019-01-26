@@ -72,6 +72,33 @@ namespace Lesson3_HomeWork
             //1. в) Добавить диалог с использованием switch демонстрирующий работу класса.
             Console.WriteLine(Complex.InputFormatArithmeticOperation());
 
+            //2. а)  С клавиатуры вводятся числа, пока не будет введён 0 (каждое число в новой строке). 
+            //Требуется подсчитать сумму всех нечётных положительных чисел. 
+            //Сами числа и сумму вывести на экран, используя tryParse.
+            double sumEvenPositiveNumbers = 0;
+            double number;
+            List<string> answer = new List<string>();
+
+            Console.WriteLine("\n\nВводите числа (каждое число в новой строке) или 0 для начала рассчётов:");
+            do
+            {
+                answer.Add(Console.ReadLine());
+                
+            } while (answer.Last() != "0");
+
+            Console.WriteLine("\n\nВыводим нечётные положительные числа:");
+
+            foreach (var item in answer)
+            {
+                if (Double.TryParse(item, out number) && number > 0 && !EvenCheck(number))
+                {
+                    Console.Write($"{number}, ");
+                    sumEvenPositiveNumbers += number;
+                }
+            }
+
+            Console.WriteLine($"\nСумма нечётных положительных чисел равна: {sumEvenPositiveNumbers}");
+
             Pause();
         }
     }
