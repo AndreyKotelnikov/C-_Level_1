@@ -17,7 +17,7 @@ namespace Lesson3_PracticalPart
             set
             {
                 countObjects++;
-                if (countObjects == 3)
+                if (countObjects == 10)
                 {
                     Console.WriteLine($"Вы создали уже {countObjects} комплексных числа!");
                 }
@@ -116,6 +116,83 @@ namespace Lesson3_PracticalPart
         public override string ToString()
         {
             return $"({Re:0.##} + {Im:0.##} i)";
+        }
+
+        public static Complex InputFormatArithmeticOperation()
+        {
+            Console.WriteLine("Введите два комплексных числа и арифметическое действие: +, -, *, /\n" +
+                "Формат ввода: \"(5 + 7 i) - (-8 + -5 i) =\" " +
+                "\nВам нужно вводить только числа и арифметическое действие, остальное программа сделает сама:\n");
+            double[] inputNumbers = new double[5];
+            string[] inputData = new string[5];
+            string[] outputData = {"(", " + ", " i) ", " (", " + ", " i) = "};
+            string[] operators = { "+", "-", "*", "/" }; 
+
+            int cursorPositionX, cursorPositionY;
+            int count = 0;
+
+            while (true)
+            {
+                Console.Write(outputData[count]);
+                if (inputData[count] == null)
+                {
+                    cursorPositionX = Console.CursorLeft;
+                    cursorPositionY = Console.CursorTop;
+
+                    inputData[count] = Console.ReadLine();
+                    
+                    if ((count != 2 && !Double.TryParse(inputData[count], out inputNumbers[count])) 
+                        || (count == 2 && !operators.Contains(inputData[count])))
+                    {
+                        inputData[count] = null;
+                        count = 0;
+                        continue;
+                    }
+                    else
+                    {
+                        Console.CursorLeft = cursorPositionX + inputData[count].Length;
+                        Console.CursorTop = cursorPositionY;
+                        count++;
+                    }
+                }
+                else
+                {
+                    Console.Write(inputData[count]);
+                    count++;
+                }
+
+
+                if (count == 5)
+                {
+                    Console.Write(outputData[count]);
+                    break;
+                }
+            }
+
+            Complex complex1 = new Complex(inputNumbers[0], inputNumbers[1]);
+            Complex complex2 = new Complex(inputNumbers[3], inputNumbers[4]);
+            Complex complexOut = new Complex();
+
+            switch (inputData[2])
+            {
+                case "+":
+                    complexOut = complex1 + complex2;
+                    break;
+                case "-":
+                    complexOut = complex1 - complex2;
+                    break;
+                case "*":
+                    complexOut = complex1 * complex2;
+                    break;
+                case "/":
+                    complexOut = complex1 / complex2;
+                    break;
+                default:
+                    Console.WriteLine("Вы запустили программу на другой планете!\n");
+                    break;
+            }
+
+            return complexOut;
         }
     }
 }

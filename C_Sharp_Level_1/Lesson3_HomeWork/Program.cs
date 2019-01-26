@@ -69,6 +69,9 @@ namespace Lesson3_HomeWork
             complex4 = complex1 / complex2;
             Console.WriteLine($"complex1 / complex2 = {complex4}");
 
+            //1. в) Добавить диалог с использованием switch демонстрирующий работу класса.
+            Console.WriteLine(Complex.InputFormatArithmeticOperation());
+
             Pause();
         }
     }
