@@ -102,6 +102,32 @@ namespace Lesson3_PracticalPart
 
             }
 
+        //Задача 4. Игра «Угадай число».
+        //Игра «Угадай число». Метод половинного деления.
+        //Написать игру «Угадай число». Компьютер загадывает число в диапазоне от 1 до 100, 
+        //а человек за ограниченное число попыток должен угадать его.
+        //Количество попыток вычисляется по формуле i = log2N + 1
+            Random rand = new Random();
+            int guessNumber = 10; //rand.Next(101);
+            int maxTry = (int)Math.Round(Math.Log(100)) + 1;
+            Console.WriteLine($"Угадайте загаданное число за {maxTry} {DeclensionWord(maxTry, "попытка", "попытки", "попыток")}\n");
+            int count = 0;
+            int userAnswer;
+
+            do
+            {
+                Console.WriteLine($"У Вас есть ещё {maxTry - count} " +
+                    $"{DeclensionWord(maxTry - count, "попытка", "попытки", "попыток")}");
+                userAnswer = (int)GetNumberFromConsoleInput("Введите число от 0 до 100:", 0, 100, true);
+                count++;
+                if (userAnswer > guessNumber) Console.WriteLine("Вы указали слишком большое число\n");
+                else if (userAnswer < guessNumber) Console.WriteLine("Вы указали слишком маленькое число\n");
+
+            } while (count < maxTry && userAnswer != guessNumber);
+
+            if (userAnswer != guessNumber) Console.WriteLine("\n\nВаши попытки закончились. Попробуйте ещё раз");
+            else Console.WriteLine("\n\nПоздарвляю! Вы угадали число!");
+            
 
 
             Pause();
