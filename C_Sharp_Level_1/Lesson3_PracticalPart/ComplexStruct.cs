@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson3_PracticalPart
 {
-    struct ComplexStruct
+    public struct ComplexStruct
     {
         readonly double re;
         readonly double im;
@@ -29,6 +29,18 @@ namespace Lesson3_PracticalPart
         public static ComplexStruct operator +(ComplexStruct complex1, ComplexStruct complex2)
         {
             ComplexStruct complexStructOut = new ComplexStruct(complex1.Re + complex2.Re, complex1.Im + complex2.Im);
+            return complexStructOut;
+        }
+
+        public ComplexStruct Minus(ComplexStruct complexStructIn)
+        {
+            ComplexStruct complexStructOut = new ComplexStruct(Re - complexStructIn.Re, Im - complexStructIn.Im);
+            return complexStructOut;
+        }
+
+        public static ComplexStruct operator -(ComplexStruct complex1, ComplexStruct complex2)
+        {
+            ComplexStruct complexStructOut = new ComplexStruct(complex1.Re - complex2.Re, complex1.Im - complex2.Im);
             return complexStructOut;
         }
 
