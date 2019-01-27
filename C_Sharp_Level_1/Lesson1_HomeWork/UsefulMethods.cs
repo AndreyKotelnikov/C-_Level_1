@@ -33,7 +33,7 @@ namespace Lesson1_HomeWork
                 else if (isInteger == true && number.ToString().Split(',').Length > 1)
                     Console.WriteLine("\nНужно ввести целое число");
                 else if (number < min) Console.WriteLine($"\nНужно ввести значение больше или равным числу {min}\n\n");
-                else if (number > max) Console.WriteLine($"\nНужно ввести значение меньше или равным числу {min}\n\n");
+                else if (number > max) Console.WriteLine($"\nНужно ввести значение меньше или равным числу {max}\n\n");
                 else return number;
             }
         }
