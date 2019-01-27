@@ -98,7 +98,7 @@ namespace Lesson3_HomeWork
             }
 
             Console.WriteLine($"\nСумма нечётных положительных чисел равна: {sumEvenPositiveNumbers}");
-
+            
             //3. *Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. 
             //Предусмотреть методы сложения, вычитания, умножения и деления дробей. 
             //Написать программу, демонстрирующую все разработанные элементы класса.
@@ -136,9 +136,16 @@ namespace Lesson3_HomeWork
             //3. * Добавить свойство типа double только на чтение, чтобы получить десятичную дробь числа;
             Console.WriteLine($"fraction1 (4, 9) = {fraction1.DecimalFraction:0.###}\n");
 
-            // 3. **Добавить проверку, чтобы знаменатель не равнялся 0.
+            //3. **Добавить проверку, чтобы знаменатель не равнялся 0.
             //Выбрасывать исключение ArgumentException("Знаменатель не может быть равен 0");
             Fraction fraction5 = new Fraction(0, 0);
+            Console.WriteLine($"fraction5 (0, 0) = {fraction5}");
+
+            //*** Добавить упрощение дробей.
+            Fraction fraction6 = new Fraction(10, 5);
+            Console.WriteLine($"\n\nfraction6 (10, 5) = {fraction6}");
+            fraction6.SimplifyFraction();
+            Console.WriteLine($"Упрощаем fraction6 (10, 5) = {fraction6}");
 
             Pause();
         }

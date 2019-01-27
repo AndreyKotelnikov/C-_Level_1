@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Math;
+using static Lesson1_HomeWork.UsefulMethods;
 
 namespace Lesson3_HomeWork
 {
@@ -28,6 +28,7 @@ namespace Lesson3_HomeWork
                     Console.WriteLine(Ex.Message);
                     denominator = 1;
                 }
+                
             }
         }
 
@@ -113,5 +114,17 @@ namespace Lesson3_HomeWork
         }
 
         public override string ToString() => $"{Numerator}/{Denominator}";
+
+        public void SimplifyFraction()
+        {
+            //int minNumber = Numerator > Denominator ? Denominator : Numerator;
+            int nod = NOD(Numerator, Denominator);
+            if (nod > 1)
+            {
+                Numerator /= nod;
+                Denominator /= nod;
+            }
+        }
+
     }
 }
