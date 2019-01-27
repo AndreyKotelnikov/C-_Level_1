@@ -98,7 +98,7 @@ namespace Lesson3_HomeWork
             }
 
             Console.WriteLine($"\nСумма нечётных положительных чисел равна: {sumEvenPositiveNumbers}");
-            
+
             //3. *Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. 
             //Предусмотреть методы сложения, вычитания, умножения и деления дробей. 
             //Написать программу, демонстрирующую все разработанные элементы класса.
@@ -130,6 +130,8 @@ namespace Lesson3_HomeWork
             Console.WriteLine($"fraction1.Division(fraction2) = {fraction3}");
             fraction4 = fraction1 / fraction2;
             Console.WriteLine($"fraction1 / fraction2 = {fraction3}\n");
+
+            //*Добавить свойства типа int для доступа к числителю и знаменателю;
 
             Pause();
         }
