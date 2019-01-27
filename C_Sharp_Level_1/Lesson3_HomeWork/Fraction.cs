@@ -15,6 +15,8 @@ namespace Lesson3_HomeWork
 
         public int Denominator { get => denominator; set => denominator = value == 0 ? 1 : value; }
 
+        public double DecimalFraction { get => Numerator / (double)Denominator; }
+
         public Fraction()
         {
             Numerator = 0;

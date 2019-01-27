@@ -131,7 +131,10 @@ namespace Lesson3_HomeWork
             fraction4 = fraction1 / fraction2;
             Console.WriteLine($"fraction1 / fraction2 = {fraction3}\n");
 
-            //*Добавить свойства типа int для доступа к числителю и знаменателю;
+            //3. *Добавить свойства типа int для доступа к числителю и знаменателю;
+
+            //3. * Добавить свойство типа double только на чтение, чтобы получить десятичную дробь числа;
+            Console.WriteLine($"fraction1 (4, 9) = {fraction1.DecimalFraction:0.###}");
 
             Pause();
         }
