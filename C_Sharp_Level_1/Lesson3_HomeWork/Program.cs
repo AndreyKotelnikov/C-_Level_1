@@ -70,7 +70,7 @@ namespace Lesson3_HomeWork
             Console.WriteLine($"complex1 / complex2 = {complex4}");
 
             //1. в) Добавить диалог с использованием switch демонстрирующий работу класса.
-            Console.WriteLine(Complex.InputFormatArithmeticOperation());
+            Console.WriteLine(Complex.ArithmeticOperationsWithTwoNumbers(Complex.InputFormatArithmeticOperation()));
 
             //2. а)  С клавиатуры вводятся числа, пока не будет введён 0 (каждое число в новой строке). 
             //Требуется подсчитать сумму всех нечётных положительных чисел. 
@@ -98,6 +98,11 @@ namespace Lesson3_HomeWork
             }
 
             Console.WriteLine($"\nСумма нечётных положительных чисел равна: {sumEvenPositiveNumbers}");
+            //3. *Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. 
+            //Предусмотреть методы сложения, вычитания, умножения и деления дробей. 
+            //Написать программу, демонстрирующую все разработанные элементы класса.
+            
+
 
             Pause();
         }

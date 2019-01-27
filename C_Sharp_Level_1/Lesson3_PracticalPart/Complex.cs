@@ -17,7 +17,7 @@ namespace Lesson3_PracticalPart
             set
             {
                 countObjects++;
-                if (countObjects == 10)
+                if (countObjects == 3)
                 {
                     Console.WriteLine($"Вы создали уже {countObjects} комплексных числа!");
                 }
@@ -28,22 +28,16 @@ namespace Lesson3_PracticalPart
         {
             get { return re; }
             set {
-                    if (value < 0)
-                    {
-                        Console.WriteLine("Устанавливаем отрицательную вещественную часть");
-                        re = value;
-                    }
-            }
+                    if (value < 0) Console.WriteLine("Устанавливаем отрицательную вещественную часть");
+                    re = value;
+                }
         }
 
         public double Im
         {
             get { return im; }
-            set {   if (value < 0)
-                    {
-                        Console.WriteLine("Устанавливаем отрицательную мнимую часть");
-                        im = value;
-                    }
+            set {   if (value < 0) Console.WriteLine("Устанавливаем отрицательную мнимую часть");
+                    im = value;
                 }
         }
 
@@ -118,12 +112,19 @@ namespace Lesson3_PracticalPart
             return $"({Re:0.##} + {Im:0.##} i)";
         }
 
-        public static Complex InputFormatArithmeticOperation()
+        /// <summary>
+        /// Позволяет в консоли ввести два числа и арифметическое действие в удобном формате "(5 + 7 i) - (-8 + -5 i) =\",
+        /// нужно вводить только числа и арифметическое действие, остальное программа заполняет сама.
+        /// Возвращает массив из 5-ти строк с числами и арифметическим действием: {re1, im1, арифм. действие, re2, im2}
+        /// </summary>
+        /// <returns>Возвращает массив из 5-ти строк с числами и арифметическим действием: 
+        /// {re1, im1, арифм. действие, re2, im2}</returns>
+        public static string[] InputFormatArithmeticOperation()
         {
             Console.WriteLine("Введите два комплексных числа и арифметическое действие: +, -, *, /\n" +
                 "Формат ввода: \"(5 + 7 i) - (-8 + -5 i) =\" " +
                 "\nВам нужно вводить только числа и арифметическое действие, остальное программа сделает сама:\n");
-            double[] inputNumbers = new double[5];
+            double numberForTryParse;
             string[] inputData = new string[5];
             string[] outputData = {"(", " + ", " i) ", " (", " + ", " i) = "};
             string[] operators = { "+", "-", "*", "/" }; 
@@ -141,7 +142,7 @@ namespace Lesson3_PracticalPart
 
                     inputData[count] = Console.ReadLine();
                     
-                    if ((count != 2 && !Double.TryParse(inputData[count], out inputNumbers[count])) 
+                    if ((count != 2 && !Double.TryParse(inputData[count], out numberForTryParse)) 
                         || (count == 2 && !operators.Contains(inputData[count])))
                     {
                         inputData[count] = null;
@@ -168,12 +169,32 @@ namespace Lesson3_PracticalPart
                     break;
                 }
             }
+            return inputData;
+        }
 
-            Complex complex1 = new Complex(inputNumbers[0], inputNumbers[1]);
-            Complex complex2 = new Complex(inputNumbers[3], inputNumbers[4]);
+        /// <summary>
+        /// Возвращает комплексное число, которое является результатом арифметического действия с двумя комплексными числами.
+        /// На вход передаётся массив из 5-ти строк с числами и арифметическим действием в формате: 
+        /// {re1, im1, арифм. действие, re2, im2}
+        /// </summary>
+        /// <param name="arrayOfStrings">массив из 5-ти строк с числами и арифметическим действием в формате: 
+        /// {re1, im1, арифм. действие, re2, im2}</param>
+        /// <returns>Возвращает комплексное число, которое является результатом арифметического действия с двумя комплексными числами.</returns>
+        public static Complex ArithmeticOperationsWithTwoNumbers(string[] arrayOfStrings)
+        {
+            double[] arrayOfDoubles = new double[5];
+
+            for (int i = 0; i < arrayOfDoubles.Length; i++)
+            {
+                if (!Double.TryParse(arrayOfStrings[i], out arrayOfDoubles[i]) && i != 2)
+                    Console.WriteLine($"В элементе {i} во входящей строке число указано некорректно"); ;
+            }
+
+            Complex complex1 = new Complex(arrayOfDoubles[0], arrayOfDoubles[1]);
+            Complex complex2 = new Complex(arrayOfDoubles[3], arrayOfDoubles[4]);
             Complex complexOut = new Complex();
 
-            switch (inputData[2])
+            switch (arrayOfStrings[2])
             {
                 case "+":
                     complexOut = complex1 + complex2;
@@ -188,11 +209,11 @@ namespace Lesson3_PracticalPart
                     complexOut = complex1 / complex2;
                     break;
                 default:
-                    Console.WriteLine("Вы запустили программу на другой планете!\n");
+                    Console.WriteLine("Строка не содержит нужных символов арифметических действий\n");
                     break;
             }
-
             return complexOut;
         }
+
     }
 }
