@@ -134,7 +134,11 @@ namespace Lesson3_HomeWork
             //3. *Добавить свойства типа int для доступа к числителю и знаменателю;
 
             //3. * Добавить свойство типа double только на чтение, чтобы получить десятичную дробь числа;
-            Console.WriteLine($"fraction1 (4, 9) = {fraction1.DecimalFraction:0.###}");
+            Console.WriteLine($"fraction1 (4, 9) = {fraction1.DecimalFraction:0.###}\n");
+
+            // 3. **Добавить проверку, чтобы знаменатель не равнялся 0.
+            //Выбрасывать исключение ArgumentException("Знаменатель не может быть равен 0");
+            Fraction fraction5 = new Fraction(0, 0);
 
             Pause();
         }

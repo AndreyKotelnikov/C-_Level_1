@@ -13,10 +13,29 @@ namespace Lesson3_HomeWork
 
         public int Numerator { get; set; }
 
-        public int Denominator { get => denominator; set => denominator = value == 0 ? 1 : value; }
+        public int Denominator
+        {
+            get => denominator;
+            set
+            {
+                try
+                {
+                    denominator = value;
+                    if (denominator == 0) throw new ArgumentException("Знаменатель не может быть равен 0");
+                }
+                catch (ArgumentException Ex)
+                {
+                    Console.WriteLine(Ex.Message);
+                    denominator = 1;
+                }
+            }
+        }
 
         public double DecimalFraction { get => Numerator / (double)Denominator; }
 
+        /// <summary>
+        /// Создаёт дробь: числитель = 0, знаменатель = 1.
+        /// </summary>
         public Fraction()
         {
             Numerator = 0;
@@ -26,7 +45,7 @@ namespace Lesson3_HomeWork
         public Fraction(int numerator, int denominator)
         {
             Numerator = numerator;
-            Denominator = denominator == 0 ? 1 : denominator;
+            Denominator = denominator;
         }
 
         public Fraction Plus(Fraction fraction2)
