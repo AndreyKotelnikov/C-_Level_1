@@ -141,13 +141,72 @@ namespace Lesson3_HomeWork
             Fraction fraction5 = new Fraction(0, 0);
             Console.WriteLine($"fraction5 (0, 0) = {fraction5}");
 
-            //*** Добавить упрощение дробей.
+            //3. *** Добавить упрощение дробей.
             Fraction fraction6 = new Fraction(10, 5);
             Console.WriteLine($"\n\nfraction6 (10, 5) = {fraction6}");
             fraction6.SimplifyFraction();
             Console.WriteLine($"Упрощаем fraction6 (10, 5) = {fraction6}");
+        
+            //Дополнительная задача "Задание 2. Делимость": условие было на скрине.
+            Console.WriteLine("\n\nДополнительная задача на делимость\n");
+            List<List<int>> listCollection = new List<List<int>>();
+            bool needCreateNewList = true;
+            DateTime start = DateTime.Now;
+
+            int maxNumber = (int)GetNumberFromConsoleInput("Введите максимальное число (до 1 млд) для подсчёта " +
+                "количества групп:", 1, 1_000_000_000, true);
+
+            for (int i = 1; i <= maxNumber; i++)
+            {
+                foreach (var list in listCollection)
+                {
+                    if (!IsDevided(list, i))
+                    {
+                        list.Add(i);
+                        needCreateNewList = false;
+                        break;
+                    }
+                    if (needCreateNewList != true) needCreateNewList = true;
+                }
+                if (needCreateNewList == true) listCollection.Add(CreatNewList(i));
+            }
+            Console.WriteLine($"Минимальное количество групп чисел равно: {listCollection.Count}\n");
+            Console.WriteLine("Теперь выводим состав по группам:");
+
+            int countGroup = 1;
+            foreach (var list in listCollection)
+            {
+                Console.Write($"Группа {countGroup}: ");
+                foreach (var item in list)
+                {
+                    Console.Write($"{item}, ");
+                }
+                Console.WriteLine("\n");
+                countGroup++;
+            }
+
+            DateTime finish = DateTime.Now;
+            TimeSpan duration = finish - start;
+            Console.WriteLine($"Время выполнения задачи по разбивки чисел на группы равно {duration.Milliseconds} " +
+                $"миллисекунд");
 
             Pause();
         }
+
+        static bool IsDevided(List<int> list, int number)
+        {
+            foreach (var item in list)
+            {
+                if (number % item == 0) return true;
+            }
+            return false;
+        }
+
+        static List<int> CreatNewList(int number)
+        {
+            List<int> listOut = new List<int> { number };
+            return listOut;
+        }
+
     }
 }
