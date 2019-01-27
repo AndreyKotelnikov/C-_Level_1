@@ -98,11 +98,38 @@ namespace Lesson3_HomeWork
             }
 
             Console.WriteLine($"\nСумма нечётных положительных чисел равна: {sumEvenPositiveNumbers}");
+            
             //3. *Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел. 
             //Предусмотреть методы сложения, вычитания, умножения и деления дробей. 
             //Написать программу, демонстрирующую все разработанные элементы класса.
-            
+            Console.WriteLine("\n\nКласс дробей\n");
+            Fraction fraction1 = new Fraction(4, 9);
+            Fraction fraction2 = new Fraction(2, 3);
+            Console.WriteLine($"fraction1 = {fraction1}");
+            Console.WriteLine($"fraction2 = {fraction2}\n");
 
+            Fraction fraction3 = new Fraction();
+            Fraction fraction4 = new Fraction();
+
+            fraction3 = fraction1.Plus(fraction2);
+            Console.WriteLine($"fraction1.Plus(fraction2) = {fraction3}");
+            fraction4 = fraction1 + fraction2;
+            Console.WriteLine($"fraction1 + fraction2 = {fraction3}\n");
+
+            fraction3 = fraction1.Minus(fraction2);
+            Console.WriteLine($"fraction1.Minus(fraction2) = {fraction3}");
+            fraction4 = fraction1 - fraction2;
+            Console.WriteLine($"fraction1 - fraction2 = {fraction3}\n");
+
+            fraction3 = fraction1.Multiplication(fraction2);
+            Console.WriteLine($"fraction1.Multiplication(fraction2) = {fraction3}");
+            fraction4 = fraction1 * fraction2;
+            Console.WriteLine($"fraction1 * fraction2 = {fraction3}\n");
+
+            fraction3 = fraction1.Division(fraction2);
+            Console.WriteLine($"fraction1.Division(fraction2) = {fraction3}");
+            fraction4 = fraction1 / fraction2;
+            Console.WriteLine($"fraction1 / fraction2 = {fraction3}\n");
 
             Pause();
         }
