@@ -44,8 +44,20 @@ namespace Lesson4_PracticalPart
             MyArray seriesArray = arrayFile.MaxFrequencyItems();
             seriesArray.OutputArrayWithMessage("\nСамые встречающиеся значения:");
 
+            // Задача 4. Класс «Мой двумерный массив»
+            //Разработать класс для работы с двумерным массивом.Сделать методы поиска среднего значения, 
+            //максимального элемента массива, минимального элемента массива, подсчета количества положительных 
+            //элементов массива, вывода массива на экран и метод, возвращающий массив в виде строки.
+            Console.WriteLine("\n\nМой двухмерный массив");
+            MyArrayTwoDim array2D = new MyArrayTwoDim(10, 10, -100, 100);
+            array2D.Print("Выводим таблицу значений:");
+            Console.WriteLine($"\nСреднее значение = {array2D.Average:0.###}");
+            Console.WriteLine($"Минимальное значение = {array2D.Min}");
+            Console.WriteLine($"Максимальное значение = {array2D.Max}");
+            Console.WriteLine($"Количество положительных чисел = {array2D.Positive}");
 
-                      Pause();
+
+            Pause();
         }
     }
 }
