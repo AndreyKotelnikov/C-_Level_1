@@ -10,6 +10,25 @@ namespace Lesson4_PracticalPart
     {
         int[,] array2D;
 
+        public MyArray this[int i]
+        {
+            get
+            {
+                MyArray array = new MyArray(array2D.GetLength(1));
+                for (int j = 0; j < array2D.GetLength(1); j++)
+                {
+                    array[j] = array2D[i, j];
+                }
+                return array;
+            }
+        }
+
+        public int this[int i, int j]
+        {
+            get => array2D[i, j];
+            set { array2D[i, j] = value; }
+        }
+
         public MyArrayTwoDim(int rows, int columns, int valueItem = 0)
         {
             array2D = new int[rows, columns];
@@ -119,6 +138,37 @@ namespace Lesson4_PracticalPart
             if (message != "") Console.WriteLine(message);
             Console.WriteLine(this);
         }
+
+        public MyArrayTwoDim MinSumRows
+        {
+            get
+            {
+                int min = this[0].Sum;
+                for (int i = 1; i < array2D.GetLength(0); i++)
+                {
+                    if (min > this[i].Sum) min = this[i].Sum;
+                }
+
+                int count = 0;
+                for (int i = 0; i < array2D.GetLength(0); i++)
+                {
+                    if (min == this[i].Sum) count++;
+                }
+
+                MyArrayTwoDim arrayOut = new MyArrayTwoDim(count, 2);
+                count = 0;
+                for (int i = 0; i < array2D.GetLength(0); i++)
+                {
+                    if (min == this[i].Sum)
+                    {
+                        arrayOut[count, 0] = i + 1;
+                        arrayOut[count++, 1] = this[i].Sum;
+                    }
+                }
+                return arrayOut;
+            }
+        }
+        
 
     }
 }
