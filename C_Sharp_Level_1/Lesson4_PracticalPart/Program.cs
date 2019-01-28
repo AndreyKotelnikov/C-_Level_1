@@ -19,12 +19,33 @@ namespace Lesson4_PracticalPart
             Console.WriteLine("Мой одномерный массив:");
             MyArray array = new MyArray(10, -100, 100);
             Console.WriteLine(array);
-            Console.WriteLine($"Среднее значение = {array.Average}");
+            Console.WriteLine($"Среднее значение = {array.Average:0.###}");
             Console.WriteLine($"Минимальное значение = {array.Min}");
             Console.WriteLine($"Максимальное значение = {array.Max}");
             Console.WriteLine($"Количество положительных чисел = {array.Positive}");
 
-            Pause();
+            //Задача 2. Массив и файл
+            //Дана последовательность целых чисел, записанная в текстовый файл.
+            //Требуется считать данные из файла в массив, найти среднее арифметическое элементов и вывести 
+            //минимальный и максимальный элементы массива на экран.Отсортировать массив.
+            Console.WriteLine("\n\nСчитываем массив из файла");
+            MyArray arrayFile = new MyArray(@"D:\! Geek Brain\С# Уровень 1\Урок 4\Array.txt");
+            Console.WriteLine(arrayFile);
+            Console.WriteLine($"Среднее значение = {arrayFile.Average:0.###}");
+            Console.WriteLine($"Минимальное значение = {arrayFile.Min}");
+            Console.WriteLine($"Максимальное значение = {arrayFile.Max}");
+            
+            arrayFile.BubbleSort();
+            arrayFile.OutputArrayWithMessage("\nВыводим отсортированный массив:");
+
+            //Задача 3. Частотный массив
+            //Дана последовательность натуральных чисел от 0 до 99.Найти, какое число встречается чаще всего.
+            //Если таких чисел несколько, то вывести все числа.
+            MyArray seriesArray = arrayFile.MaxFrequencyItems();
+            seriesArray.OutputArrayWithMessage("\nСамые встречающиеся значения:");
+
+
+                      Pause();
         }
     }
 }

@@ -3,12 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Lesson4_PracticalPart
 {
     class MyArray
     {
         int[] array;
+
+        public int this[int i]
+        {
+            get { return array[i]; }
+            set { array[i] = value; }
+        }
+
+        public MyArray(string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    StreamReader streamReader = new StreamReader(fileName);
+                    //Считываем количество элементов из первой строки файла
+                    int size = int.Parse(streamReader.ReadLine());
+                    array = new int[size];
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        array[i] = int.Parse(streamReader.ReadLine());
+                    }
+                    streamReader.Close();
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else Console.WriteLine($"В указанной директории файл не обнаружен: {fileName}");
+        }
 
         public MyArray(int size, int itemValue = 0)
         {
@@ -61,12 +92,12 @@ namespace Lesson4_PracticalPart
         {
             get
             {
-                int min = array[0];
+                int min = 0;
                 for (int i = 0; i < array.Length; i++)
                 {
-                    if (min > array[i]) min = array[i];
+                    if (array[min] > array[i]) min = i;
                 }
-                return min;
+                return array[min];
             }
         }
         
@@ -86,11 +117,74 @@ namespace Lesson4_PracticalPart
         public override string ToString()
         {
             string str = "";
-            for (int i = 0; i < array.Length; i++)
+            try
             {
-                str += $"{array[i]}, ";
+                
+                for (int i = 0; i < array.Length; i++)
+                {
+                    str += $"{array[i]}, ";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\n{ex.Source}, class MyArray, method ToString():");
+                Console.WriteLine(ex.Message);
             }
             return str;
+        }
+
+        public void BubbleSort()
+        {
+            int temp;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length - 1; j++)
+                {
+                    if (array[j] > array[j + 1]) 
+                    {
+                        temp = array[j + 1];
+                        array[j + 1] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+        }
+
+        public void OutputArrayWithMessage(string message)
+        {
+            Console.WriteLine(message);
+            Console.WriteLine(this);
+        }
+
+        public int Length
+        {
+            get { return array.Length; }
+        }
+
+        public MyArray MaxFrequencyItems()
+        {
+            MyArray seriesN = new MyArray(Max - Min + 1);
+            int minOfArray = Min;
+            foreach (var item in array)
+            {
+                seriesN[item - minOfArray]++; 
+            }
+
+            int max = seriesN.Max;
+            int count = 0;
+            for (int i = 0; i < seriesN.Length; i++)
+            {
+                if (seriesN[i] == max) count++;
+            }
+
+            MyArray arrayOut = new MyArray(count);
+            count = 0;
+            
+            for (int i = 0; i < seriesN.Length; i++)
+            {
+                if (seriesN[i] == max) { arrayOut[count] = minOfArray + i; count++; }
+            }
+            return arrayOut;
         }
     }
 }
