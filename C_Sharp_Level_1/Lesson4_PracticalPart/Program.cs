@@ -68,6 +68,17 @@ namespace Lesson4_PracticalPart
             MyArrayTwoDim minSumRows = matrix.MinSumRows;
             minSumRows.Print("В этих строках минимальная сумма:");
 
+            //Задача 6
+            //Разработать класс для работы с одномерным массивом.
+            //Создать конструктор для заполнения массива случайными числами и конструктор для заполнения массива
+            //из файла. Создать свойство, возвращающее максимальный элемент. Реализовать индексируемое свойство.
+            Console.WriteLine("Массив с индексацией:");
+            MyArray myNewArray = new MyArray(10, 0, 20);
+            for (int i = 0; i < myNewArray.Length; i++)
+            {
+                Console.Write($"{myNewArray[i]}, ");
+            }
+
             Pause();
         }
     }
