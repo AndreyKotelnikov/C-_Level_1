@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson4_PracticalPart
 {
-    class MyArrayTwoDim
+    public class MyArrayTwoDim
     {
         int[,] array2D;
 

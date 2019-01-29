@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Lesson4_PracticalPart
 {
-    class MyArray
+    public class MyArray
     {
         int[] array;
 
@@ -198,6 +198,17 @@ namespace Lesson4_PracticalPart
                 if (seriesN[i] == max) { arrayOut[count] = minOfArray + i; count++; }
             }
             return arrayOut;
+        }
+
+        public int NumberOfPairsDividedBy(int dividedBy)
+        {
+            int count = 0;
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (((array[i] % dividedBy == 0) && (array[i + 1] % dividedBy != 0))
+                    || ((array[i] % dividedBy != 0) && (array[i + 1] % dividedBy == 0))) count++;
+            }
+            return count;
         }
     }
 }
