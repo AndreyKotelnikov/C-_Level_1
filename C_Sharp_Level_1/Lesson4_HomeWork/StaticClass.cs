@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Lesson4_HomeWork
 {
@@ -37,6 +38,33 @@ namespace Lesson4_HomeWork
                     || ((array[i] % dividedBy != 0) && (array[i + 1] % dividedBy == 0))) count++;
             }
             return count;
+        }
+
+        public static void GetArrayFromFile(int[] array, string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    StreamReader streamReader = new StreamReader(fileName);
+                    
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        if (streamReader.EndOfStream)
+                        {
+                            Console.WriteLine("В файле данные закончились раньше, чем элементы в массиве");
+                            break;
+                        }
+                        array[i] = int.Parse(streamReader.ReadLine());
+                    }
+                    streamReader.Close();
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else Console.WriteLine($"В указанной директории файл не обнаружен: {fileName}");
         }
     }
 }

@@ -32,6 +32,15 @@ namespace Lesson4_HomeWork
             StaticClass.OutputArray(arrayInt);
             Console.WriteLine($"\nКоличество пар, делящихся на 3, равно: {StaticClass.NumberOfPairsDividedBy(arrayInt, 3)}");
 
+            //2. б) *Добавьте статический метод для считывания массива из текстового файла. 
+            //Метод должен возвращать массив целых чисел;
+            //в)**Добавьте обработку ситуации отсутствия файла на диске.
+            Console.WriteLine("\nзаполняем массив из файла");
+            int[] arrayFile = new int[6];
+            StaticClass.GetArrayFromFile(arrayFile, @"D:\! Geek Brain\С# Уровень 1\Урок 4\Array.txt");
+            StaticClass.OutputArray(arrayFile);
+
+
             Pause();
         }
     }
