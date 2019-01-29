@@ -23,6 +23,15 @@ namespace Lesson4_HomeWork
             array.OutputArrayWithMessage("Выводим значения массива");
             Console.WriteLine($"\nКоличество пар, делящихся на 3, равно: {array.NumberOfPairsDividedBy(3)}");
 
+            //2.	Реализуйте задачу 1 в виде статического класса StaticClass;
+            //а) Класс должен содержать статический метод, который принимает на вход массив и решает задачу
+            Console.WriteLine("\nРеализуем алгоритм поиска количества пар, делящихся на 3, через " +
+                "статический метод класса StaticClass");
+            int[] arrayInt = new int[20];
+            StaticClass.FillingArrayWithRandomNumbers(arrayInt, -10_000, 10_000);
+            StaticClass.OutputArray(arrayInt);
+            Console.WriteLine($"\nКоличество пар, делящихся на 3, равно: {StaticClass.NumberOfPairsDividedBy(arrayInt, 3)}");
+
             Pause();
         }
     }
