@@ -37,7 +37,15 @@ namespace Lesson4_HomeWork
             //в)**Добавьте обработку ситуации отсутствия файла на диске.
             Console.WriteLine("\nзаполняем массив из файла");
             int[] arrayFile = new int[6];
-            StaticClass.GetArrayFromFile(arrayFile, @"D:\! Geek Brain\С# Уровень 1\Урок 4\Array.txt");
+
+            //Привязываемся к относительной директории, 
+            //чтобы при запуске проекта на другом компьютере не приходилось заново указывать путь к файлу
+            string path = Environment.CurrentDirectory;
+            string newPath;
+            newPath = path.Remove(path.LastIndexOf(@"\bin\Debug") + 1);
+            newPath = String.Concat(newPath, "Array.txt");
+            
+            StaticClass.GetArrayFromFile(arrayFile, newPath);
             StaticClass.OutputArray(arrayFile);
 
             //3. а) Дописать класс для работы с одномерным массивом. Реализовать конструктор, создающий массив 
