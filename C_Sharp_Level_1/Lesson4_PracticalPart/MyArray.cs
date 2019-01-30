@@ -17,6 +17,18 @@ namespace Lesson4_PracticalPart
             set { array[i] = value; }
         }
 
+        public MyArray(int size, Int64 startNumber, int step = 1)
+        {
+            //array = new int[size];
+            array = (int[])Array.CreateInstance(typeof(int), size);
+            int sumStep = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = (int)startNumber + sumStep;
+                sumStep += step;
+            }
+        }
+
         public MyArray(string fileName)
         {
             if (File.Exists(fileName))
@@ -127,6 +139,24 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        public void Multi(int multiplier)
+        {
+            for (int i = 0; i < Length; i++)
+            {
+                this[i] *= multiplier;
+            }
+        }
+
+        public MyArray Inverse()
+        {
+            MyArray arrayOut = new MyArray(Length);
+            for (int i = 0; i < Length; i++)
+            {
+                arrayOut[i] = -this[i];
+            }
+            return arrayOut;
+        }
+
         public override string ToString()
         {
             string str = "";
@@ -172,6 +202,20 @@ namespace Lesson4_PracticalPart
         public int Length
         {
             get { return array.Length; }
+        }
+
+        public int MaxCount
+        {
+            get
+            {
+                int max = Max;
+                int count = 0;
+                for (int i = 0; i < Length; i++)
+                {
+                    if (this[i] == max) count++;
+                }
+                return count;
+            }
         }
 
         public MyArray MaxFrequencyItems()

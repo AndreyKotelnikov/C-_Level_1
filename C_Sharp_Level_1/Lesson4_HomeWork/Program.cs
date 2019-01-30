@@ -19,9 +19,9 @@ namespace Lesson4_HomeWork
             //для массива из пяти элементов: 6; 2; 9; –3; 6 ответ — 2.
             //ноль рассматриваем как число, которое делится на 3.
             Console.WriteLine("Реализуем алгоритм поиска количества пар, делящихся на 3, через метод класса MyArray");
-            MyArray array = new MyArray(20, -10_000, 10_000);
-            array.OutputArrayWithMessage("Выводим значения массива");
-            Console.WriteLine($"\nКоличество пар, делящихся на 3, равно: {array.NumberOfPairsDividedBy(3)}");
+            MyArray arrayDividedBy = new MyArray(20, -10_000, 10_000);
+            arrayDividedBy.OutputArrayWithMessage("Выводим значения массива");
+            Console.WriteLine($"\nКоличество пар, делящихся на 3, равно: {arrayDividedBy.NumberOfPairsDividedBy(3)}");
 
             //2.	Реализуйте задачу 1 в виде статического класса StaticClass;
             //а) Класс должен содержать статический метод, который принимает на вход массив и решает задачу
@@ -39,6 +39,23 @@ namespace Lesson4_HomeWork
             int[] arrayFile = new int[6];
             StaticClass.GetArrayFromFile(arrayFile, @"D:\! Geek Brain\С# Уровень 1\Урок 4\Array.txt");
             StaticClass.OutputArray(arrayFile);
+
+            //3. а) Дописать класс для работы с одномерным массивом. Реализовать конструктор, создающий массив 
+            //определенного размера и заполняющий массив числами от начального значения с заданным шагом. 
+            //Создать свойство Sum, которое возвращает сумму элементов массива, метод Inverse, возвращающий 
+            //новый массив с измененными знаками у всех элементов массива (старый массив, остается без изменений),  
+            //метод Multi, умножающий каждый элемент массива на определённое число, свойство MaxCount, 
+            //возвращающее количество максимальных элементов.
+            Console.WriteLine("\n\n\nЗаполняем массив начальным значением с его увеличиваем на величину шага.");
+            MyArray arrayStep = new MyArray(10, (Int64)(-5), 3);
+            arrayStep.OutputArrayWithMessage("Выводим элементы массива:");
+            Console.WriteLine($"\nСумма элементов массива равна {arrayStep.Sum}");
+            MyArray arrayInverse = arrayStep.Inverse();
+            arrayInverse.OutputArrayWithMessage("\nВыводим инверсированный по знакам массив");
+            arrayStep.OutputArrayWithMessage("\nВыводим элементы базового массива:");
+            arrayStep.Multi(3);
+            arrayStep.OutputArrayWithMessage("\nВыводим элементы массива после вызова метода arrayStep.Multi(3):");
+            Console.WriteLine($"\nКоличество максимальных элементов: {arrayStep.MaxCount}");
 
 
             Pause();
