@@ -7,16 +7,32 @@ using System.IO;
 
 namespace Lesson4_PracticalPart
 {
+    /// <summary>
+    /// Библиотека для работы с массивом, включающим элементы типа int
+    /// </summary>
     public class MyArray
     {
         int[] array;
 
+        /// <summary>
+        /// Возвращает элемент массива с указанным индексом
+        /// </summary>
+        /// <param name="i">Индекс элемента в массиве, значение которого нужно получить</param>
+        /// <returns>Элемент массива с указанным индексом I</returns>
         public int this[int i]
         {
             get { return array[i]; }
             set { array[i] = value; }
         }
 
+        /// <summary>
+        /// Конструктор класса, который создаёт массив, и инициализирует его начальным значением, 
+        /// которое увеличивается на величину шага на каждом следующем элементе
+        /// </summary>
+        /// <param name="size">Размер массива</param>
+        /// <param name="startNumber">Начальное значение для заполнения первого элемента массива.
+        /// Обязательно привести к типу Int64, поскольку тип int используется в сигнатуре другого конструктора</param>
+        /// <param name="step">Величина шага, на который увеличивается каждый следующий элемент массива</param>
         public MyArray(int size, Int64 startNumber, int step = 1)
         {
             //array = new int[size];
@@ -29,6 +45,11 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Создаёт массив, загружая количество элементов из первой строки файла, 
+        /// а значения элементов по одному с каждой следующей строки файла.
+        /// </summary>
+        /// <param name="fileName">Строка, указывающая путь к файлу и его название</param>
         public MyArray(string fileName)
         {
             if (File.Exists(fileName))
@@ -53,6 +74,11 @@ namespace Lesson4_PracticalPart
             else Console.WriteLine($"В указанной директории файл не обнаружен: {fileName}");
         }
 
+        /// <summary>
+        /// Создаёт массив указанного размера и заполняет его указанными значениями (по умолчанию заполняется нулями)
+        /// </summary>
+        /// <param name="size">Размер массива</param>
+        /// <param name="itemValue">Значение, которыми заполняются все элементы массива (по умолчанию = 0)</param>
         public MyArray(int size, int itemValue = 0)
         {
             array = new int[size];
@@ -63,10 +89,16 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Создаёт массив указанной длины и заполняет случайными числами в указанном диапазоне включительно 
+        /// </summary>
+        /// <param name="size">Размер массива</param>
+        /// <param name="minValue">Минимальное значение для создания случайных чисел</param>
+        /// <param name="maxValue">Максимальное значение для создания случайных чисел</param>
         public MyArray(int size, int minValue, int maxValue)
         {
             array = new int[size];
-            Random rand = new Random(100);
+            Random rand = new Random(100); //Указываем число 100, чтобы получать всегда одинаковую последовательность
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -74,6 +106,9 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Возвращает среднее значение всего массива
+        /// </summary>
         public double Average
         {
             get
@@ -87,6 +122,9 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Возвращает сумму всех элементов массива
+        /// </summary>
         public int Sum
         {
             get
@@ -100,6 +138,9 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Возвращает максимальное значение в массиве
+        /// </summary>
         public int Max
         {
             get
@@ -113,6 +154,9 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Возвращает минимальное значение в массиве
+        /// </summary>
         public int Min
         {
             get
@@ -125,7 +169,10 @@ namespace Lesson4_PracticalPart
                 return array[min];
             }
         }
-        
+
+        /// <summary>
+        /// Возвращает сумму положительных чисел в массиве
+        /// </summary>
         public int Positive
         {
             get
@@ -139,6 +186,10 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Умножает каждый элемент массива на определённое число
+        /// </summary>
+        /// <param name="multiplier">Множитель, на который нужно умножить каждый элемент массива</param>
         public void Multi(int multiplier)
         {
             for (int i = 0; i < Length; i++)
@@ -147,6 +198,11 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Возвращает новый массив с измененными знаками у всех элементов массива 
+        /// (старый массив, остается без изменений)
+        /// </summary>
+        /// <returns>Новый массив с измененными знаками у всех элементов массива</returns>
         public MyArray Inverse()
         {
             MyArray arrayOut = new MyArray(Length);
@@ -157,6 +213,10 @@ namespace Lesson4_PracticalPart
             return arrayOut;
         }
 
+        /// <summary>
+        /// Перегруженный метод, возвращающий строку со всеми элементами массива
+        /// </summary>
+        /// <returns>Возвращающий строку со всеми элементами массива</returns>
         public override string ToString()
         {
             string str = "";
@@ -176,6 +236,9 @@ namespace Lesson4_PracticalPart
             return str;
         }
 
+        /// <summary>
+        /// Сортирует элементы массива методом пузырьков: первый элемент - минимальный, последний - максимальный
+        /// </summary>
         public void BubbleSort()
         {
             int temp;
@@ -193,17 +256,27 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Выводит в консоль указанное сообщение и далее значения самого массива
+        /// </summary>
+        /// <param name="message">Сообщения для вывода на консоль</param>
         public void OutputArrayWithMessage(string message)
         {
             Console.WriteLine(message);
             Console.WriteLine(this);
         }
 
+        /// <summary>
+        /// Возвращает длину массива
+        /// </summary>
         public int Length
         {
             get { return array.Length; }
         }
 
+        /// <summary>
+        /// Возвращает количество максимальных элементов в массиве
+        /// </summary>
         public int MaxCount
         {
             get
@@ -218,6 +291,10 @@ namespace Lesson4_PracticalPart
             }
         }
 
+        /// <summary>
+        /// Возвращает новый массив с элементами, которые чаще всего встречаются в текущем массиве
+        /// </summary>
+        /// <returns>Возвращает новый массив с элементами, которые чаще всего встречаются в текущем массиве</returns>
         public MyArray MaxFrequencyItems()
         {
             MyArray seriesN = new MyArray(Max - Min + 1);
@@ -244,6 +321,12 @@ namespace Lesson4_PracticalPart
             return arrayOut;
         }
 
+        /// <summary>
+        /// Возвращает количество пар элементов массива, в которых только одно число делится на указанный делитель.
+        /// Считаем, что ноль делится на любое число.
+        /// </summary>
+        /// <param name="dividedBy">Делитель, на который нужно проверить делимость значений в парах элементов</param>
+        /// <returns></returns>
         public int NumberOfPairsDividedBy(int dividedBy)
         {
             int count = 0;

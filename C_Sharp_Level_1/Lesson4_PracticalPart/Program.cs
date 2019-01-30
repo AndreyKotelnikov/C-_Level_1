@@ -50,7 +50,7 @@ namespace Lesson4_PracticalPart
             //элементов массива, вывода массива на экран и метод, возвращающий массив в виде строки.
             Console.WriteLine("\n\nМой двухмерный массив");
             MyArrayTwoDim array2D = new MyArrayTwoDim(10, 10, -100, 100);
-            array2D.Print("Выводим таблицу значений:");
+            array2D.OutputArrayWithMessage("Выводим таблицу значений:");
             Console.WriteLine($"\nСреднее значение = {array2D.Average:0.###}");
             Console.WriteLine($"Минимальное значение = {array2D.Min}");
             Console.WriteLine($"Максимальное значение = {array2D.Max}");
@@ -63,10 +63,10 @@ namespace Lesson4_PracticalPart
             //Если таких строк несколько, вывести информацию о каждой строке.
             Console.WriteLine("\n\nСоздаём матрицу");
             MyArrayTwoDim matrix = new MyArrayTwoDim(5, 2, -2, 2);
-            matrix.Print("Выводим таблицу значений:");
+            matrix.OutputArrayWithMessage("Выводим таблицу значений:");
 
             MyArrayTwoDim minSumRows = matrix.MinSumRows;
-            minSumRows.Print("В этих строках минимальная сумма:");
+            minSumRows.OutputArrayWithMessage("В этих строках минимальная сумма:");
 
             //Задача 6
             //Разработать класс для работы с одномерным массивом.
