@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Lesson1_HomeWork.UsefulMethods;
 using MyLibraryForArray;
+using MyLibraryForArray2D;
 
 namespace Lesson4_PracticalPart
 {

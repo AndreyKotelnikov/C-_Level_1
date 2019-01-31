@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyLibraryForArray;
 
-namespace Lesson4_PracticalPart
+namespace MyLibraryForArray2D
 {
     /// <summary>
     /// Библиотека для работы с двухмерным массивом, включающим элементы типа int
@@ -170,7 +170,7 @@ namespace Lesson4_PracticalPart
             {
                 for (int j = 0; j < array2D.GetLength(1); j++)
                 {
-                    str += $"{array2D[i, j], 4}, ";
+                    str += $"{array2D[i, j],4}, ";
                 }
                 str += "\n";
             }
@@ -220,7 +220,5 @@ namespace Lesson4_PracticalPart
                 return arrayOut;
             }
         }
-        
-
     }
 }
