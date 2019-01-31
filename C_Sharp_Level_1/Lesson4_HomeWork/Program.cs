@@ -89,7 +89,7 @@ namespace Lesson4_HomeWork
             //возвращающее минимальный элемент массива, свойство, возвращающее максимальный элемент массива, метод, 
             //возвращающий номер максимального элемента массива (через параметры, используя модификатор ref или out).
             Console.WriteLine("\n\nРаботаем с двухмерным массивом");
-            MyArrayTwoDim matrix = new MyArrayTwoDim(5, 3, -5, 5);
+            MyArrayTwoDim matrix = new MyArrayTwoDim(5, 7, -15, 15);
             matrix.OutputArrayWithMessage("Выводим значения массива:");
             Console.WriteLine($"Сумма чисел массива: {matrix.GetSum()}");
             Console.WriteLine($"Сумма чисел массива, больше 3: {matrix.GetSum(3)}");
@@ -101,11 +101,15 @@ namespace Lesson4_HomeWork
             matrix.IndexMaxValue(out row, out column);
             Console.WriteLine($"Первое включение максимального элемента в массиве по индексу: [{row},{column}]");
 
+            //5. **б) Добавить конструктор и методы, которые загружают данные из файла и записывают данные в файл.
+            //**в) Обработать возможные исключительные ситуации при работе с файлами.
+            if (matrix.SaveInFile(@"..\\..\\Matrix.txt")) Console.WriteLine("\nЗапись в файл прошла успешно");
+            else Console.WriteLine("\nСохранение в файл прошло с ошибками");
 
-
-
-
-
+            Console.WriteLine("\n\nТеперь создаём новый двумерный массив и загружаем в него данные из файла");
+            MyArrayTwoDim matrixFromFile = new MyArrayTwoDim(@"..\\..\\Matrix.txt");
+            matrixFromFile.OutputArrayWithMessage("Выводим значения нового массива:");
+            
             Pause();
         }
 

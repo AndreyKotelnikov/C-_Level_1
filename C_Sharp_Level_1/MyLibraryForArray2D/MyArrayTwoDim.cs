@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyLibraryForArray;
+using System.IO;
 
 namespace MyLibraryForArray2D
 {
@@ -278,6 +279,66 @@ namespace MyLibraryForArray2D
             row = -1;
             column = -1;
             return;
+        }
+
+        public bool SaveInFile(string fileName)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter(fileName);
+
+                string str = "";
+                for (int i = 0; i < array2D.GetLength(0); i++)
+                {
+                    for (int j = 0; j < array2D.GetLength(1); j++)
+                    {
+                        str += $"{array2D[i, j],4}, ";
+                    }
+                    sw.WriteLine(str);
+                    str = String.Empty;
+                }
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public MyArrayTwoDim(string fileName)
+        {
+            try
+            {
+                StreamReader sr = new StreamReader(fileName);
+                string str = String.Empty;
+                int count = 0;
+
+                while (!sr.EndOfStream)
+                {
+                    str += sr.ReadLine();
+                    count++;
+                }
+                sr.Close();
+
+                string[] strArray = str.Split(',');
+
+                array2D = new int[count, strArray.Length / count];
+                count = 0;
+
+                for (int i = 0; i < array2D.GetLength(0); i++)
+                {
+                    for (int j = 0; j < array2D.GetLength(1); j++)
+                    {
+                        array2D[i, j] = int.Parse(strArray[count++].Trim());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
