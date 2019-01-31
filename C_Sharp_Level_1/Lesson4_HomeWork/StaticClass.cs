@@ -15,7 +15,7 @@ namespace Lesson4_HomeWork
         /// <param name="array">Массив, который нужно заполнить случайными числами</param>
         /// <param name="minValue">Минимальное значение для создания случайных чисел</param>
         /// <param name="maxValue">Максимальное значение для создания случайных чисел</param>
-        public static void FillingArrayWithRandomNumbers(int[] array, int minValue, int maxValue)
+        public static void FillingArrayWithRandomNumbers(ref int[] array, int minValue, int maxValue)
         {
             Random rand = new Random(100);
 
@@ -58,7 +58,7 @@ namespace Lesson4_HomeWork
         /// </summary>
         /// <param name="array">Массив, который нужно заполнить из файла</param>
         /// <param name="fileName">Путь к файлу, с указанием его имени</param>
-        public static void GetArrayFromFile(int[] array, string fileName)
+        public static void GetArrayFromFile(ref int[] array, string fileName)
         {
             if (File.Exists(fileName))
             {

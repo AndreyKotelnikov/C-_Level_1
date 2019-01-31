@@ -28,7 +28,7 @@ namespace Lesson4_HomeWork
             Console.WriteLine("\nРеализуем алгоритм поиска количества пар, делящихся на 3, через " +
                 "статический метод класса StaticClass");
             int[] arrayInt = new int[20];
-            StaticClass.FillingArrayWithRandomNumbers(arrayInt, -10_000, 10_000);
+            StaticClass.FillingArrayWithRandomNumbers(ref arrayInt, -10_000, 10_000);
             StaticClass.OutputArray(arrayInt);
             Console.WriteLine($"\nКоличество пар, делящихся на 3, равно: {StaticClass.NumberOfPairsDividedBy(arrayInt, 3)}");
 
@@ -42,7 +42,7 @@ namespace Lesson4_HomeWork
             //чтобы при запуске проекта на другом компьютере не приходилось заново указывать путь к файлу
             string path = CurrentPath("Array.txt");
                         
-            StaticClass.GetArrayFromFile(arrayFile, path);
+            StaticClass.GetArrayFromFile(ref arrayFile, path);
             StaticClass.OutputArray(arrayFile);
 
             //3. а) Дописать класс для работы с одномерным массивом. Реализовать конструктор, создающий массив 
@@ -83,7 +83,8 @@ namespace Lesson4_HomeWork
             string pathAuthorization = CurrentPath("Account.txt");
             
             account.Authorization(pathAuthorization);
-                        
+            
+            
 
             Pause();
         }
