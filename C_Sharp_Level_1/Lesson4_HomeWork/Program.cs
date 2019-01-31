@@ -40,12 +40,9 @@ namespace Lesson4_HomeWork
 
             //Привязываемся к относительной директории, 
             //чтобы при запуске проекта на другом компьютере не приходилось заново указывать путь к файлу
-            string path = Environment.CurrentDirectory;
-            string newPath;
-            newPath = path.Remove(path.LastIndexOf(@"\bin\Debug") + 1);
-            newPath = String.Concat(newPath, "Array.txt");
-            
-            StaticClass.GetArrayFromFile(arrayFile, newPath);
+            string path = CurrentPath("Array.txt");
+                        
+            StaticClass.GetArrayFromFile(arrayFile, path);
             StaticClass.OutputArray(arrayFile);
 
             //3. а) Дописать класс для работы с одномерным массивом. Реализовать конструктор, создающий массив 
@@ -69,12 +66,41 @@ namespace Lesson4_HomeWork
             //
             //Перенёс класс MyArray в библиотеку классов MyLibraryForArray и подключил эту библиотеку к текущему проекту.
             //Работа класса MyArray в текущем проекте демонстрирует работоспособность новой библиотеки.
+            //Создавать сборку dll и подключать ссылку на неё я не стал, поскольку это увеличивает время на подключение
+            //этой dll на другом компьютере при проверке моей работы.
 
 
             //3. е) ***Подсчитать частоту вхождения каждого элемента в массив(коллекция Dictionary< int,int>)
             arrayStep.OutputConsoleFrequencyOfOccurrenceItemInArray();
 
+            //4. Решить задачу с логинами из урока 2, только логины и пароли считать из файла в массив.
+            //Создайте структуру Account, содержащую Login и Password.
+            Console.WriteLine("\n\nПроизводим авторизацию из файла:");
+            Account account = new Account("root", "GeekBrains");
+
+            //Привязываемся к относительной директории, 
+            //чтобы при запуске проекта на другом компьютере не приходилось заново указывать путь к файлу
+            string pathAuthorization = CurrentPath("Account.txt");
+            
+            account.Authorization(pathAuthorization);
+                        
+
             Pause();
         }
+
+        /// <summary>
+        /// Привязываемся к относительной директории: файл должен лежать в корневой папке текущего проекта Lesson4_HomeWork
+        /// </summary>
+        /// <param name="fileName">Только имя файла, без указания пути</param>
+        /// <returns>Возвращаем полный относительный путь к фалу</returns>
+        private static string CurrentPath(string fileName)
+        {
+            string path = Environment.CurrentDirectory;
+            string newPath;
+            newPath = path.Remove(path.LastIndexOf(@"\bin\Debug") + 1);
+            newPath = String.Concat(newPath, fileName);
+            return newPath;
+        }
+
     }
 }
