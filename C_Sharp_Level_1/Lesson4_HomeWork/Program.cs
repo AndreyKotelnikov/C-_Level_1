@@ -65,6 +65,9 @@ namespace Lesson4_HomeWork
             arrayStep.OutputArrayWithMessage("\nВыводим элементы массива после вызова метода arrayStep.Multi(3):");
             Console.WriteLine($"\nКоличество максимальных элементов: {arrayStep.MaxCount}");
 
+            //3. б)** Создать библиотеку содержащую класс для работы с массивом. Продемонстрировать работу библиотеки
+            //3. е) ***Подсчитать частоту вхождения каждого элемента в массив(коллекция Dictionary< int,int>)
+            arrayStep.OutputConsoleFrequencyOfOccurrenceItemInArray();
 
             Pause();
         }

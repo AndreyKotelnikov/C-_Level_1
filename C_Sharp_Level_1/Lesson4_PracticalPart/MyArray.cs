@@ -326,7 +326,7 @@ namespace Lesson4_PracticalPart
         /// Считаем, что ноль делится на любое число.
         /// </summary>
         /// <param name="dividedBy">Делитель, на который нужно проверить делимость значений в парах элементов</param>
-        /// <returns></returns>
+        /// <returns>Возвращает количество пар элементов массива, в которых только одно число делится на указанный делитель.</returns>
         public int NumberOfPairsDividedBy(int dividedBy)
         {
             int count = 0;
@@ -336,6 +336,44 @@ namespace Lesson4_PracticalPart
                     || ((array[i] % dividedBy != 0) && (array[i + 1] % dividedBy == 0))) count++;
             }
             return count;
+        }
+
+        /// <summary>
+        /// Возвращает частоту вхождения каждого элемента в массив в коллекции Dictionary(int,int)
+        /// </summary>
+        /// <returns>Возвращает частоту вхождения каждого элемента в массив в коллекции Dictionary(int,int)</returns>
+        public Dictionary<int, int> FrequencyOfOccurrenceItemInArray()
+        {
+            Dictionary<int, int> dictionary = new Dictionary<int, int>();
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (dictionary.ContainsKey(array[i]))
+                {
+                    dictionary[array[i]]++;
+                }
+                else
+                {
+                    dictionary.Add(array[i], 1);
+                }
+            }
+            return dictionary;
+        }
+
+        /// <summary>
+        /// Выводит на консоль информацию по частоте вхождения каждого элемента в массив в виде: Элемент => Частота
+        /// </summary>
+        public void OutputConsoleFrequencyOfOccurrenceItemInArray()
+        {
+            Dictionary<int, int> frequencyItem = FrequencyOfOccurrenceItemInArray();
+            Dictionary<int, int>.KeyCollection keys = frequencyItem.Keys;
+
+            Console.WriteLine("\nПодсчитываем частоту вхождения каждого элемента в массив:");
+            Console.WriteLine("Элемент => Частота");
+            foreach (var item in keys)
+            {
+                Console.WriteLine($"{item, 7} => {frequencyItem[item]}");
+            }
         }
     }
 }
