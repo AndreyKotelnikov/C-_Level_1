@@ -80,10 +80,9 @@ namespace Lesson4_HomeWork
 
             //Привязываемся к относительной директории, 
             //чтобы при запуске проекта на другом компьютере не приходилось заново указывать путь к файлу
-            string pathAuthorization = CurrentPath("Account.txt");
+            account.Authorization(@"..\\..\\Account.txt");
             
-            account.Authorization(pathAuthorization);
-            
+
             
 
             Pause();
