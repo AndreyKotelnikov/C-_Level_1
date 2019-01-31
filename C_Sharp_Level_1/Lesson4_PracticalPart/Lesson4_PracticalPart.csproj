@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyArray.cs" />
     <Compile Include="MyArrayTwoDim.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,6 +54,10 @@
     <ProjectReference Include="..\Lesson1_HomeWork\Lesson1_HomeWork.csproj">
       <Project>{d909333d-642f-4bad-a8dc-7eaf4d0c8eea}</Project>
       <Name>Lesson1_HomeWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLibraryForArray\MyLibraryForArray.csproj">
+      <Project>{85d27ae4-99e2-4c51-82c8-b47d011a0640}</Project>
+      <Name>MyLibraryForArray</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

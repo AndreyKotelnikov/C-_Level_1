@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Lesson1_HomeWork.UsefulMethods;
-using Lesson4_PracticalPart;
+using MyLibraryForArray;
 
 namespace Lesson4_HomeWork
 {
@@ -66,6 +66,11 @@ namespace Lesson4_HomeWork
             Console.WriteLine($"\nКоличество максимальных элементов: {arrayStep.MaxCount}");
 
             //3. б)** Создать библиотеку содержащую класс для работы с массивом. Продемонстрировать работу библиотеки
+            //
+            //Перенёс класс MyArray в библиотеку классов MyLibraryForArray и подключил эту библиотеку к текущему проекту.
+            //Работа класса MyArray в текущем проекте демонстрирует работоспособность новой библиотеки.
+
+
             //3. е) ***Подсчитать частоту вхождения каждого элемента в массив(коллекция Dictionary< int,int>)
             arrayStep.OutputConsoleFrequencyOfOccurrenceItemInArray();
 

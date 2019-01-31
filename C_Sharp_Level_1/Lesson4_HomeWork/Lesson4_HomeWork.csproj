@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LibraryForArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticClass.cs" />
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\Lesson4_PracticalPart\Lesson4_PracticalPart.csproj">
       <Project>{3c6fa487-821e-49f0-bf38-b67d96d1a416}</Project>
       <Name>Lesson4_PracticalPart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLibraryForArray\MyLibraryForArray.csproj">
+      <Project>{85d27ae4-99e2-4c51-82c8-b47d011a0640}</Project>
+      <Name>MyLibraryForArray</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace LibraryForArray
+namespace Lesson4_HomeWork
 {
     /// <summary>
     /// Библиотека для работы с массивом, включающим элементы типа int
     /// </summary>
-    public class MyArray
+    class LibraryForArray
     {
         int[] array;
 
@@ -33,7 +33,7 @@ namespace LibraryForArray
         /// <param name="startNumber">Начальное значение для заполнения первого элемента массива.
         /// Обязательно привести к типу Int64, поскольку тип int используется в сигнатуре другого конструктора</param>
         /// <param name="step">Величина шага, на который увеличивается каждый следующий элемент массива</param>
-        public MyArray(int size, Int64 startNumber, int step = 1)
+        public LibraryForArray(int size, Int64 startNumber, int step = 1)
         {
             //array = new int[size];
             array = (int[])Array.CreateInstance(typeof(int), size);
@@ -50,7 +50,7 @@ namespace LibraryForArray
         /// а значения элементов по одному с каждой следующей строки файла.
         /// </summary>
         /// <param name="fileName">Строка, указывающая путь к файлу и его название</param>
-        public MyArray(string fileName)
+        public LibraryForArray(string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -79,7 +79,7 @@ namespace LibraryForArray
         /// </summary>
         /// <param name="size">Размер массива</param>
         /// <param name="itemValue">Значение, которыми заполняются все элементы массива (по умолчанию = 0)</param>
-        public MyArray(int size, int itemValue = 0)
+        public LibraryForArray(int size, int itemValue = 0)
         {
             array = new int[size];
 
@@ -95,7 +95,7 @@ namespace LibraryForArray
         /// <param name="size">Размер массива</param>
         /// <param name="minValue">Минимальное значение для создания случайных чисел</param>
         /// <param name="maxValue">Максимальное значение для создания случайных чисел</param>
-        public MyArray(int size, int minValue, int maxValue)
+        public LibraryForArray(int size, int minValue, int maxValue)
         {
             array = new int[size];
             Random rand = new Random(100); //Указываем число 100, чтобы получать всегда одинаковую последовательность
@@ -203,9 +203,9 @@ namespace LibraryForArray
         /// (старый массив, остается без изменений)
         /// </summary>
         /// <returns>Новый массив с измененными знаками у всех элементов массива</returns>
-        public MyArray Inverse()
+        public LibraryForArray Inverse()
         {
-            MyArray arrayOut = new MyArray(Length);
+            LibraryForArray arrayOut = new LibraryForArray(Length);
             for (int i = 0; i < Length; i++)
             {
                 arrayOut[i] = -this[i];
@@ -295,9 +295,9 @@ namespace LibraryForArray
         /// Возвращает новый массив с элементами, которые чаще всего встречаются в текущем массиве
         /// </summary>
         /// <returns>Возвращает новый массив с элементами, которые чаще всего встречаются в текущем массиве</returns>
-        public MyArray MaxFrequencyItems()
+        public LibraryForArray MaxFrequencyItems()
         {
-            MyArray seriesN = new MyArray(Max - Min + 1);
+            LibraryForArray seriesN = new LibraryForArray(Max - Min + 1);
             int minOfArray = Min;
             foreach (var item in array)
             {
@@ -311,7 +311,7 @@ namespace LibraryForArray
                 if (seriesN[i] == max) count++;
             }
 
-            MyArray arrayOut = new MyArray(count);
+            LibraryForArray arrayOut = new LibraryForArray(count);
             count = 0;
 
             for (int i = 0; i < seriesN.Length; i++)
@@ -375,84 +375,5 @@ namespace LibraryForArray
                 Console.WriteLine($"{item,7} => {frequencyItem[item]}");
             }
         }
-
-        /// <summary>
-        /// Заполняет массив случайными числами в указанном диапазоне включительно
-        /// </summary>
-        /// <param name="array">Массив, который нужно заполнить случайными числами</param>
-        /// <param name="minValue">Минимальное значение для создания случайных чисел</param>
-        /// <param name="maxValue">Максимальное значение для создания случайных чисел</param>
-        public static void FillingArrayWithRandomNumbers(int[] array, int minValue, int maxValue)
-        {
-            Random rand = new Random(100);
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rand.Next(minValue, maxValue + 1);
-            }
-        }
-
-        public static void OutputArray(int[] array)
-        {
-            Console.WriteLine("Выводим значения массива:");
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write($"{array[i]}, ");
-            }
-        }
-
-        /// <summary>
-        /// Возвращает количество пар элементов массива, в которых только одно число делится на указанный делитель.
-        /// Считаем, что ноль делится на любое число.
-        /// </summary>
-        /// <param name="array">Массив, пары элементов которых нужно проверить</param>
-        /// <param name="dividedBy">Делитель, на который нужно проверить делимость значений в парах элементов</param>
-        /// <returns>Возвращает количество пар элементов массива, в которых только одно число делится на указанный делитель.</returns>
-        public static int NumberOfPairsDividedBy(int[] array, int dividedBy)
-        {
-            //считаем, что ноль делится на любое число
-            int count = 0;
-            for (int i = 0; i < array.Length - 1; i++)
-            {
-                if (((array[i] % dividedBy == 0) && (array[i + 1] % dividedBy != 0))
-                    || ((array[i] % dividedBy != 0) && (array[i + 1] % dividedBy == 0))) count++;
-            }
-            return count;
-        }
-
-        /// <summary>
-        /// Заполняет значения элементов массива из файла (по одному числу с каждой следующей строки файла).
-        /// </summary>
-        /// <param name="array">Массив, который нужно заполнить из файла</param>
-        /// <param name="fileName">Путь к файлу, с указанием его имени</param>
-        public static void GetArrayFromFile(int[] array, string fileName)
-        {
-            if (File.Exists(fileName))
-            {
-                try
-                {
-                    StreamReader streamReader = new StreamReader(fileName);
-
-                    for (int i = 0; i < array.Length; i++)
-                    {
-                        if (streamReader.EndOfStream)
-                        {
-                            Console.WriteLine("В файле данные закончились раньше, чем элементы в массиве");
-                            break;
-                        }
-                        array[i] = int.Parse(streamReader.ReadLine());
-                    }
-                    streamReader.Close();
-                }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            else Console.WriteLine($"В указанной директории файл не обнаружен: {fileName}");
-        }
-
     }
 }
-
-
