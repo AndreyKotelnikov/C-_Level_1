@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Lesson1_HomeWork.UsefulMethods;
 using MyLibraryForArray;
+using MyLibraryForArray2D;
 
 namespace Lesson4_HomeWork
 {
@@ -87,6 +88,21 @@ namespace Lesson4_HomeWork
             //сумму всех элементов массива, сумму всех элементов массива больше заданного, свойство, 
             //возвращающее минимальный элемент массива, свойство, возвращающее максимальный элемент массива, метод, 
             //возвращающий номер максимального элемента массива (через параметры, используя модификатор ref или out).
+            Console.WriteLine("\n\nРаботаем с двухмерным массивом");
+            MyArrayTwoDim matrix = new MyArrayTwoDim(5, 3, -5, 5);
+            matrix.OutputArrayWithMessage("Выводим значения массива:");
+            Console.WriteLine($"Сумма чисел массива: {matrix.GetSum()}");
+            Console.WriteLine($"Сумма чисел массива, больше 3: {matrix.GetSum(3)}");
+            Console.WriteLine($"Минимальный элемент массива: {matrix.Min}");
+            Console.WriteLine($"Максимальный элемент массива: {matrix.Max}");
+
+            int row;
+            int column;
+            matrix.IndexMaxValue(out row, out column);
+            Console.WriteLine($"Первое включение максимального элемента в массиве по индексу: [{row},{column}]");
+
+
+
 
 
 

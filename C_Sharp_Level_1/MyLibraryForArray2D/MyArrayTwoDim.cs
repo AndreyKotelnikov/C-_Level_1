@@ -220,5 +220,64 @@ namespace MyLibraryForArray2D
                 return arrayOut;
             }
         }
+
+        /// <summary>
+        /// Возвращает сумму всех элементов массива
+        /// </summary>
+        /// <returns>Возвращает сумму всех элементов массива</returns>
+        public int GetSum()
+        {
+            int sum = 0;
+            foreach (var item in array2D)
+            {
+                sum += item;
+            }
+            return sum;
+        }
+
+        /// <summary>
+        /// Возвращает сумму элементов массива, которые больше или равны указанному числу
+        /// </summary>
+        /// <param name="minValueItem">Минимальное значение элемента для включения в рассчёт суммы</param>
+        /// <returns>Возвращает сумму элементов массива, которые больше или равны указанному числу</returns>
+        public int GetSum(int minValueItem)
+        {
+            int sum = 0;
+            foreach (var item in array2D)
+            {
+                if (item >= minValueItem) sum += item;
+            }
+            return sum;
+        }
+
+        /// <summary>
+        /// Возвращает длинну массива 
+        /// </summary>
+        public int Length => array2D.Length;
+
+        /// <summary>
+        /// Возвращает через параметры ref индекс элемента, с первым включением максимального значения 
+        /// </summary>
+        /// <param name="row">Возвращает индекс строки максимального элемента, если max элемент не найден, то -1</param>
+        /// <param name="column">Возвращает индекс столбца максимального элемента, если max элемент не найден, то -1</param>
+        public void IndexMaxValue(out int row, out int column)
+        {
+            int max = Max;
+            for (int i = 0; i < array2D.GetLength(0); i++)
+            {
+                for (int j = 0; j < array2D.GetLength(1); j++)
+                {
+                    if (array2D[i, j] == max)
+                    {
+                        row = i;
+                        column = j;
+                        return;
+                    }
+                }
+            }
+            row = -1;
+            column = -1;
+            return;
+        }
     }
 }

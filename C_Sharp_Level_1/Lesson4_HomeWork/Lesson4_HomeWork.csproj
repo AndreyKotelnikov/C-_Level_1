@@ -61,6 +61,10 @@
       <Project>{3c6fa487-821e-49f0-bf38-b67d96d1a416}</Project>
       <Name>Lesson4_PracticalPart</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyLibraryForArray2D\MyLibraryForArray2D.csproj">
+      <Project>{9c42bc77-9546-457e-9300-685c6eba1237}</Project>
+      <Name>MyLibraryForArray2D</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyLibraryForArray\MyLibraryForArray.csproj">
       <Project>{85d27ae4-99e2-4c51-82c8-b47d011a0640}</Project>
       <Name>MyLibraryForArray</Name>
