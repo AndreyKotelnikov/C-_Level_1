@@ -9,6 +9,12 @@ namespace Lesson4_HomeWork
 {
     class StaticClass
     {
+        /// <summary>
+        /// Заполняет массив случайными числами в указанном диапазоне включительно
+        /// </summary>
+        /// <param name="array">Массив, который нужно заполнить случайными числами</param>
+        /// <param name="minValue">Минимальное значение для создания случайных чисел</param>
+        /// <param name="maxValue">Максимальное значение для создания случайных чисел</param>
         public static void FillingArrayWithRandomNumbers(int[] array, int minValue, int maxValue)
         {
             Random rand = new Random(100);
@@ -28,6 +34,13 @@ namespace Lesson4_HomeWork
             }
         }
 
+        /// <summary>
+        /// Возвращает количество пар элементов массива, в которых только одно число делится на указанный делитель.
+        /// Считаем, что ноль делится на любое число.
+        /// </summary>
+        /// <param name="array">Массив, пары элементов которых нужно проверить</param>
+        /// <param name="dividedBy">Делитель, на который нужно проверить делимость значений в парах элементов</param>
+        /// <returns>Возвращает количество пар элементов массива, в которых только одно число делится на указанный делитель.</returns>
         public static int NumberOfPairsDividedBy(int[] array, int dividedBy)
         {
             //считаем, что ноль делится на любое число
@@ -40,6 +53,11 @@ namespace Lesson4_HomeWork
             return count;
         }
 
+        /// <summary>
+        /// Заполняет значения элементов массива из файла (по одному числу с каждой следующей строки файла).
+        /// </summary>
+        /// <param name="array">Массив, который нужно заполнить из файла</param>
+        /// <param name="fileName">Путь к файлу, с указанием его имени</param>
         public static void GetArrayFromFile(int[] array, string fileName)
         {
             if (File.Exists(fileName))
