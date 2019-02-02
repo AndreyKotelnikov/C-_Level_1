@@ -23,17 +23,13 @@ namespace Lesson5_HomeWork
             else
                 Account.OutputConsolAccountList(accountList);
 
-            int[] indexOfWrongLogins = Account.LoginVerificationForAccountList(accountList, useUppercase: true);
-            if (indexOfWrongLogins.Length == 0) Console.WriteLine("Все логины успешно прошли проверку!");
-            else
-            {
-                Console.WriteLine("Следующие логины не прошли проверку:");
-                foreach (var item in indexOfWrongLogins)
-                {
-                    Console.WriteLine(accountList[item].Login);
-                }
-            }
+            int[] indexOfWrongLogins = Account.LoginVerificationForAccountList(accountList);
+            Account.OutputResultVerification(accountList, indexOfWrongLogins);
 
+            //1. б) **с использованием регулярных выражений.  
+            Console.WriteLine("\n\nТеперь делаем проверку через регулярные выражения:");
+            indexOfWrongLogins = Account.LoginVerificationForAccountList(accountList, @"\b[a-z]{1}[a-z,0-9]{2,9}$");
+            Account.OutputResultVerification(accountList, indexOfWrongLogins);
 
             Pause();
         }
