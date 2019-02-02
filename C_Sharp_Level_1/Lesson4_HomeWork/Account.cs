@@ -8,22 +8,18 @@ using static Lesson1_HomeWork.UsefulMethods;
 
 namespace Lesson4_HomeWork
 {
-    class Account
+    public class Account
     {
-        string login;
         string password;
 
         public Account (string login, string password)
         {
-            this.login = login;
+            Login = login;
             this.password = password;
         }
 
-        public string Login
-        {
-            get => login;
-        }
-
+        public string Login { get; }
+        
         public string Password
         {
             get => password;
@@ -138,6 +134,95 @@ namespace Lesson4_HomeWork
                 Console.WriteLine("Ошибка авторизации!");
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Возвращает массив с аккаунтами (логин - пароль), которые загружаются из указанного файла. 
+        /// Каждая пара логин - пароль пишется на отдельной строке и между логином и паролем - пробел. 
+        /// </summary>
+        /// <param name="fileName">Путь и имя файла, из которого нужно загружать список аккаунтов</param>
+        /// <returns></returns>
+        public static Account[] LoadAccountListFromFile(string fileName)
+        {
+            try
+            {
+                string[] accounts = File.ReadAllLines(fileName, Encoding.UTF8);
+                Account[] accountsArray = new Account[accounts.Length];
+
+                for (int i = 0; i < accountsArray.Length; i++)
+                {
+                    string[] loginPassword = accounts[i].Split(' ');
+                    accountsArray[i] = new Account(loginPassword[0], loginPassword[1]);
+                }
+                return accountsArray;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return (Account[])Array.CreateInstance(typeof(Account), 0);
+        }
+
+        public static void OutputConsolAccountList(Account[] accountList)
+        {
+            Console.WriteLine("\nВыводим список аккаунтов:");
+            foreach (var item in accountList)
+            {
+                Console.WriteLine($"{item.Login, 10} {item.Password}");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет корректность задания логина по указанным условиям. Возращает true в случае успешной проверки.
+        /// </summary>
+        /// <param name="minLength">Минимальная длина логина (по умолчанию = 2)</param>
+        /// <param name="maxLength">Максимальная длина логина (по умолчанию = 10)</param>
+        /// <param name="firstCharIsDigit">Может ли первый знак быть цифрой? (по умолчанию = false)</param>
+        /// <param name="useUppercase">Могут ли буквы быть в верхнем регистре? (по умолчанию = false)</param>
+        /// <returns>Возращает true в случае успешной проверки. И False, если логин не прошёл проверку</returns>
+        public bool LoginVerification(int minLength = 2, int maxLength = 10, bool firstCharIsDigit = false, bool useUppercase = false)
+        {
+            if (Login.Length < maxLength && Login.Length > minLength)
+            {
+                if (firstCharIsDigit || (firstCharIsDigit == false && (Login[0] < '0' || Login[0] > '9')))
+                {
+                    for (int i = 0; i < Login.Length - 1; i++)
+                    {
+                        if ((Login[i] > '0' && Login[i] < '9') || (Login[i] > 'a' && Login[i] < 'z')
+                            || (useUppercase && Login[i] > 'A' && Login[i] < 'Z'))
+                            return true;
+                        else return false;
+                    }
+
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Возвращает массив индексов элементов, логины которых не прошли проверку. 
+        /// Или пустой массив, если все логины прошли проверку. 
+        /// </summary>
+        /// <param name="accountList">Список аккаунтов для проверки</param>
+        /// <param name="minLength">Минимальная длина логина (по умолчанию = 2)</param>
+        /// <param name="maxLength">Максимальная длина логина (по умолчанию = 10)</param>
+        /// <param name="firstCharIsDigit">Может ли первый знак быть цифрой? (по умолчанию = false)</param>
+        /// <param name="useUppercase">Могут ли буквы быть в верхнем регистре? (по умолчанию = false)</param>
+        /// <returns>Возвращает массив индексов элементов, логины которых не прошли проверку. 
+        /// Или пустой массив, если все логины прошли проверку.</returns>
+        public static int[] LoginVerificationForAccountList(Account[] accountList, int minLength = 2, int maxLength = 10, 
+            bool firstCharIsDigit = false, bool useUppercase = false)
+        {
+            int[] indexArray = new int[accountList.Length];
+            int count = -1;
+
+            for (int i = 0; i < accountList.Length; i++)
+            {
+                if (!accountList[i].LoginVerification(minLength, maxLength, firstCharIsDigit, useUppercase))
+                    indexArray[++count] = i;
+            }
+            Array.Resize<int>(ref indexArray, count + 1);
+            return indexArray;
         }
     }
 }
