@@ -31,6 +31,24 @@ namespace Lesson5_HomeWork
             indexOfWrongLogins = Account.LoginVerificationForAccountList(accountList, @"\b[a-z]{1}[a-z,0-9]{2,9}$");
             Account.OutputResultVerification(accountList, indexOfWrongLogins);
 
+            //2. Разработать статический класс Message, содержащий следующие статические методы для обработки текста:
+            //а) Вывести только те слова сообщения,  которые содержат не более n букв.
+            string text;
+            //text = Message.GetTextFromInternet("https://geekbrains.ru/geek_university/games", 
+            //    "div class=\"task-block-teacher\"", "/div");
+            text = Message.LoadTextFromFile(@"..\..\Text.txt");
+            Console.WriteLine(text);
+            string[] wordsFromText = Message.GetWordsFromText(text);
+            foreach (var item in wordsFromText)
+            {
+                Console.WriteLine(item);
+            }
+
+            int maxNumberOfCharsInWord = (int)GetNumberFromConsoleInput("\nВведите максимальное количество букв в слове", 
+                1, isInteger: true);
+            Message.OutputWords(wordsFromText, maxNumberChars: maxNumberOfCharsInWord);
+
+
             Pause();
         }
     }
