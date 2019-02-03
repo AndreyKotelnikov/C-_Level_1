@@ -59,7 +59,19 @@ namespace Lesson5_HomeWork
             StringBuilder maxLengthWords = Message.GetAllLongestWords(text);
             Console.WriteLine($"\nВсе самые длинные слова в тексте: {maxLengthWords}");
 
-            Pause();
+            //д) ***Создать метод, который производит частотный анализ текста.В качестве параметра в него передается
+            //массив слов и текст, в качестве результата метод возвращает сколько раз каждое из слов массива входит
+            //в этот текст. Здесь требуется использовать класс Dictionary.
+            Console.WriteLine("\n\nСчитаем чатоту вхождения заданных слов в тексте:\n");
+            string[] wordsForCalculateFrequency = { "message", "from", "the", "longest", "StringBuilder1" };
+            Dictionary<string, int> frequencyWordsInText = Message.GetFrequencyWordsInText(text, wordsForCalculateFrequency);
+            foreach (var item in frequencyWordsInText)
+            {
+                Console.WriteLine($"{item.Key, 20} => {item.Value}");
+            }
+
+
+           Pause();
         }
     }
 }

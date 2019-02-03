@@ -93,6 +93,27 @@ namespace Lesson5_HomeWork
         }
 
         /// <summary>
+        /// Возвращает чатоту вхождения заданных слов в тексте: слово => частота вхождения
+        /// </summary>
+        /// <param name="text">Текс для определения частоты вхождения в него указанных слов</param>
+        /// <param name="wordsForCalculateFrequency">Массив со словами, частоту вхождения которых нужно узнать</param>
+        /// <returns>Возвращает чатоту вхождения заданных слов в тексте: слово => частота вхождения</returns>
+        public static Dictionary<string, int> GetFrequencyWordsInText(string text, string[] wordsForCalculateFrequency)
+        {
+            Dictionary<string, int> frequencyWordsInText = new Dictionary<string, int>();
+            foreach (var item in wordsForCalculateFrequency)
+            {
+                frequencyWordsInText.Add(item, 0);
+            }
+            string[] arrayOfWords = GetWordsFromText(text);
+            foreach (var item in arrayOfWords)
+            {
+                if (frequencyWordsInText.ContainsKey(item)) frequencyWordsInText[item]++;                         
+            }
+            return frequencyWordsInText;
+        }
+
+        /// <summary>
         /// Возвращает самое длинное слово в тексте, если таких слов несколько, то возвращает первое из них.
         /// </summary>
         /// <param name="text">Текст, в котором требуется найти самое длинное слово</param>
