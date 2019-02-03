@@ -168,5 +168,40 @@ namespace Lesson5_HomeWork
                 if (item.Length >= minNumberChars && item.Length <= maxNumberChars) Console.WriteLine(item);
             }
         }
+
+        /// <summary>
+        /// Проверяет: является ли вторая строка перестановкой букв из первой строки.
+        /// Возвращает значение true, если является.
+        /// </summary>
+        /// <param name="firstString">Первая строка</param>
+        /// <param name="secondString">Вторая строка</param>
+        /// <returns>Возвращает значение true, если вторая строка является перестановкой букв из первой строки</returns>
+        public static bool IsPermutationOfLetters(string firstString, string secondString)
+        {
+            if (firstString.Length != secondString.Length) return false;
+
+            int[] arrayForString1 = new int[firstString.Length];
+            int count = 0;
+            foreach (var item in firstString)
+            {
+                arrayForString1[count++] = item;
+            }
+
+            int[] arrayForString2 = new int[secondString.Length];
+            count = 0;
+            foreach (var item in secondString)
+            {
+                arrayForString2[count++] = item;
+            }
+
+            Array.Sort(arrayForString1);
+            Array.Sort(arrayForString2);
+
+            for (int i = 0; i < arrayForString1.Length; i++)
+            {
+                if (arrayForString1[i] != arrayForString2[i]) return false;
+            }
+            return true;
+        }
     }
 }

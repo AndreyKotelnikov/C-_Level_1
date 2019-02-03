@@ -70,8 +70,21 @@ namespace Lesson5_HomeWork
                 Console.WriteLine($"{item.Key, 20} => {item.Value}");
             }
 
+            //3.	*Для двух строк написать метод, определяющий, является ли одна строка перестановкой другой.
+            //Например:
+            //badc являются перестановкой abcd
+            Console.WriteLine("\n\nОпределяем, является ли одна строка перестановкой другой:");
+            string s1 = "badc";
+            string s2 = "abcd";
+            Console.WriteLine($"Строка \"{s1}\" {(Message.IsPermutationOfLetters(s1, s2) ? "является": "не является")} " +
+                $"перестановкой строки\"{s2}\"");
+            string s3 = "bfdc";
+            string s4 = "abcd";
+            Console.WriteLine($"Строка \"{s3}\" {(Message.IsPermutationOfLetters(s3, s4) ? "является" : "не является")} " +
+                $"перестановкой строки\"{s4}\"");
 
-           Pause();
+
+            Pause();
         }
     }
 }
