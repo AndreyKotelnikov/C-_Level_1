@@ -52,6 +52,8 @@ namespace Lesson5_HomeWork
             string textWithoutSomeWords = Message.RemoveWordsFromLastChar(text, symbolOfEndWord);
             Console.WriteLine(textWithoutSomeWords);
 
+            //в) Найти самое длинное слово сообщения.
+            Console.WriteLine($"\nСамое длинное слово из текста это: {Message.GetLongestWord(text)}");
 
 
             Pause();

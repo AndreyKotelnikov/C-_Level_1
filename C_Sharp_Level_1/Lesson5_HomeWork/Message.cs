@@ -75,6 +75,28 @@ namespace Lesson5_HomeWork
         }
 
         /// <summary>
+        /// Возвращает самое длинное слово в тексте, если таких слов несколько, то возвращает первое из них.
+        /// </summary>
+        /// <param name="text">Текст, в котором требуется найти самое длинное слово</param>
+        /// <returns>Возвращает самое длинное слово в тексте, если таких слов несколько, то возвращает первое из них.</returns>
+        public static string GetLongestWord(string text)
+        {
+            string[] arrayOfWords = GetWordsFromText(text);
+            int maxLength = 0;
+            int indexOfLongestWord = 0;
+
+            for (int i = 0; i < arrayOfWords.Length; i++)
+            {
+                if (arrayOfWords[i].Length > maxLength )
+                {
+                    maxLength = arrayOfWords[i].Length;
+                    indexOfLongestWord = i;
+                }
+            }
+            return arrayOfWords[indexOfLongestWord];
+        }
+
+        /// <summary>
         /// Возвращает новую строку с текстом, из которого удалены слова, которые заканчиваются на указанный символ
         /// </summary>
         /// <param name="text">Текст, из которого нужно удалить слова, которые заканчиваются на указанный символ</param>
