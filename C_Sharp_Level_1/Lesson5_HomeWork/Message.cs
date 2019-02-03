@@ -80,9 +80,10 @@ namespace Lesson5_HomeWork
         /// <param name="arrayOfWords">Массив, слова из которого нужно вывести на консоль</param>
         /// <param name="minNumberChars">Минимальное количество символов в слове, которое нужно вывести в консоль</param>
         /// <param name="maxNumberChars">Максимальное количество символов в слове, которое нужно вывести в консоль</param>
-        public static void OutputWords(string[] arrayOfWords, int minNumberChars = 0, int maxNumberChars = int.MaxValue)
+        public static void OutputWords(string text, int minNumberChars = 0, int maxNumberChars = int.MaxValue)
         {
             Console.WriteLine("\nВыводим слова:");
+            string[] arrayOfWords = GetWordsFromText(text);
             foreach (var item in arrayOfWords)
             {
                 if (item.Length >= minNumberChars && item.Length <= maxNumberChars) Console.WriteLine(item);

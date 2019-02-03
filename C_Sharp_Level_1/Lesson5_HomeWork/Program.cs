@@ -33,20 +33,16 @@ namespace Lesson5_HomeWork
 
             //2. Разработать статический класс Message, содержащий следующие статические методы для обработки текста:
             //а) Вывести только те слова сообщения,  которые содержат не более n букв.
+            Console.WriteLine("\n\nНачинаем работу со статическим классом Message:");
             string text;
-            //text = Message.GetTextFromInternet("https://geekbrains.ru/geek_university/games", 
+            //text = Message.GetTextFromInternet("https://geekbrains.ru/lessons/33796/homework", 
             //    "div class=\"task-block-teacher\"", "/div");
             text = Message.LoadTextFromFile(@"..\..\Text.txt");
-            Console.WriteLine(text);
-            string[] wordsFromText = Message.GetWordsFromText(text);
-            foreach (var item in wordsFromText)
-            {
-                Console.WriteLine(item);
-            }
-
-            int maxNumberOfCharsInWord = (int)GetNumberFromConsoleInput("\nВведите максимальное количество букв в слове", 
+            Console.WriteLine($"Загруженный из файла текст:\n\n{text}");
+            
+            int maxNumberOfCharsInWord = (int)GetNumberFromConsoleInput("\nВведите максимальное количество букв в слове:", 
                 1, isInteger: true);
-            Message.OutputWords(wordsFromText, maxNumberChars: maxNumberOfCharsInWord);
+            Message.OutputWords(text, maxNumberChars: maxNumberOfCharsInWord);
 
 
             Pause();
