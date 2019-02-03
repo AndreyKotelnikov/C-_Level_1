@@ -75,6 +75,24 @@ namespace Lesson5_HomeWork
         }
 
         /// <summary>
+        /// Возвращает новую строку с текстом, из которого удалены слова, которые заканчиваются на указанный символ
+        /// </summary>
+        /// <param name="text">Текст, из которого нужно удалить слова, которые заканчиваются на указанный символ</param>
+        /// <param name="symbolOfEndWord">Символ, на который заканчиваются слова, которые нужно удалить</param>
+        /// <returns>Возвращает новую строку с текстом, из которого удалены слова, которые заканчиваются на указанный символ</returns>
+        public static string RemoveWordsFromLastChar(string text, char symbolOfEndWord)
+        {
+            string[] arrayOfWords = GetWordsFromText(text);
+            string textWithoutSomeWords = text;
+            foreach (var item in arrayOfWords)
+            {
+                if (item[item.Length - 1] == symbolOfEndWord)
+                    textWithoutSomeWords = textWithoutSomeWords.Remove(textWithoutSomeWords.IndexOf(item), item.Length);
+            }
+            return textWithoutSomeWords;
+        }
+
+        /// <summary>
         /// Выводит в консоль слова из указанного массива, отвечающие заданным условиям
         /// </summary>
         /// <param name="arrayOfWords">Массив, слова из которого нужно вывести на консоль</param>

@@ -44,6 +44,15 @@ namespace Lesson5_HomeWork
                 1, isInteger: true);
             Message.OutputWords(text, maxNumberChars: maxNumberOfCharsInWord);
 
+            //б) Удалить из сообщения все слова, которые заканчиваются на заданный символ.
+            Console.WriteLine("\nУкажите символ, на который заканчиваются слова, которые нужно удалить:");
+            Char symbolOfEndWord = Console.ReadLine()[0];
+            Console.WriteLine($"\nУдаляем слова, которые заканчиваются на символ '{symbolOfEndWord}'");
+            Console.WriteLine("\nВыводим получившийся текст:\n");
+            string textWithoutSomeWords = Message.RemoveWordsFromLastChar(text, symbolOfEndWord);
+            Console.WriteLine(textWithoutSomeWords);
+
+
 
             Pause();
         }
