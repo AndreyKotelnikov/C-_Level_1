@@ -75,11 +75,29 @@ namespace Lesson5_HomeWork
         }
 
         /// <summary>
+        /// Возвращает все самые длинные слова из указанного текста через пробел
+        /// </summary>
+        /// <param name="text">Текст, в котором требуется найти все самые длинные слова</param>
+        /// <returns>Возвращает все самые длинные слова из указанного текста через пробел</returns>
+        public static StringBuilder GetAllLongestWords(string text)
+        {
+            string[] arrayOfWords = GetWordsFromText(text);
+            int maxLength = GetFirstLongestWord(text).Length;
+            StringBuilder allLongestWords = new StringBuilder();
+
+            foreach (var item in arrayOfWords)
+            {
+                if (item.Length == maxLength) allLongestWords.Append($" {item}");
+            }
+            return allLongestWords;
+        }
+
+        /// <summary>
         /// Возвращает самое длинное слово в тексте, если таких слов несколько, то возвращает первое из них.
         /// </summary>
         /// <param name="text">Текст, в котором требуется найти самое длинное слово</param>
         /// <returns>Возвращает самое длинное слово в тексте, если таких слов несколько, то возвращает первое из них.</returns>
-        public static string GetLongestWord(string text)
+        public static string GetFirstLongestWord(string text)
         {
             string[] arrayOfWords = GetWordsFromText(text);
             int maxLength = 0;

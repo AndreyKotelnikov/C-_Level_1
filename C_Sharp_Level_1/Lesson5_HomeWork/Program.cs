@@ -53,8 +53,11 @@ namespace Lesson5_HomeWork
             Console.WriteLine(textWithoutSomeWords);
 
             //в) Найти самое длинное слово сообщения.
-            Console.WriteLine($"\nСамое длинное слово из текста это: {Message.GetLongestWord(text)}");
+            Console.WriteLine($"\nПервое самое длинное слово из текста это: {Message.GetFirstLongestWord(text)}");
 
+            //г) Сформировать строку с помощью StringBuilder из самых длинных слов сообщения.
+            StringBuilder maxLengthWords = Message.GetAllLongestWords(text);
+            Console.WriteLine($"\nВсе самые длинные слова в тексте: {maxLengthWords}");
 
             Pause();
         }
