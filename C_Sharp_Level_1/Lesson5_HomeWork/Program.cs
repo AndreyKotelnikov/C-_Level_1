@@ -106,13 +106,16 @@ namespace Lesson5_HomeWork
                 numberOfLastPuplesWithLowPerformance, 2);
             Console.WriteLine($"\nОпределяем список последних {numberOfLastPuplesWithLowPerformance} по успеваемости учеников");
             Pupil.OutputListOfPuples(listOfPuplesWithLowPerformance, false);
-
+        
             //5. **Написать игру «Верю. Не верю». В файле хранятся вопрос и ответ, правда это или нет. Например: 
             //«Шариковую ручку изобрели в древнем Египте», «Да». Компьютер загружает эти данные, 
             //случайным образом выбирает 5 вопросов и задаёт их игроку. Игрок отвечает Да или Нет на каждый вопрос 
             //и набирает баллы за каждый правильный ответ. 
             //Список вопросов ищите во вложении или воспользуйтесь интернетом.
-
+            Question[] questionsList = Question.LoadQuestionListFromFile(@"..\..\ВерюНеВерю.txt");
+            // Question.OutputListOfQuestions(questionsList);
+            Console.WriteLine($"\nВаш счёт по итогам игры составляет " +
+                $"{Question.OneRaundOfGame(questionsList, ConsoleKey.Enter, 5)} очков");
 
             Pause();
         }
