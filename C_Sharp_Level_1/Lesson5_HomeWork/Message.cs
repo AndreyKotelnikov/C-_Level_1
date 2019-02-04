@@ -103,12 +103,12 @@ namespace Lesson5_HomeWork
             Dictionary<string, int> frequencyWordsInText = new Dictionary<string, int>();
             foreach (var item in wordsForCalculateFrequency)
             {
-                frequencyWordsInText.Add(item, 0);
+                frequencyWordsInText.Add(item.ToLower(), 0);
             }
             string[] arrayOfWords = GetWordsFromText(text);
             foreach (var item in arrayOfWords)
             {
-                if (frequencyWordsInText.ContainsKey(item)) frequencyWordsInText[item]++;                         
+                if (frequencyWordsInText.ContainsKey(item.ToLower())) frequencyWordsInText[item.ToLower()]++;                         
             }
             return frequencyWordsInText;
         }
