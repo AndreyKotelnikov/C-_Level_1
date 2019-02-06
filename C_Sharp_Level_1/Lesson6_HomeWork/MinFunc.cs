@@ -81,21 +81,21 @@ namespace Lesson6_HomeWork
             bw.Close();
             fs.Close();
         }
-        public static double Load(string fileName)
+        public static List<double> Load(string fileName, out double min)
         {
             FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             BinaryReader bw = new BinaryReader(fs);
-            double min = double.MaxValue;
-            double d;
+            min = double.MaxValue;
+            List<double> list = new List<double>();
             for (int i = 0; i < fs.Length / sizeof(double); i++)
             {
                 // Считываем значение и переходим к следующему
-                d = bw.ReadDouble();
-                if (d < min) min = d;
+                list.Add(bw.ReadDouble());
+                if (list.Last() < min) min = list.Last();
             }
             bw.Close();
             fs.Close();
-            return min;
+            return list;
         }
     }
 }

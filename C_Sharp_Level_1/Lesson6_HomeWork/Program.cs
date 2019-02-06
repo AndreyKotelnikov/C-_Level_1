@@ -31,9 +31,17 @@ namespace Lesson6_HomeWork
             del_d_d del = MinFunc.functions.Keys.ElementAt((int)userAnswes[0]);
             Func<double, double> func = new Func<double, double>(del);
             MinFunc.SaveFunc(@"..\..\data.bin", func, -100, 100, 0.5);
-            Console.WriteLine($"\nМинимум функции: {MinFunc.Load(@"..\..\data.bin"):0.000}");
-
-
+            double min;
+            
+            //б) *Переделать функцию Load, чтобы она возвращала массив считанных значений.
+            //Пусть она возвращает минимум через параметр(с использованием модификатора out).
+            List<double> list = MinFunc.Load(@"..\..\data.bin", out min);
+            Console.WriteLine($"\nМинимум функции: {min:0.000}");
+            Console.WriteLine("\n\nВыводим все значения функции из файла:");
+            foreach (var item in list)
+            {
+                Console.Write($"{item:0.000} ");
+            }
 
 
 
