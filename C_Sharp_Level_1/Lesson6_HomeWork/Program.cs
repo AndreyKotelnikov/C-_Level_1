@@ -12,6 +12,7 @@ namespace Lesson6_HomeWork
     {
         static void Main(string[] args)
         {
+            goto m1;
             //1. Изменить программу вывода таблицы функции так, 
             //чтобы можно было передавать функции типа double (double, double). 
             //Продемонстрировать работу на функции с функцией a*x^2 и функцией a*sin(x).
@@ -42,8 +43,17 @@ namespace Lesson6_HomeWork
             {
                 Console.Write($"{item:0.000} ");
             }
+            m1:
+            //3. Переделать программу Пример использования коллекций для решения следующих задач:
+            //а) Подсчитать количество студентов учащихся на 5 и 6 курсах;
+            DateTime dt = DateTime.Now;
+            int bakalavr;
+            int magistr;
+            List<Student> listStudents = Student.LoadListOfStudents(@"..\..\Students.csv", out bakalavr, out magistr);
+            Student.OutputListOfStudents(listStudents, bakalavr, magistr);
+            Console.WriteLine(DateTime.Now - dt);
 
-
+            Console.WriteLine($"\nКоличество студентов 5 и 6 курса равно: {Student.NumberHighCourse_5_6(listStudents)}");
 
             Pause();
         }
