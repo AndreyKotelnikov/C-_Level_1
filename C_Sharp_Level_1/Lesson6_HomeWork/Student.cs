@@ -18,7 +18,20 @@ namespace Lesson6_HomeWork
         public int Group { get; private set; }
         public string City { get; private set; }
         public int Age { get; private set; }
+        
         // Создаем конструктор
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="university"></param>
+        /// <param name="faculty"></param>
+        /// <param name="department"></param>
+        /// <param name="age"></param>
+        /// <param name="course"></param>
+        /// <param name="group"></param>
+        /// <param name="city"></param>
         public Student(string firstName, string lastName, string university, string faculty, string department, int age, int course, int group, string city)
         {
             LastName = lastName;
@@ -32,12 +45,24 @@ namespace Lesson6_HomeWork
             City = city;
         }
     
+        /// <summary>
+        /// Функция для сортировки Студентов по Имени
+        /// </summary>
+        /// <param name="st1">Студент 1</param>
+        /// <param name="st2">Студент 2</param>
+        /// <returns>Возвращает результат сравнения: -1, 0 или 1</returns>
         public static int SortByFirstName(Student st1, Student st2)          // Создаем метод для сравнения для экземпляров
         {
 
             return String.Compare(st1.FirstName, st2.FirstName);          // Сравниваем две строки
         }
 
+        /// <summary>
+        /// Функция для сортировки Студентов сначала по курсу, потом по возрасту
+        /// </summary>
+        /// <param name="st1">Студент 1</param>
+        /// <param name="st2">Студент 2</param>
+        /// <returns>Возвращает результат сравнения: -1, 0 или 1</returns>
         public static int SortByCourseThenByAge(Student st1, Student st2)
         {
             if (st1.Course > st2.Course) { return 1; }
@@ -50,7 +75,15 @@ namespace Lesson6_HomeWork
             }
         }
 
-            public static List<Student> LoadListOfStudents(string fileName, out int bakalavr, out int magistr)
+        /// <summary>
+        /// Загружает из файла список студентов и возвращает его. 
+        /// Дополнительно через out передаёт количество магистром и бакалавров.
+        /// </summary>
+        /// <param name="fileName">Путь к файлу</param>
+        /// <param name="bakalavr">Параметр для возврата значения: количество бакалавров</param>
+        /// <param name="magistr">Параметр для возврата значения: количество магистров</param>
+        /// <returns>Возвращает список студентов из файла</returns>
+        public static List<Student> LoadListOfStudents(string fileName, out int bakalavr, out int magistr)
         {
             bakalavr = 0;
             magistr = 0;
@@ -83,6 +116,14 @@ namespace Lesson6_HomeWork
             return list;
         }
 
+        /// <summary>
+        /// Выводит на экран список студентов. 
+        /// Дополнительно может отсортировать список и вывести количество бакалавров и студентов.
+        /// </summary>
+        /// <param name="list">Список студентов</param>
+        /// <param name="bakalavr">Количество бакалавров</param>
+        /// <param name="magistr">Количество магистров</param>
+        /// <param name="sort">Функция для сортировки списка</param>
         public static void OutputListOfStudents(List<Student> list, int bakalavr = -1, int magistr = -1, Func<Student, Student, int> sort = null)
         {
 
@@ -97,7 +138,14 @@ namespace Lesson6_HomeWork
             }
         }
 
-        internal static Dictionary<int, int> GetNumberOfStudentsInEachCourse(List<Student> list ,int minAge, int maxAge)
+        /// <summary>
+        /// Подсчитывает и возвращает частотный массив студентов в заданном возрастном промежутке
+        /// </summary>
+        /// <param name="list">Список студентов</param>
+        /// <param name="minAge">Минимальное значение возраста</param>
+        /// <param name="maxAge">Максимальное значение возраста</param>
+        /// <returns>Возвращает частотный массив студентов в заданном возрастном промежутке</returns>
+        public static Dictionary<int, int> GetNumberOfStudentsInEachCourse(List<Student> list ,int minAge, int maxAge)
         {
             Dictionary<int, int> numberOfStudents = new Dictionary<int, int>();
             List<Student> listWithPredicateByAge = list.FindAll(item => item.Age >= minAge && item.Age <= maxAge);
@@ -109,14 +157,36 @@ namespace Lesson6_HomeWork
             return numberOfStudents;
         }
 
+        /// <summary>
+        /// Возвращает количество студентов на 5 и 6 курсах
+        /// </summary>
+        /// <param name="list">Список студентов</param>
+        /// <returns>Возвращает количество студентов на 5 и 6 курсах</returns>
         public static int NumberHighCourse_5_6(List<Student> list) 
             => list.FindAll(item => item.Course == 5 || item.Course == 6).Count;
-        
+
+        /// <summary>
+        /// Возвращает количество студентов по заданным условиям отбора для Свойств типа int
+        /// </summary>
+        /// <param name="list">Список студентов</param>
+        /// <param name="property">Свойство, по которому требуется сделать отбор. 
+        /// Нужно привести к типу Student и передать как функцию. Пример: (Student) => Student.Course</param>
+        /// <param name="minValue">Минимальное значение свойства</param>
+        /// <param name="maxValue">Максимальное значение свойства</param>
+        /// <returns>Возвращает количество студентов по заданным условиям отбора для Свойств типа int</returns>
         public static int NumberOfStudentsWithPredicates(List<Student> list, Func<Student, int> property, int minValue, int maxValue)
         {
              return list.FindAll(item => property(item) >= minValue && property(item) <= maxValue).Count;
         }
 
+        /// <summary>
+        /// Возвращает количество студентов по заданным условиям отбора для Свойств типа string
+        /// </summary>
+        /// <param name="list">Список студентов</param>
+        /// <param name="property">Свойство, по которому требуется сделать отбор. 
+        /// Нужно привести к типу Student и передать как функцию. Пример: (Student) => Student.Course</param>
+        /// <param name="valueForEqual">Значение для отбора на равенство</param>
+        /// <returns>Возвращает количество студентов по заданным условиям отбора для Свойств типа string</returns>
         public static int NumberOfStudentsWithPredicates(List<Student> list, Func<Student, string> property, string valueForEqual)
         {
             return list.FindAll(item => property(item) == valueForEqual).Count;

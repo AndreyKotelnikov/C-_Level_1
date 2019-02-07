@@ -10,7 +10,12 @@ namespace Lesson6_HomeWork
 
     class TableFunc
     {
-        
+        /// <summary>
+        /// Выводит на консоль таблицу значений указанной функции и её параметров
+        /// </summary>
+        /// <param name="F">Функция для рассчёта</param>
+        /// <param name="x">Параметр функции х</param>
+        /// <param name="b">Параметр функции b</param>
         public static void Table(Fun F, double x, double b)
         {
             Console.WriteLine("----- X ----- Y -----");
