@@ -32,13 +32,25 @@ namespace Lesson6_HomeWork
             City = city;
         }
     
-        public static int MyDelegat(Student st1, Student st2)          // Создаем метод для сравнения для экземпляров
+        public static int SortByFirstName(Student st1, Student st2)          // Создаем метод для сравнения для экземпляров
         {
 
             return String.Compare(st1.FirstName, st2.FirstName);          // Сравниваем две строки
         }
 
-        public static List<Student> LoadListOfStudents(string fileName, out int bakalavr, out int magistr)
+        public static int SortByCourseThenByAge(Student st1, Student st2)
+        {
+            if (st1.Course > st2.Course) { return 1; }
+            if (st1.Course < st2.Course) { return -1; }
+            else
+            {
+                if (st1.Age > st2.Age) { return 1; }
+                if (st1.Age < st2.Age) { return -1; }
+                else { return 0; }
+            }
+        }
+
+            public static List<Student> LoadListOfStudents(string fileName, out int bakalavr, out int magistr)
         {
             bakalavr = 0;
             magistr = 0;
@@ -100,6 +112,15 @@ namespace Lesson6_HomeWork
         public static int NumberHighCourse_5_6(List<Student> list) 
             => list.FindAll(item => item.Course == 5 || item.Course == 6).Count;
         
+        public static int NumberOfStudentsWithPredicates(List<Student> list, Func<Student, int> property, int minValue, int maxValue)
+        {
+             return list.FindAll(item => property(item) >= minValue && property(item) <= maxValue).Count;
+        }
+
+        public static int NumberOfStudentsWithPredicates(List<Student> list, Func<Student, string> property, string valueForEqual)
+        {
+            return list.FindAll(item => property(item) == valueForEqual).Count;
+        }
 
     }
 }

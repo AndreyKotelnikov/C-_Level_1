@@ -50,12 +50,12 @@ namespace Lesson6_HomeWork
             int bakalavr;
             int magistr;
             List<Student> listStudents = Student.LoadListOfStudents(@"..\..\Students.csv", out bakalavr, out magistr);
-            Student.OutputListOfStudents(listStudents, bakalavr, magistr, Student.MyDelegat);
+            Student.OutputListOfStudents(listStudents, bakalavr, magistr, Student.SortByFirstName);
             Console.WriteLine(DateTime.Now - dt);
 
             Console.WriteLine($"\nКоличество студентов 5 и 6 курса равно: {Student.NumberHighCourse_5_6(listStudents)}");
 
-            //б) подсчитать сколько студентов в возрасте от 18 до 20 лет на каком курсе учатся (*частотный массив);
+            //3. б) подсчитать сколько студентов в возрасте от 18 до 20 лет на каком курсе учатся (*частотный массив);
             int minAge = 18;
             int maxAge = 20;
             Dictionary<int, int> numberOfStudentsInEachCourse = Student.GetNumberOfStudentsInEachCourse(listStudents, minAge, maxAge);
@@ -65,9 +65,21 @@ namespace Lesson6_HomeWork
                 Console.WriteLine($"курс {item.Key} => {item.Value, 2} {DeclensionWord(item.Value, "студент", "студента", "студентов")}");
             }
 
-            //в) отсортировать список по возрасту студента;
+            //3. в) отсортировать список по возрасту студента;
+            Console.WriteLine("\nОтсортировать список по возрасту студента");
             listStudents.Sort(delegate (Student x, Student y) { if (x.Age > y.Age) { return 1; } else if (x.Age < y.Age) { return -1; } else { return 0; } });
             Student.OutputListOfStudents(listStudents);
+
+            //3. г) *отсортировать список по курсу и возрасту студента;
+            Console.WriteLine("\nОтсортировать список по курсу и возрасту студента");
+            Student.OutputListOfStudents(listStudents, sort: Student.SortByCourseThenByAge);
+
+            //д) разработать единый метод подсчета количества студентов по различным параметрам
+            //выбора с помощью делегата и методов предикатов.
+            Console.WriteLine($"\nКоличество студентов 5 и 6 курса равно: " +
+                $"{Student.NumberOfStudentsWithPredicates(listStudents, (Student) => Student.Course, 5, 6)}");
+            Console.WriteLine($"\nКоличество студентов с именем Andrey равно: " +
+                $"{Student.NumberOfStudentsWithPredicates(listStudents, (Student) => Student.FirstName, "Andrey")}");
 
             Pause();
         }
