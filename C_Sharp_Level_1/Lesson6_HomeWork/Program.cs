@@ -74,12 +74,17 @@ namespace Lesson6_HomeWork
             Console.WriteLine("\nОтсортировать список по курсу и возрасту студента");
             Student.OutputListOfStudents(listStudents, sort: Student.SortByCourseThenByAge);
 
-            //д) разработать единый метод подсчета количества студентов по различным параметрам
+            //3. д) разработать единый метод подсчета количества студентов по различным параметрам
             //выбора с помощью делегата и методов предикатов.
             Console.WriteLine($"\nКоличество студентов 5 и 6 курса равно: " +
                 $"{Student.NumberOfStudentsWithPredicates(listStudents, (Student) => Student.Course, 5, 6)}");
             Console.WriteLine($"\nКоличество студентов с именем Andrey равно: " +
                 $"{Student.NumberOfStudentsWithPredicates(listStudents, (Student) => Student.FirstName, "Andrey")}");
+
+            //4.	**Считайте файл различными способами. Смотрите “Пример записи файла различными способами”. 
+            //Создайте методы, которые возвращают массив byte (FileStream, BufferedStream), 
+            //строку для StreamReader и массив int для BinaryReader.
+
 
             Pause();
         }
