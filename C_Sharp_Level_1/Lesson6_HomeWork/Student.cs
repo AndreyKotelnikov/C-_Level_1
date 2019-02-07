@@ -9,33 +9,33 @@ namespace Lesson6_HomeWork
 {
     class Student
     {
-        public string lastName;
-        public string firstName;
-        public string university;
-        public string faculty;
-        public int course;
-        public string department;
-        public int group;
-        public string city;
-        int age;
+        public string LastName { get; private set; }
+        public string FirstName { get; private set; }
+        public string University { get; private set; }
+        public string Faculty { get; private set; }
+        public int Course { get; private set; }
+        public string Department { get; private set; }
+        public int Group { get; private set; }
+        public string City { get; private set; }
+        public int Age { get; private set; }
         // Создаем конструктор
         public Student(string firstName, string lastName, string university, string faculty, string department, int age, int course, int group, string city)
         {
-            this.lastName = lastName;
-            this.firstName = firstName;
-            this.university = university;
-            this.faculty = faculty;
-            this.department = department;
-            this.course = course;
-            this.age = age;
-            this.group = group;
-            this.city = city;
+            LastName = lastName;
+            FirstName = firstName;
+            University = university;
+            Faculty = faculty;
+            Department = department;
+            Course = course;
+            Age = age;
+            Group = group;
+            City = city;
         }
     
-        static int MyDelegat(Student st1, Student st2)          // Создаем метод для сравнения для экземпляров
+        public static int MyDelegat(Student st1, Student st2)          // Создаем метод для сравнения для экземпляров
         {
 
-            return String.Compare(st1.firstName, st2.firstName);          // Сравниваем две строки
+            return String.Compare(st1.FirstName, st2.FirstName);          // Сравниваем две строки
         }
 
         public static List<Student> LoadListOfStudents(string fileName, out int bakalavr, out int magistr)
@@ -71,18 +71,34 @@ namespace Lesson6_HomeWork
             return list;
         }
 
-        public static void OutputListOfStudents(List<Student> list, int bakalavr, int magistr)
+        public static void OutputListOfStudents(List<Student> list, int bakalavr = -1, int magistr = -1, Func<Student, Student, int> sort = null)
         {
-            
-            list.Sort(new Comparison<Student>(MyDelegat));
-            Console.WriteLine("Всего студентов:" + list.Count);
-            Console.WriteLine("Магистров:{0}", magistr);
-            Console.WriteLine("Бакалавров:{0}", bakalavr);
-            foreach (var v in list) Console.WriteLine(v.firstName);
+
+            if (sort != null) { list.Sort(new Comparison<Student>(sort)); }
+            Console.WriteLine("\nВсего студентов:" + list.Count);
+            if (magistr != -1) { Console.WriteLine("Магистров:{0}", magistr); }
+            if (bakalavr != -1) { Console.WriteLine("Бакалавров:{0}", bakalavr); }
+            Console.WriteLine("|firstName|secondName|univercity|faculty|department|age|сourse|group|city|");
+            foreach (var v in list)
+            {
+                Console.WriteLine($"|{v.FirstName, 9}|{v.LastName,10}|{v.University,10}|{v.Faculty,7}|{v.Department,10}|{v.Age,3}|{v.Course,6}|{v.Group,5}|{v.City,4}|");
+            }
+        }
+
+        internal static Dictionary<int, int> GetNumberOfStudentsInEachCourse(List<Student> list ,int minAge, int maxAge)
+        {
+            Dictionary<int, int> numberOfStudents = new Dictionary<int, int>();
+            List<Student> listWithPredicateByAge = list.FindAll(item => item.Age >= minAge && item.Age <= maxAge);
+            foreach (var item in listWithPredicateByAge)
+            {
+                if (numberOfStudents.Keys.Contains(item.Course)) { numberOfStudents[item.Course]++; }
+                else { numberOfStudents.Add(item.Course, 1); }
+            }
+            return numberOfStudents;
         }
 
         public static int NumberHighCourse_5_6(List<Student> list) 
-            => list.FindAll(item => item.course == 5 || item.course == 6).Count;
+            => list.FindAll(item => item.Course == 5 || item.Course == 6).Count;
         
 
     }

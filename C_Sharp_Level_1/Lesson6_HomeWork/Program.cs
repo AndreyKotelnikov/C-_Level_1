@@ -50,10 +50,24 @@ namespace Lesson6_HomeWork
             int bakalavr;
             int magistr;
             List<Student> listStudents = Student.LoadListOfStudents(@"..\..\Students.csv", out bakalavr, out magistr);
-            Student.OutputListOfStudents(listStudents, bakalavr, magistr);
+            Student.OutputListOfStudents(listStudents, bakalavr, magistr, Student.MyDelegat);
             Console.WriteLine(DateTime.Now - dt);
 
             Console.WriteLine($"\nКоличество студентов 5 и 6 курса равно: {Student.NumberHighCourse_5_6(listStudents)}");
+
+            //б) подсчитать сколько студентов в возрасте от 18 до 20 лет на каком курсе учатся (*частотный массив);
+            int minAge = 18;
+            int maxAge = 20;
+            Dictionary<int, int> numberOfStudentsInEachCourse = Student.GetNumberOfStudentsInEachCourse(listStudents, minAge, maxAge);
+            Console.WriteLine($"\n\nСреди студентов в возрасте от {minAge} до {maxAge} лет на каждом курсе учатся следующее количество:");
+            foreach (var item in numberOfStudentsInEachCourse)
+            {
+                Console.WriteLine($"курс {item.Key} => {item.Value, 2} {DeclensionWord(item.Value, "студент", "студента", "студентов")}");
+            }
+
+            //в) отсортировать список по возрасту студента;
+            listStudents.Sort(delegate (Student x, Student y) { if (x.Age > y.Age) { return 1; } else if (x.Age < y.Age) { return -1; } else { return 0; } });
+            Student.OutputListOfStudents(listStudents);
 
             Pause();
         }
