@@ -12,6 +12,7 @@ namespace Lesson6_HomeWork
     {
         static void Main(string[] args)
         {
+            goto m1;
             //1. Изменить программу вывода таблицы функции так, 
             //чтобы можно было передавать функции типа double (double, double). 
             //Продемонстрировать работу на функции с функцией a*x^2 и функцией a*sin(x).
@@ -79,11 +80,13 @@ namespace Lesson6_HomeWork
                 $"{Student.NumberOfStudentsWithPredicates(listStudents, (Student) => Student.Course, 5, 6)}");
             Console.WriteLine($"\nКоличество студентов с именем Andrey равно: " +
                 $"{Student.NumberOfStudentsWithPredicates(listStudents, (Student) => Student.FirstName, "Andrey")}");
-
+        m1:
             //4.	**Считайте файл различными способами. Смотрите “Пример записи файла различными способами”. 
             //Создайте методы, которые возвращают массив byte (FileStream, BufferedStream), 
             //строку для StreamReader и массив int для BinaryReader.
-
+            WriteToFile.SaveToFile();
+            Console.WriteLine("\nЗагружаем из файлов и выводим байты на консоль:");
+            ReadFromFile.LoadFromFile();
 
             Pause();
         }
