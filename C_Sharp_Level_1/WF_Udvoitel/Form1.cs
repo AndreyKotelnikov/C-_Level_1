@@ -20,26 +20,58 @@ namespace WF_Udvoitel
         private void btnCommand1_Click(object sender, EventArgs e)
         {
             lblNumber.Text = (int.Parse(lblNumber.Text) + 1).ToString();
-            ComandCounterPlus();
+            BtnClick();
         }
 
         private void btnCommand2_Click(object sender, EventArgs e)
         {
             lblNumber.Text = (int.Parse(lblNumber.Text) * 2).ToString();
-            ComandCounterPlus();
+            BtnClick();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             lblNumber.Text = 1.ToString();
-            ComandCounterPlus();
+            BtnClick();
         }
 
         //1. а) Добавить в программу «Удвоитель» подсчёт количества отданных команд удвоителю.
-        private void ComandCounterPlus()
+        private void BtnClick()
         {
             Udvoitel.ComandCounter++;
             lblComandCounterValue.Text = Udvoitel.ComandCounter.ToString();
+            Udvoitel.CheckNumber(lblNumber.Text);
         }
+
+        //б) Добавить меню и команду «Играть». 
+        //При нажатии появляется сообщение, какое число должен получить игрок.
+        //Игрок должен получить это число за минимальное количество ходов.
+        private void MenuItemPlay_Click(object sender, EventArgs e)
+        {
+            Udvoitel.SetNewNumberForPlay();
+            MessageBox.Show($"Загадано число {Udvoitel.NumberForPlay}." +
+                $"\nВы должны получить это число за минимальное количество ходов", "Правила игры", MessageBoxButtons.OK);
+            lblNumberForPlay.Visible = true;
+            lblNumberForPlayValue.Visible = true;
+            lblNumberForPlayValue.Text = Udvoitel.NumberForPlay.ToString();
+            Udvoitel.ComandCounter = 0;
+            lblComandCounterValue.Text = Udvoitel.ComandCounter.ToString();
+            lblComandCounter.Text = "Количество ходов:";
+            lblNumber.Text = 0.ToString();
+        }
+
+        public void PlayEnd()
+        {
+            MessageBox.Show($"Поздравляю, Вы добрались до нужного числа за {Udvoitel.ComandCounter} ходов.",
+                "Конец игры", MessageBoxButtons.OK);
+            lblNumberForPlay.Visible = false;
+            lblNumberForPlayValue.Visible =false;
+            Udvoitel.ComandCounter = 0;
+            lblComandCounterValue.Text = Udvoitel.ComandCounter.ToString();
+            lblComandCounter.Text = "Счётчик команд:";
+            lblNumber.Text = 0.ToString();
+        }
+
+        
     }
 }

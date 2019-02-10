@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace WF_Udvoitel
 {
+    
     static class Program
     {
         /// <summary>
@@ -16,7 +17,9 @@ namespace WF_Udvoitel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 form = new Form1();
+            Udvoitel.Form = form;
+            Application.Run(form);
         }
     }
 }
