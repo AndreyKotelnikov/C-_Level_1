@@ -14,22 +14,32 @@ namespace WF_Udvoitel
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void btnCommand1_Click(object sender, EventArgs e)
         {
             lblNumber.Text = (int.Parse(lblNumber.Text) + 1).ToString();
+            ComandCounterPlus();
         }
 
         private void btnCommand2_Click(object sender, EventArgs e)
         {
             lblNumber.Text = (int.Parse(lblNumber.Text) * 2).ToString();
+            ComandCounterPlus();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             lblNumber.Text = 1.ToString();
+            ComandCounterPlus();
+        }
+
+        //1. а) Добавить в программу «Удвоитель» подсчёт количества отданных команд удвоителю.
+        private void ComandCounterPlus()
+        {
+            Udvoitel.ComandCounter++;
+            lblComandCounterValue.Text = Udvoitel.ComandCounter.ToString();
         }
     }
 }

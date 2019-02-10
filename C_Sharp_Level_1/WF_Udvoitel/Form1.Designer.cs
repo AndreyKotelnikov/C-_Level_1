@@ -32,6 +32,8 @@
             this.btnCommand2 = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.lblNumber = new System.Windows.Forms.Label();
+            this.lblComandCounter = new System.Windows.Forms.Label();
+            this.lblComandCounterValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCommand1
@@ -73,11 +75,31 @@
             this.lblNumber.TabIndex = 3;
             this.lblNumber.Text = "0";
             // 
+            // lblComandCounter
+            // 
+            this.lblComandCounter.AutoSize = true;
+            this.lblComandCounter.Location = new System.Drawing.Point(13, 172);
+            this.lblComandCounter.Name = "lblComandCounter";
+            this.lblComandCounter.Size = new System.Drawing.Size(91, 13);
+            this.lblComandCounter.TabIndex = 4;
+            this.lblComandCounter.Text = "Счётчик команд:";
+            // 
+            // lblComandCounterValue
+            // 
+            this.lblComandCounterValue.AutoSize = true;
+            this.lblComandCounterValue.Location = new System.Drawing.Point(101, 172);
+            this.lblComandCounterValue.Name = "lblComandCounterValue";
+            this.lblComandCounterValue.Size = new System.Drawing.Size(13, 13);
+            this.lblComandCounterValue.TabIndex = 5;
+            this.lblComandCounterValue.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 197);
+            this.Controls.Add(this.lblComandCounterValue);
+            this.Controls.Add(this.lblComandCounter);
             this.Controls.Add(this.lblNumber);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnCommand2);
@@ -95,6 +117,8 @@
         private System.Windows.Forms.Button btnCommand2;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblNumber;
+        private System.Windows.Forms.Label lblComandCounter;
+        private System.Windows.Forms.Label lblComandCounterValue;
     }
 }
 
