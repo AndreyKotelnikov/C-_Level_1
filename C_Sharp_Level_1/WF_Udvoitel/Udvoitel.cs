@@ -42,7 +42,7 @@ namespace WF_Udvoitel
                 ComandCounter = 0;
                 ClearHistory();
                 Form.PlayEnd();
-            } 
+            }     
         }
 
         public static void ClearHistory() => historyMove.Clear();

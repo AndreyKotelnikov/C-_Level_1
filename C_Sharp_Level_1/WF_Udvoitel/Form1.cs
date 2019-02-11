@@ -64,7 +64,7 @@ namespace WF_Udvoitel
 
         public void PlayEnd()
         {
-            MessageBox.Show($"Поздравляю, Вы добрались до нужного числа за {Udvoitel.ComandCounter} ходов.",
+            MessageBox.Show($"Поздравляю, Вы добрались до нужного числа за {lblComandCounterValue.Text} ходов.",
                 "Конец игры", MessageBoxButtons.OK);
             lblNumberForPlay.Visible = false;
             lblNumberForPlayValue.Visible =false;
