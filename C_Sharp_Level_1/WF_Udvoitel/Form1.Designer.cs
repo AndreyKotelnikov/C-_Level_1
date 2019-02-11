@@ -40,14 +40,16 @@
             this.lblNumberTitle = new System.Windows.Forms.Label();
             this.lblNumberForPlay = new System.Windows.Forms.Label();
             this.lblNumberForPlayValue = new System.Windows.Forms.Label();
+            this.btnСancelMove = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCommand1
             // 
-            this.btnCommand1.Location = new System.Drawing.Point(242, 31);
+            this.btnCommand1.Location = new System.Drawing.Point(431, 57);
+            this.btnCommand1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCommand1.Name = "btnCommand1";
-            this.btnCommand1.Size = new System.Drawing.Size(75, 23);
+            this.btnCommand1.Size = new System.Drawing.Size(151, 42);
             this.btnCommand1.TabIndex = 0;
             this.btnCommand1.Text = "+1";
             this.btnCommand1.UseVisualStyleBackColor = true;
@@ -55,9 +57,10 @@
             // 
             // btnCommand2
             // 
-            this.btnCommand2.Location = new System.Drawing.Point(242, 86);
+            this.btnCommand2.Location = new System.Drawing.Point(431, 140);
+            this.btnCommand2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCommand2.Name = "btnCommand2";
-            this.btnCommand2.Size = new System.Drawing.Size(75, 23);
+            this.btnCommand2.Size = new System.Drawing.Size(151, 42);
             this.btnCommand2.TabIndex = 1;
             this.btnCommand2.Text = "x2";
             this.btnCommand2.UseVisualStyleBackColor = true;
@@ -65,9 +68,10 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(242, 148);
+            this.btnReset.Location = new System.Drawing.Point(431, 231);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(151, 42);
             this.btnReset.TabIndex = 2;
             this.btnReset.Text = "Сброс";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -76,17 +80,19 @@
             // lblNumber
             // 
             this.lblNumber.AutoSize = true;
-            this.lblNumber.Location = new System.Drawing.Point(91, 86);
+            this.lblNumber.Location = new System.Drawing.Point(167, 159);
+            this.lblNumber.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(13, 13);
+            this.lblNumber.Size = new System.Drawing.Size(20, 24);
             this.lblNumber.TabIndex = 3;
             this.lblNumber.Text = "0";
             // 
             // lblComandCounter
             // 
-            this.lblComandCounter.Location = new System.Drawing.Point(0, 175);
+            this.lblComandCounter.Location = new System.Drawing.Point(0, 338);
+            this.lblComandCounter.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblComandCounter.Name = "lblComandCounter";
-            this.lblComandCounter.Size = new System.Drawing.Size(104, 13);
+            this.lblComandCounter.Size = new System.Drawing.Size(191, 24);
             this.lblComandCounter.TabIndex = 4;
             this.lblComandCounter.Text = "Счётчик команд:";
             this.lblComandCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -94,9 +100,10 @@
             // lblComandCounterValue
             // 
             this.lblComandCounterValue.AutoSize = true;
-            this.lblComandCounterValue.Location = new System.Drawing.Point(103, 175);
+            this.lblComandCounterValue.Location = new System.Drawing.Point(189, 338);
+            this.lblComandCounterValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblComandCounterValue.Name = "lblComandCounterValue";
-            this.lblComandCounterValue.Size = new System.Drawing.Size(13, 13);
+            this.lblComandCounterValue.Size = new System.Drawing.Size(20, 24);
             this.lblComandCounterValue.TabIndex = 5;
             this.lblComandCounterValue.Text = "0";
             // 
@@ -106,7 +113,8 @@
             this.Menu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(347, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(636, 37);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -114,8 +122,9 @@
             // 
             this.Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemPlay});
+            this.Menu.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(53, 20);
+            this.Menu.Size = new System.Drawing.Size(77, 29);
             this.Menu.Text = "Меню";
             // 
             // MenuItemPlay
@@ -128,18 +137,20 @@
             // lblNumberTitle
             // 
             this.lblNumberTitle.AutoSize = true;
-            this.lblNumberTitle.Location = new System.Drawing.Point(16, 86);
+            this.lblNumberTitle.Location = new System.Drawing.Point(29, 159);
+            this.lblNumberTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNumberTitle.Name = "lblNumberTitle";
-            this.lblNumberTitle.Size = new System.Drawing.Size(69, 13);
+            this.lblNumberTitle.Size = new System.Drawing.Size(119, 24);
             this.lblNumberTitle.TabIndex = 7;
             this.lblNumberTitle.Text = "Ваше число:";
             // 
             // lblNumberForPlay
             // 
             this.lblNumberForPlay.AutoSize = true;
-            this.lblNumberForPlay.Location = new System.Drawing.Point(13, 28);
+            this.lblNumberForPlay.Location = new System.Drawing.Point(24, 52);
+            this.lblNumberForPlay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNumberForPlay.Name = "lblNumberForPlay";
-            this.lblNumberForPlay.Size = new System.Drawing.Size(102, 13);
+            this.lblNumberForPlay.Size = new System.Drawing.Size(180, 24);
             this.lblNumberForPlay.TabIndex = 8;
             this.lblNumberForPlay.Text = "Загаданное число:";
             this.lblNumberForPlay.Visible = false;
@@ -147,17 +158,30 @@
             // lblNumberForPlayValue
             // 
             this.lblNumberForPlayValue.AutoSize = true;
-            this.lblNumberForPlayValue.Location = new System.Drawing.Point(122, 28);
+            this.lblNumberForPlayValue.Location = new System.Drawing.Point(224, 52);
+            this.lblNumberForPlayValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNumberForPlayValue.Name = "lblNumberForPlayValue";
-            this.lblNumberForPlayValue.Size = new System.Drawing.Size(0, 13);
+            this.lblNumberForPlayValue.Size = new System.Drawing.Size(0, 24);
             this.lblNumberForPlayValue.TabIndex = 9;
             this.lblNumberForPlayValue.Visible = false;
             // 
+            // btnСancelMove
+            // 
+            this.btnСancelMove.Location = new System.Drawing.Point(431, 319);
+            this.btnСancelMove.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnСancelMove.Name = "btnСancelMove";
+            this.btnСancelMove.Size = new System.Drawing.Size(151, 42);
+            this.btnСancelMove.TabIndex = 10;
+            this.btnСancelMove.Text = "Отменить ход";
+            this.btnСancelMove.UseVisualStyleBackColor = true;
+            this.btnСancelMove.Click += new System.EventHandler(this.btnСancelMove_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 197);
+            this.ClientSize = new System.Drawing.Size(636, 384);
+            this.Controls.Add(this.btnСancelMove);
             this.Controls.Add(this.lblNumberForPlayValue);
             this.Controls.Add(this.lblNumberForPlay);
             this.Controls.Add(this.lblNumberTitle);
@@ -168,7 +192,9 @@
             this.Controls.Add(this.btnCommand2);
             this.Controls.Add(this.btnCommand1);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Form1";
             this.Text = "Удвоитель";
             this.menuStrip1.ResumeLayout(false);
@@ -192,6 +218,7 @@
         private System.Windows.Forms.Label lblNumberTitle;
         private System.Windows.Forms.Label lblNumberForPlay;
         private System.Windows.Forms.Label lblNumberForPlayValue;
+        private System.Windows.Forms.Button btnСancelMove;
     }
 }
 
