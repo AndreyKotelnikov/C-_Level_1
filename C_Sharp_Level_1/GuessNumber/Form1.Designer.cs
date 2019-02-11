@@ -37,6 +37,7 @@
             this.lblUserNumber = new System.Windows.Forms.Label();
             this.tbUserNumberValue = new System.Windows.Forms.TextBox();
             this.tbMessage = new System.Windows.Forms.TextBox();
+            this.cbSeparateForm = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // tbHello
@@ -125,11 +126,22 @@
             this.tbMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbMessage.Visible = false;
             // 
+            // cbSeparateForm
+            // 
+            this.cbSeparateForm.AutoSize = true;
+            this.cbSeparateForm.Location = new System.Drawing.Point(193, 184);
+            this.cbSeparateForm.Name = "cbSeparateForm";
+            this.cbSeparateForm.Size = new System.Drawing.Size(346, 28);
+            this.cbSeparateForm.TabIndex = 9;
+            this.cbSeparateForm.Text = "Вводить текст в отдельной форме";
+            this.cbSeparateForm.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 314);
+            this.Controls.Add(this.cbSeparateForm);
             this.Controls.Add(this.tbMessage);
             this.Controls.Add(this.tbUserNumberValue);
             this.Controls.Add(this.lblUserNumber);
@@ -141,7 +153,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Угадай число";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +170,7 @@
         private System.Windows.Forms.Label lblUserNumber;
         private System.Windows.Forms.TextBox tbUserNumberValue;
         private System.Windows.Forms.TextBox tbMessage;
+        private System.Windows.Forms.CheckBox cbSeparateForm;
     }
 }
 

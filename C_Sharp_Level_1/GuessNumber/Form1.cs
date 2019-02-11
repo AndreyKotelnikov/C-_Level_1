@@ -19,6 +19,7 @@ namespace GuessNumber
     public partial class Form1 : Form
     {
         Repository rep;
+        Form2 form2;
 
         public Form1()
         {
@@ -35,9 +36,19 @@ namespace GuessNumber
             lblNumberTitle.Visible = true;
             lblTryCount.Visible = true;
             lblTryCountValue.Visible = true;
-            lblUserNumber.Visible = true;
-            tbUserNumberValue.Visible = true;
             tbMessage.Visible = true;
+            cbSeparateForm.Visible = false;
+
+            //2. б) **Реализовать отдельную форму c TextBox для ввода числа.
+            if (cbSeparateForm.CheckState != CheckState.Checked)
+            {
+                lblUserNumber.Visible = true;
+                tbUserNumberValue.Visible = true;
+            } else
+            {
+                form2 = new Form2(this, Location.X, Location.Y);
+                form2.Show();
+            }
 
             lblTryCountValue.Text = rep.TryCount.ToString();
         }
@@ -56,9 +67,17 @@ namespace GuessNumber
             }
         }
 
+        public void SetUserNumber(string number)
+        {
+            rep.UserNumber = int.Parse(number);
+            rep.CheckUserAnswer();
+        }
+
         public void FilltbMessage(int arg)
         {
-            tbUserNumberValue.Text = string.Empty;
+            if (cbSeparateForm.CheckState != CheckState.Checked) { tbUserNumberValue.Text = string.Empty; }
+            else { form2.tbUserNumberClear(); }
+            
             lblTryCountValue.Text = rep.TryCount.ToString();
 
             switch (arg)
@@ -83,7 +102,17 @@ namespace GuessNumber
         {
             lblTryCountValue.Text = rep.TryCount.ToString();
             tbMessage.Text = $"Поздравляю! Вы угадали число за {tryCount} попыток!";
-            tbUserNumberValue.Enabled = false;
+
+            if (cbSeparateForm.CheckState != CheckState.Checked) { tbUserNumberValue.Enabled = false; }
+            else
+            {
+                lblUserNumber.Visible = true;
+                tbUserNumberValue.Visible = true;
+                tbUserNumberValue.Text = rep.UserNumber.ToString();
+                tbUserNumberValue.Enabled = false;
+                form2.Close();
+            }
+            
         }
     }
 }
