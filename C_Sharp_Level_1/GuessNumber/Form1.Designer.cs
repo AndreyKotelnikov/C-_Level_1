@@ -123,6 +123,7 @@
             this.tbMessage.ReadOnly = true;
             this.tbMessage.Size = new System.Drawing.Size(696, 22);
             this.tbMessage.TabIndex = 8;
+            this.tbMessage.TabStop = false;
             this.tbMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbMessage.Visible = false;
             // 
@@ -150,9 +151,12 @@
             this.Controls.Add(this.lblNumberTitle);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.tbHello);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::GuessNumber.Properties.Settings.Default, "Loc1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Location = global::GuessNumber.Properties.Settings.Default.Loc1;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Угадай число";
             this.ResumeLayout(false);
             this.PerformLayout();

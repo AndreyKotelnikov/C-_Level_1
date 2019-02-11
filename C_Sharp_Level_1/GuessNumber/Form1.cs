@@ -25,9 +25,7 @@ namespace GuessNumber
         {
             InitializeComponent();
         }
-
         
-
         private void btnStart_Click(object sender, EventArgs e)
         {
             rep = new Repository(this);
@@ -44,6 +42,7 @@ namespace GuessNumber
             {
                 lblUserNumber.Visible = true;
                 tbUserNumberValue.Visible = true;
+                tbUserNumberValue.Focus();
             } else
             {
                 form2 = new Form2(this, Location.X, Location.Y);
@@ -64,6 +63,7 @@ namespace GuessNumber
             {
                 rep.UserNumber = int.Parse(tbUserNumberValue.Text);
                 rep.CheckUserAnswer();
+                e.Handled = true;
             }
         }
 

@@ -23,7 +23,8 @@ namespace GuessNumber
         {
             InitializeComponent();
             this.form1 = form1;
-            Location = new Point(x + 300, y + 500);
+            SetDesktopLocation(x + 500, y + 30);
+            tbUserNumberValue.Focus();
         }
 
         private void tbUserNumberValue_KeyPress(object sender, KeyPressEventArgs e)
@@ -36,6 +37,7 @@ namespace GuessNumber
             else if (ch == (char)Keys.Enter && tbUserNumberValue.Text.Length > 0)
             {
                 form1.SetUserNumber(tbUserNumberValue.Text);
+                e.Handled = true;
             }
         }
 

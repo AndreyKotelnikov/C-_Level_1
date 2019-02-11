@@ -34,7 +34,7 @@
             // tbUserNumberValue
             // 
             this.tbUserNumberValue.Location = new System.Drawing.Point(22, 22);
-            this.tbUserNumberValue.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbUserNumberValue.Margin = new System.Windows.Forms.Padding(6);
             this.tbUserNumberValue.Name = "tbUserNumberValue";
             this.tbUserNumberValue.Size = new System.Drawing.Size(214, 29);
             this.tbUserNumberValue.TabIndex = 0;
@@ -47,8 +47,9 @@
             this.ClientSize = new System.Drawing.Size(251, 109);
             this.Controls.Add(this.tbUserNumberValue);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Введите число:";
             this.ResumeLayout(false);
             this.PerformLayout();
