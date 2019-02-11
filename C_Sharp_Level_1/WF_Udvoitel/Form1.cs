@@ -73,6 +73,8 @@ namespace WF_Udvoitel
             lblNumber.Text = 0.ToString();
         }
 
+        //в) *Добавить кнопку «Отменить», которая отменяет последние ходы. Используйте обобщенный класс Stack.
+        //Вся логика игры должна быть реализована в классе с удвоителем.
         private void btnСancelMove_Click(object sender, EventArgs e)
         {
             lblNumber.Text = Udvoitel.LastMove.ToString();
