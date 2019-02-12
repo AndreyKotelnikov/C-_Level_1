@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessNumber", "GuessNumber\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.1_Lesson_8_1_HomeWork", "8.1_Lesson_8_1_HomeWork\8.1_Lesson_8_1_HomeWork.csproj", "{8FBAAC2B-14DA-40F0-92E0-E54E78F14E58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.2_Lesson_8_2_HomeWork", "8.2_Lesson_8_2_HomeWork\8.2_Lesson_8_2_HomeWork.csproj", "{43F5F42F-7590-4823-89AC-11FC26FF3100}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{8FBAAC2B-14DA-40F0-92E0-E54E78F14E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FBAAC2B-14DA-40F0-92E0-E54E78F14E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FBAAC2B-14DA-40F0-92E0-E54E78F14E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F5F42F-7590-4823-89AC-11FC26FF3100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F5F42F-7590-4823-89AC-11FC26FF3100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F5F42F-7590-4823-89AC-11FC26FF3100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F5F42F-7590-4823-89AC-11FC26FF3100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
