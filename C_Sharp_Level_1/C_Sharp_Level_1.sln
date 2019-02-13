@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.2_Lesson_8_2_HomeWork", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.3_Lesson_8_3_HomeWork", "8.3_Lesson_8_3_HomeWork\8.3_Lesson_8_3_HomeWork.csproj", "{80E90D93-EAEC-443E-AE63-410FCEB2F616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.4_Lesson_8_4_HomeWork", "8.4_Lesson_8_4_HomeWork\8.4_Lesson_8_4_HomeWork.csproj", "{DC875F6E-3714-41E0-AE44-5AACFF4F962D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{80E90D93-EAEC-443E-AE63-410FCEB2F616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80E90D93-EAEC-443E-AE63-410FCEB2F616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80E90D93-EAEC-443E-AE63-410FCEB2F616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC875F6E-3714-41E0-AE44-5AACFF4F962D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC875F6E-3714-41E0-AE44-5AACFF4F962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC875F6E-3714-41E0-AE44-5AACFF4F962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC875F6E-3714-41E0-AE44-5AACFF4F962D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

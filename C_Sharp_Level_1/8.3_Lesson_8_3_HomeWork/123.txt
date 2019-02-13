@@ -1,15 +1,24 @@
 <?xml version="1.0"?>
-<ArrayOfQuestion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Question>
-    <text>1</text>
-    <trueFalse>true</trueFalse>
-  </Question>
-  <Question>
-    <text>2</text>
-    <trueFalse>false</trueFalse>
-  </Question>
-  <Question>
-    <text>34</text>
-    <trueFalse>false</trueFalse>
-  </Question>
-</ArrayOfQuestion>
+<ArrayOfFriend xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Friend>
+    <Name>1</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>1</DayBirthday>
+  </Friend>
+  <Friend>
+    <Name>2</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>1</DayBirthday>
+  </Friend>
+  <Friend>
+    <Name>3</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>1</DayBirthday>
+  </Friend>
+</ArrayOfFriend>
