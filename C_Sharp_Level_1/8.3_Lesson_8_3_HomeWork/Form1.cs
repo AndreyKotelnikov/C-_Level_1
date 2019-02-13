@@ -65,7 +65,7 @@ namespace _8._3_Lesson_8_3_HomeWork
             if (!CheckCurrentQuestion(sender, ((sender as NumericUpDown).Focused == true)? null : e))
             {
                 tboxQuestion.Focus();
-                nudNumber.Value = database.CurrentIndex + 1;
+                nudNumber.Value = database?.CurrentIndex + 1 ?? 0;
                 return;
             }
             tboxQuestion.Text = database[(int)nudNumber.Value - 1].text;
@@ -76,7 +76,7 @@ namespace _8._3_Lesson_8_3_HomeWork
         // Обработчик кнопки Добавить
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!CheckCurrentQuestion(sender, e)) { nudNumber.Value = database.CurrentIndex + 1; return; }
+            if (!CheckCurrentQuestion(sender, e)) { nudNumber.Value = database?.CurrentIndex + 1 ?? 0; return; }
             database.Add(string.Empty, false);
             tboxQuestion.Text = string.Empty;
             cboxTrue.Checked = false;
