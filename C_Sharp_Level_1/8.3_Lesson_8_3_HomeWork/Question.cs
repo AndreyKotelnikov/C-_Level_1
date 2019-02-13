@@ -30,7 +30,8 @@ namespace _8._3_Lesson_8_3_HomeWork
     {
         string fileName;
         List<Question> list;
-        public bool IsChanged { get; set; } = false; 
+        public bool IsChanged { get; set; } = false;
+        public int CurrentIndex { get; set; } = 0;
         public string FileName
         {
             set { fileName = value; }
@@ -65,6 +66,7 @@ namespace _8._3_Lesson_8_3_HomeWork
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Ошибка при сохранении файла:", MessageBoxButtons.OK);
+                throw;
             }
         }
         public void Load()
@@ -79,6 +81,7 @@ namespace _8._3_Lesson_8_3_HomeWork
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Ошибка при загрузке файла:", MessageBoxButtons.OK);
+                throw;
             }
         }
         public int Count
