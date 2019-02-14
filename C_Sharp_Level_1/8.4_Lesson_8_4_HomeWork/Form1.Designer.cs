@@ -51,6 +51,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbDay = new System.Windows.Forms.TextBox();
             this.tbMonth = new System.Windows.Forms.TextBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -255,6 +256,7 @@
             // 
             this.groupBox3.Controls.Add(this.tbDay);
             this.groupBox3.Controls.Add(this.tbMonth);
+            this.groupBox3.Controls.Add(this.monthCalendar1);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -267,24 +269,34 @@
             // 
             // tbDay
             // 
-            this.tbDay.Location = new System.Drawing.Point(85, 52);
+            this.tbDay.Enabled = false;
+            this.tbDay.Location = new System.Drawing.Point(85, 56);
             this.tbDay.Name = "tbDay";
-            this.tbDay.Size = new System.Drawing.Size(100, 29);
+            this.tbDay.Size = new System.Drawing.Size(43, 29);
             this.tbDay.TabIndex = 3;
-            this.tbDay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMonth_KeyPress);
+            this.tbDay.TabStop = false;
             // 
             // tbMonth
             // 
-            this.tbMonth.Location = new System.Drawing.Point(85, 24);
+            this.tbMonth.Enabled = false;
+            this.tbMonth.Location = new System.Drawing.Point(85, 28);
             this.tbMonth.Name = "tbMonth";
-            this.tbMonth.Size = new System.Drawing.Size(100, 29);
+            this.tbMonth.Size = new System.Drawing.Size(43, 29);
             this.tbMonth.TabIndex = 2;
-            this.tbMonth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMonth_KeyPress);
+            this.tbMonth.TabStop = false;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(140, 26);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 6;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 55);
+            this.label5.Location = new System.Drawing.Point(17, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 24);
             this.label5.TabIndex = 1;
@@ -293,7 +305,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 29);
+            this.label4.Location = new System.Drawing.Point(6, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 24);
             this.label4.TabIndex = 0;
@@ -354,6 +366,7 @@
         private System.Windows.Forms.TextBox tbMonth;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 

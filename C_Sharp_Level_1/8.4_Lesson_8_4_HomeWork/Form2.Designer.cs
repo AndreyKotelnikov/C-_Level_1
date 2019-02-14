@@ -57,7 +57,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 24);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Версия редактора 2.0";
+            this.label2.Text = "Версия редактора 3.0";
             // 
             // label3
             // 

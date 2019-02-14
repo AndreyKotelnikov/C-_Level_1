@@ -25,16 +25,19 @@ namespace _8._4_Lesson_8_4_HomeWork
             InitializeComponent();
             nudNumber.Minimum = 0;
             nudNumber.Maximum = 0;
-        }
+            monthCalendar1_DateSelected(null, null);
+            ControlBox = false;
+            tbName.Focus();
+        }                                                               
         // Обработчик пункта меню Exit
         private void MiExit_Click(object sender, EventArgs e)
         {
-            if (database.IsChanged)
+            if (database?.IsChanged ?? false)
             {
                 DialogResult result = MessageBox.Show(
                     "Есть несохранённые изменения.\nСохранить изменения в файл перед выходом?",
                     "Сохранить изменения перед выходом?", MessageBoxButtons.YesNoCancel);
-                if (result == DialogResult.Yes) { miSave_Click(null, null); }
+                if (result == DialogResult.Yes) { miSave_Click(null, EventArgs.Empty); }
                 else if (result == DialogResult.Cancel) { return; }
             }
             Close();
@@ -46,14 +49,15 @@ namespace _8._4_Lesson_8_4_HomeWork
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 database = new FriendsList(sfd.FileName);
-                database.Add(tbName.Text, tbSurName.Text, tbSecondName.Text, int.Parse(tbMonth.Text), int.Parse(tbDay.Text));
+                database.Add(tbName.Text, tbSurName.Text, tbSecondName.Text, 
+                    monthCalendar1.SelectionStart.Month, monthCalendar1.SelectionStart.Day);
                 try { database.Save(); }
                 catch (Exception) { return; }
+                tbName.Focus();
                 nudNumber.Minimum = 1;
                 nudNumber.Maximum = 1;
                 nudNumber.Value = 1;
                 database.CurrentIndex = (int)nudNumber.Value - 1;
-                tbName.Focus();
             };
         }
         // Обработчик события изменения значения numericUpDown
@@ -72,7 +76,9 @@ namespace _8._4_Lesson_8_4_HomeWork
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (!CheckCurrentQuestion(sender, e)) { nudNumber.Value = database?.CurrentIndex + 1 ?? 0; return; }
-            database.Add(string.Empty, string.Empty, string.Empty, 1, 1);
+            monthCalendar1.SetDate(DateTime.Now);
+            database.Add(string.Empty, string.Empty, string.Empty, 
+                monthCalendar1.SelectionStart.Month, monthCalendar1.SelectionStart.Day);
             database.CurrentIndex = database.Count - 1;
             nudNumber.Maximum = database.Count;
             nudNumber.Value = database.Count;
@@ -114,11 +120,12 @@ namespace _8._4_Lesson_8_4_HomeWork
                 database = new FriendsList(ofd.FileName);
                 try { database.Load(); }
                 catch (Exception) { return; }
+                tbName.Focus();
                 nudNumber.Minimum = 1;
                 nudNumber.Maximum = database.Count;
-                nudNumber.Value = 1;
                 database.CurrentIndex = 0;
                 FillFormFieldes();
+                nudNumber.Value = 1;
             }
         }
         // Обработчик кнопки Сохранить (друга)
@@ -152,8 +159,8 @@ namespace _8._4_Lesson_8_4_HomeWork
             if ((database[database.CurrentIndex].Name != tbName.Text ||
                 database[database.CurrentIndex].SurName != tbSurName.Text ||
                 database[database.CurrentIndex].SecondName != tbSecondName.Text ||
-                database[database.CurrentIndex].MonthBirthday != int.Parse(tbMonth.Text) ||
-                database[database.CurrentIndex].DayBirthday != int.Parse(tbDay.Text)) 
+                database[database.CurrentIndex].MonthBirthday != monthCalendar1.SelectionStart.Month ||
+                database[database.CurrentIndex].DayBirthday != monthCalendar1.SelectionStart.Day) 
                 && e != EventArgs.Empty)
             {
                 if (DialogResult.Yes == MessageBox.Show(
@@ -187,8 +194,9 @@ namespace _8._4_Lesson_8_4_HomeWork
             tbName.Text = database[database.CurrentIndex].Name;
             tbSurName.Text = database[database.CurrentIndex].SurName;
             tbSecondName.Text = database[database.CurrentIndex].SecondName;
-            tbMonth.Text = database[database.CurrentIndex].MonthBirthday.ToString();
-            tbDay.Text = database[database.CurrentIndex].DayBirthday.ToString();
+            DateTime dateTime = new DateTime(
+                DateTime.Now.Year, database[database.CurrentIndex].MonthBirthday, database[database.CurrentIndex].DayBirthday);
+            monthCalendar1.SetDate(dateTime);
             tbName.Focus();
         }
 
@@ -197,8 +205,8 @@ namespace _8._4_Lesson_8_4_HomeWork
             database[database.CurrentIndex].Name = tbName.Text;
             database[database.CurrentIndex].SurName = tbSurName.Text;
             database[database.CurrentIndex].SecondName = tbSecondName.Text;
-            database[database.CurrentIndex].MonthBirthday = int.Parse(tbMonth.Text);
-            database[database.CurrentIndex].DayBirthday = int.Parse(tbDay.Text);
+            database[database.CurrentIndex].MonthBirthday = monthCalendar1.SelectionStart.Month;
+            database[database.CurrentIndex].DayBirthday = monthCalendar1.SelectionStart.Day;
             tbName.Focus();
         }
 
@@ -207,8 +215,9 @@ namespace _8._4_Lesson_8_4_HomeWork
             tbName.Text = string.Empty;
             tbSurName.Text = string.Empty;
             tbSecondName.Text = string.Empty;
-            tbMonth.Text = 1.ToString();
-            tbDay.Text = 1.ToString();
+            monthCalendar1.SetDate(DateTime.Now);
+            tbMonth.Text = monthCalendar1.SelectionStart.Month.ToString("00");
+            tbDay.Text = monthCalendar1.SelectionStart.Day.ToString("00");
             tbName.Focus();
         }
 
@@ -221,13 +230,10 @@ namespace _8._4_Lesson_8_4_HomeWork
             }
         }
 
-        private void tbMonth_KeyPress(object sender, KeyPressEventArgs e)
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8)
-            {
-                e.Handled = true;
-            }
+            tbMonth.Text = monthCalendar1.SelectionStart.Month.ToString("00");
+            tbDay.Text = monthCalendar1.SelectionStart.Day.ToString("00");
         }
     }
 }

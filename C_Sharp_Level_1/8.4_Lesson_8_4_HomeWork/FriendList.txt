@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ArrayOfFriend xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Friend>
+    <Name>Андрей</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>2</MonthBirthday>
+    <DayBirthday>1</DayBirthday>
+  </Friend>
+  <Friend>
+    <Name>Кирилл</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>16</DayBirthday>
+  </Friend>
+  <Friend>
+    <Name>Егор</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>14</DayBirthday>
+  </Friend>
+  <Friend>
+    <Name>Маша</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>5</MonthBirthday>
+    <DayBirthday>15</DayBirthday>
+  </Friend>
+</ArrayOfFriend>
