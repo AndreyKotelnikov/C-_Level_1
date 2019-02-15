@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CD717FC0-1514-46E6-8396-B526B762D192}</ProjectGuid>
+    <ProjectGuid>{8FBAAC2B-14DA-40F0-92E0-E54E78F14E58}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Lesson6_HomeWork</RootNamespace>
-    <AssemblyName>Lesson6_HomeWork</AssemblyName>
+    <RootNamespace>_8._1_Lesson_8_1_HomeWork</RootNamespace>
+    <AssemblyName>8.1_Lesson_8_1_HomeWork</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,22 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MinFunc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadFromFile.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="TableFunc.cs" />
-    <Compile Include="WriteToFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lesson1_HomeWork\Lesson1_HomeWork.csproj">
-      <Project>{d909333d-642f-4bad-a8dc-7eaf4d0c8eea}</Project>
-      <Name>Lesson1_HomeWork</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,20 +4,30 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Lesson6_HomeWork
 {
-    class Student
+    [Serializable]
+    public class Student
     {
-        public string LastName { get; private set; }
-        public string FirstName { get; private set; }
-        public string University { get; private set; }
-        public string Faculty { get; private set; }
-        public int Course { get; private set; }
-        public string Department { get; private set; }
-        public int Group { get; private set; }
-        public string City { get; private set; }
-        public int Age { get; private set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string University { get; set; }
+        public string Faculty { get; set; }
+        public int Course { get; set; }
+        public string Department { get; set; }
+        public int Group { get; set; }
+        public string City { get; set; }
+        public int Age { get; set; }
+        public static string FileNameCSV { get; set; }
+        public static string FileNameXML { get; set; }
+        
+        public Student()
+        {
+            
+        }
         
         // Создаем конструктор
         /// <summary>
@@ -102,6 +112,7 @@ namespace Lesson6_HomeWork
                 }
                 catch (Exception e)
                 {
+                    throw;
                     Console.WriteLine(e.Message);
                     Console.WriteLine("Ошибка!ESC - прекратить выполнение программы");
                     
@@ -192,5 +203,20 @@ namespace Lesson6_HomeWork
             return list.FindAll(item => property(item) == valueForEqual).Count;
         }
 
+        public static void SaveXML(List<Student> list)
+        {
+            try
+            {
+                XmlSerializer xmlFormat = new XmlSerializer(typeof(List<Student>));
+                Stream fStream = new FileStream(FileNameXML, FileMode.Create, FileAccess.Write);
+                xmlFormat.Serialize(fStream, list);
+                fStream.Close();
+            }
+            catch (Exception e)
+            {
+                throw;
+                MessageBox.Show(e.Message, "Ошибка при сохранении файла:", MessageBoxButtons.OK);
+            }
+        }
     }
 }

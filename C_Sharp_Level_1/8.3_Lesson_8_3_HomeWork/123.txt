@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ArrayOfFriend xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Friend>
+    <Name>1</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>1</DayBirthday>
+  </Friend>
+  <Friend>
+    <Name>2</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>1</DayBirthday>
+  </Friend>
+  <Friend>
+    <Name>3</Name>
+    <SurName />
+    <SecondName />
+    <MonthBirthday>1</MonthBirthday>
+    <DayBirthday>1</DayBirthday>
+  </Friend>
+</ArrayOfFriend>
