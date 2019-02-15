@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _8._4_Lesson_8_4_HomeWork
+namespace _8_4_Lesson_8_4_HomeWork
 {
     public partial class Form2 : Form
     {

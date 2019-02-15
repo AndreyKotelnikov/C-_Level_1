@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _8._4_Lesson_8_4_HomeWork
+namespace _8_4_Lesson_8_4_HomeWork
 {
 
     //Андрей Котельников
@@ -87,6 +87,9 @@ namespace _8._4_Lesson_8_4_HomeWork
         // Обработчик кнопки Удалить
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (tbName.Text != string.Empty && DialogResult.Yes != MessageBox.Show(
+                    "Текущий друг будет удалён.\nВы подтверждаете действие?",
+                    "Удаление текущего друга", MessageBoxButtons.YesNo)) { return; }
             if (nudNumber.Maximum == 1 || database == null)
             {
                 ClearFormFieldes();

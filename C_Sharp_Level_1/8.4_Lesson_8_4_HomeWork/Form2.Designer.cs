@@ -1,4 +1,4 @@
-﻿namespace _8._4_Lesson_8_4_HomeWork
+﻿namespace _8_4_Lesson_8_4_HomeWork
 {
     partial class Form2
     {

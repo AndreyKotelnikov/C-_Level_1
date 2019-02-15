@@ -1,4 +1,4 @@
-﻿namespace _8._4_Lesson_8_4_HomeWork
+﻿namespace _8_4_Lesson_8_4_HomeWork
 {
     partial class Form1
     {
@@ -54,6 +54,7 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -79,6 +80,7 @@
             this.miOpen,
             this.miSave,
             this.miSaveAs,
+            this.toolStripSeparator1,
             this.miExit});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic);
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -311,6 +313,11 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Месяц:";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(225, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -367,6 +374,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

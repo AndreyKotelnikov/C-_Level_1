@@ -88,6 +88,9 @@ namespace _8._4_Lesson_8_4_HomeWork
         // Обработчик кнопки Удалить
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (tboxQuestion.Text != string.Empty && DialogResult.Yes != MessageBox.Show(
+                    "Текущий вопрос будет удалён.\nВы подтверждаете действие?",
+                    "Удаление текущего вопроса", MessageBoxButtons.YesNo)) { return; }
             if (nudNumber.Maximum == 1 || database == null)
             {
                 tboxQuestion.Text = string.Empty;

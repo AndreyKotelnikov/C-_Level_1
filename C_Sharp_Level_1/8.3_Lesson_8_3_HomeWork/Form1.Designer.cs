@@ -33,7 +33,9 @@
             this.miNew = new System.Windows.Forms.ToolStripMenuItem();
             this.miOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.miSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAboutProgramm = new System.Windows.Forms.ToolStripMenuItem();
             this.tboxQuestion = new System.Windows.Forms.TextBox();
             this.nudNumber = new System.Windows.Forms.NumericUpDown();
             this.cboxTrue = new System.Windows.Forms.CheckBox();
@@ -42,8 +44,7 @@
             this.btnSaveQuest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.miAboutProgramm = new System.Windows.Forms.ToolStripMenuItem();
-            this.miSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -67,6 +68,7 @@
             this.miOpen,
             this.miSave,
             this.miSaveAs,
+            this.toolStripSeparator1,
             this.miExit});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic);
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -95,6 +97,13 @@
             this.miSave.Text = "Сохранить...";
             this.miSave.Click += new System.EventHandler(this.miSave_Click);
             // 
+            // miSaveAs
+            // 
+            this.miSaveAs.Name = "miSaveAs";
+            this.miSaveAs.Size = new System.Drawing.Size(228, 30);
+            this.miSaveAs.Text = "Сохранить как...";
+            this.miSaveAs.Click += new System.EventHandler(this.miSaveAs_Click);
+            // 
             // miExit
             // 
             this.miExit.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic);
@@ -103,6 +112,14 @@
             this.miExit.Size = new System.Drawing.Size(228, 30);
             this.miExit.Text = "Выход";
             this.miExit.Click += new System.EventHandler(this.MiExit_Click);
+            // 
+            // miAboutProgramm
+            // 
+            this.miAboutProgramm.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic);
+            this.miAboutProgramm.Name = "miAboutProgramm";
+            this.miAboutProgramm.Size = new System.Drawing.Size(137, 29);
+            this.miAboutProgramm.Text = "О программе";
+            this.miAboutProgramm.Click += new System.EventHandler(this.miAboutProgramm_Click);
             // 
             // tboxQuestion
             // 
@@ -187,20 +204,10 @@
             this.splitter1.TabIndex = 9;
             this.splitter1.TabStop = false;
             // 
-            // miAboutProgramm
+            // toolStripSeparator1
             // 
-            this.miAboutProgramm.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic);
-            this.miAboutProgramm.Name = "miAboutProgramm";
-            this.miAboutProgramm.Size = new System.Drawing.Size(137, 29);
-            this.miAboutProgramm.Text = "О программе";
-            this.miAboutProgramm.Click += new System.EventHandler(this.miAboutProgramm_Click);
-            // 
-            // miSaveAs
-            // 
-            this.miSaveAs.Name = "miSaveAs";
-            this.miSaveAs.Size = new System.Drawing.Size(228, 30);
-            this.miSaveAs.Text = "Сохранить как...";
-            this.miSaveAs.Click += new System.EventHandler(this.miSaveAs_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(225, 6);
             // 
             // Form1
             // 
@@ -213,7 +220,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Верю - Неверю: Редактор вопросов";
@@ -245,6 +252,7 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.ToolStripMenuItem miAboutProgramm;
         private System.Windows.Forms.ToolStripMenuItem miSaveAs;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
