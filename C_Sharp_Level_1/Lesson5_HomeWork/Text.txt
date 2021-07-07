@@ -1,0 +1,11 @@
+2. Develop a Message class that contains the following static methods for processing
+text's:
+
+a) Print only those words of the message that contain no more than n letters.
+
+b) Remove from the message all words that end with a given character.
+
+c) Find the longest word of the message.
+
+d) Form a string using StringBuilder1 from the longest words of the message. StringBuilder2 StringBuilder3 
+Demonstrate how the program works on a text file with your program.
